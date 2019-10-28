@@ -4,6 +4,7 @@ lock "3.11.2"
 set :application, "freemarket_app_fk61a"
 set :repo_url, "git@github.com:Orihata/freemarket_app_fk61a.git"
 
+require File.expand_path("./environment", __dir__)
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
