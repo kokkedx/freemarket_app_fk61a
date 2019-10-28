@@ -30,7 +30,12 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 
 # Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  AWS_ACCESS_KEY_ID: Rails.application.credentials.aws[:access_key_id],
+  AWS_SECRET_ACCESS_KEY: Rails.application.credentials.aws[:secret_access_key]
+}
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
