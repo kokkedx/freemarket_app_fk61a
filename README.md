@@ -61,10 +61,10 @@ belongs_to :user
 Profilesテーブル
 | Column | Type | Options |
 |------|----|-------|
-| first name  | string | null: false |
-| last name | string | null: false |
-| first kana | string | null: false |
-| last kana | string | null: false |
+| first_name  | string | null: false |
+| last_name | string | null: false |
+| first_kana | string | null: false |
+| last_kana | string | null: false |
 | phone number | integer | null: false |
 | Prefectures | string | null: false |
 | city | string | null: false |
@@ -78,7 +78,7 @@ belongs_to :user
 itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-| item name | string | null: false |
+| name | string | null: false |
 | description | text | null: false |
 | price | integer | null: false |
 | size | string | null: false |
@@ -109,7 +109,7 @@ has_many :items
 Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-| brand name | string | null: false |
+| name | string | null: false |
 
 ### Association
 has_many :categories through: category_brands
