@@ -17,6 +17,7 @@
 // reset CSS
 @import "ress";
 // optional reset CSS
-@import "extrareset";
-
-@import "signup"
+@import "./config/extrareset";
+@import "./config/colors";
+@import "./mixin/form";
+@import "./modules/signup"
