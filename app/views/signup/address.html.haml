@@ -1,0 +1,77 @@
+.container
+  .header
+    %h1.header__logo
+      %a.header__logo__link{:href => "https://www.mercari.com/jp/"}
+        %img.header__logo__link--image{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
+    %nav.header__signup-progress
+      %ol.header__signup-progress__list.clearfix
+        %li.header__signup-progress__list__button.header__signup-progress__list__button--status-through
+          会員情報
+          .header__signup-progress__list__button--progress-status.header__signup-progress__list__button--status-through--progress-status
+        %li.header__signup-progress__list__button.header__signup-progress__list__button--status-through
+          電話番号認証
+          .header__signup-progress__list__button--progress-status.header__signup-progress__list__button--status-through--progress-status
+        %li.header__signup-progress__list__button.header__signup-progress__list__button--status-active
+          お届け先住所入力
+          .header__signup-progress__list__button--progress-status.header__signup-progress__list__button--status-active--progress-status
+        %li.header__signup-progress__list__button
+          支払い方法
+          .header__signup-progress__list__button--progress-status
+        %li.header__signup-progress__list__button
+          完了
+          .header__signup-progress__list__button--progress-status
+  .main
+    .main__container
+      %h2.main__container__heading 発送元・お届け先住所入力
+      = form_with model:@user, url: payment_signup_index_path, method: :post,local: true, html: {class: 'main__container__form'} do |f|
+        .main__container__form__content
+          .main__container__form__content__group
+            .form__label_wrapper
+              = f.label  "お名前（全角）", {class:"main__container__form__content__group--label"}
+              %span.main__container__form__content__group--require 必須
+            = f.text_field :address_last_name, {placeholder: "例) 山田" ,class:"main__container__form__content__group--input-default main__container__form__content__group--input-default--half"}
+            = f.text_field :address_first_name, {placeholder: "例) 彩" ,class:"main__container__form__content__group--input-default main__container__form__content__group--input-default--half"}
+          .main__container__form__content__group
+            .form__label_wrapper
+              = f.label  "お名前カナ（全角）", {class:"main__container__form__content__group--label"}
+              %span.main__container__form__content__group--require 必須
+            = f.text_field :address_last_name_kana, {placeholder: "例) ヤマダ" ,class:"main__container__form__content__group--input-default main__container__form__content__group--input-default--half"}
+            = f.text_field :address_first_name_kana, {placeholder: "例) アヤ" ,class:"main__container__form__content__group--input-default main__container__form__content__group--input-default--half"}
+          .main__container__form__content__group
+            = f.label :address_number, "郵便番号", {class:"main__container__form__content__group--label"}
+            %span.main__container__form__content__group--require 必須
+            = f.number_field :address_number, {placeholder: "例）1234567",class:"main__container__form__content__group--input-default"}
+          .main__container__form__content__group
+            = f.label :prefecture_id, "都道府県", {class:"main__container__form__content__group--label"}
+            %span.main__container__form__content__group--require 必須
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "--"}, {class:"main__container__form__content__group--input-default"}
+          .main__container__form__content__group
+            = f.label :address_name, "市区町村", {class:"main__container__form__content__group--label"}
+            %span.main__container__form__content__group--require 必須
+            = f.text_field :address_name, {placeholder:"例）横浜市緑区", class:"main__container__form__content__group--input-default"}
+          .main__container__form__content__group
+            = f.label :address_block, "番地", {class:"main__container__form__content__group--label"}
+            %span.main__container__form__content__group--require 必須
+            = f.text_field :address_block, {placeholder:"例）青山1-1-1", class:"main__container__form__content__group--input-default"}
+          .main__container__form__content__group
+            = f.label :address_building, "建物名", {class:"main__container__form__content__group--label"}
+            %span.main__container__form__content__group--optional 任意
+            = f.text_field :address_building, {placeholder:"例）柳ビル103", class:"main__container__form__content__group--input-default"}
+          .main__container__form__content__group
+            = f.label :address_building, "電話番号", {class:"main__container__form__content__group--label"}
+            %span.main__container__form__content__group--optional 任意
+            = f.phone_field :address_phone_number, {placeholder: "例）09012345678", class:"main__container__form__content__group--input-default"}
+          %button.main__container__form__content__group--button.btn-red{type: "submit"} 次へ進む
+  .footer
+    %nav.footer__policies
+      %ul.clearfix
+        %li.footer__policies__list
+          %a.footer__policies__list--link{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %li.footer__policies__list
+          %a.footer__policies__list--link{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %li.footer__policies__list
+          %a.footer__policies__list--link{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+    %a.footer__logo{href: "https://www.mercari.com/jp/"}
+      %img{alt: "mercari",height: "65",src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195",width: "80"}/
+    %p.footer__copyrights
+      %small.footer__copyrights--small © 2019 Mercari
