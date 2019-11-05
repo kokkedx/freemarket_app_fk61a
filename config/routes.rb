@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'samples#index'
+  root to: 'items#index'
   resources :signup , only: [:index,:create] do 
     collection do
       post 'registration'
