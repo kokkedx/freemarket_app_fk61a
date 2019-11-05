@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
   gem "devise"
   gem "rails-i18n", "~> 5.1"
   gem "mini_magick"
+  gem 'aws-sdk-s3', require: false
 
 # 都道府県リストを生成するために必要
   gem 'jp_prefecture'
