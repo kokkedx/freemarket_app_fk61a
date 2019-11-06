@@ -1,0 +1,159 @@
+.mypage-main
+  .mypage-container.clearfix
+    .conf-content
+      %section.conf-chapter-container.mypage-identification
+        %h2.conf-chapter-container__head 本人情報の登録
+        %form.conf-single-inner{action: "https://www.mercari.com/jp/mypage/identification/save/", method: "POST", novalidate: ""}
+          %div
+            %p
+              お客さまの本人情報をご登録ください。
+              %br>/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.text-right
+              %a{href: "/jp/help_center/article/495/", target: "_blank"}
+                本人確認書類のアップロードについて
+                %i.fa.fa-angle-right.icon
+          .form-group
+            %label お名前
+            %p 城戸 宏介
+          .form-group
+            %label お名前カナ
+            %p キド コウスケ
+          .form-group
+            %label{for: "birthday"} 生年月日
+            %p 1990/11/05
+          .form-group
+            %label{for: "zip_code"} 郵便番号
+            %span.form-arbitrary 任意
+            %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+          .form-group
+            %label{for: "prefecture"} 都道府県
+            %span.form-arbitrary 任意
+            .select-wrap
+              %i.fa.fa-angle-down.icon
+              %select.select-default{name: "prefecture"}
+          .form-group
+            %label{for: "city"} 市区町村
+            %span.form-arbitrary 任意
+            %input.input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+          .form-group
+            %label{for: "address1_label"} 番地
+            %span.form-arbitrary 任意
+            %input.input-default{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}/
+          .form-group
+            %label{for: "address2_label"} 建物名
+            %span.form-arbitrary 任意
+            %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
+          %button.btn-default.btn-red{type: "submit"} 登録する
+          .form-group.text-right
+            %p
+              %a{href: "/jp/help_center/article/423/", target: "_blank"}
+                本人情報の登録について
+                %i.fa.fa-angle-right.icon
+          %input{name: "__csrf_value", type: "hidden", value: "b6d3369e6681066d57559b73f8343b211196effaa1a22b11fb8eeaa7f367ddc6d78966da39962614dea6efe70ecd1f7dde4efc9194fa54cfd0e0ba781730c1572"}/
+    .mypage-container__side
+      %nav.mypage-nav
+        %ul.mypage-nav__list
+          %li
+            %a.mypage-nav-list-item{:href => "#"}
+              マイページ
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              お知らせ
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              やることリスト
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              いいね！一覧
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              出品する
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              出品した商品 - 出品中
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              出品した商品 - 取引中
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              出品した商品 - 売却済み
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              購入した商品 - 取引中
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              購入した商品 - 過去の取引
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              ニュース一覧
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              評価一覧
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              ガイド
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              お問い合わせ
+              %i.fa.fa-angle-right.icon
+
+        %h3.mypage-nav-head メルペイ
+
+        %ul.mypage-nav__list
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              売上・振込申請
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              ポイント
+              %i.fa.fa-angle-right.icon
+
+        %h3.mypage-nav-head 設定
+
+        %ul.mypage-nav__list
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              プロフィール
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              住所変更
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              支払い方法
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              メール/パスワード
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item.active{href: "#"}
+              本人情報
+              %i.fa.fa-angle-right.icon.active
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              電話番号の確認
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              ログアウト
+              %i.fa.fa-angle-right.icon
+%button{onclick: "#", id: "footer--sell-btn"}
+  %div 出品
+  %i.fa.fa-camera
