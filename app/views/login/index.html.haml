@@ -1,0 +1,59 @@
+.container
+  .header
+    %h1.header__logo
+      %a.header__logo__link{href: "https://www.mercari.com/jp/"}
+        %img.header__logo__link--image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
+  .main
+    .login-panel
+      .login-no-account
+        %p アカウントをお持ちでない方はこちら
+        %a{:href => "https://www.mercari.com/jp/signup/?after_save_callback=%2Fjp%2F"} 新規会員登録
+      .login-form-inner
+        %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+          %i.icon-facebook
+          Facebookでログイン
+        %button#google-login.btn-default.btn-sns.btn-sns-google
+          Googleでログイン
+      %form{:action => "https://www.mercari.com/jp/login/", :method => "POST", :novalidate => "novalidate"}
+        .login-form-inner
+          .form-group
+            %input.login-input-text.input-default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
+          .form-group
+            %input.login-input-text.input-default{:name => "password", :placeholder => "パスワード", :type => "password"}/
+          .form-group
+            .g-recaptcha.login-captcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
+          %button.login-submit.btn-default.btn-red{:type => "submit"} ログイン
+          %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
+          %input{:name => "__csrf_value", :type => "hidden", :value => "b0b8d0dc8f2c7c1d1ea8900187682d3adfaf8a4df853e02eb7ff6df278ebdb3855f2c240c7131bf461a25790126bb37235534efa56e0d27ea693529a8ddc21f8d"}/
+          %a{:href => "https://www.mercari.com/jp/password/reset/start/"} パスワードをお忘れの方
+    %form#login_form_facebook{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
+      %input{:name => "__csrf_value", :type => "hidden", :value => "b0b8d0dc8f2c7c1d1ea8900187682d3adfaf8a4df853e02eb7ff6df278ebdb3855f2c240c7131bf461a25790126bb37235534efa56e0d27ea693529a8ddc21f8d"}/
+      %input{:name => "nickname", :type => "hidden", :value => ""}/
+      %input{:name => "email", :type => "hidden", :value => ""}/
+      %input{:name => "facebook_user_id", :type => "hidden", :value => ""}/
+      %input{:name => "facebook_access_token", :type => "hidden", :value => ""}/
+      %input{:name => "login_type", :type => "hidden", :value => "facebook"}/
+      %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
+    %form#login_form_google{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
+      %input{:name => "__csrf_value", :type => "hidden", :value => "b0b8d0dc8f2c7c1d1ea8900187682d3adfaf8a4df853e02eb7ff6df278ebdb3855f2c240c7131bf461a25790126bb37235534efa56e0d27ea693529a8ddc21f8d"}/
+      %input{:name => "nickname", :type => "hidden", :value => ""}/
+      %input{:name => "email", :type => "hidden", :value => ""}/
+      %input{:name => "google_user_id", :type => "hidden", :value => ""}/
+      %input{:name => "google_access_token", :type => "hidden", :value => ""}/
+      %input{:name => "login_type", :type => "hidden", :value => "google"}/
+      %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
+    %input#google_client_id{:type => "hidden", :value => "238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com"}/
+    %input#facebook_app_id{:type => "hidden", :value => "466308336793848"}/
+  %footer.single-footer
+    %nav
+      %ul.clearfix
+        %li
+          %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %li
+          %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %li
+          %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+    %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
+      %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195", :width => "80"}/
+    %p
+      %small © 2019 Mercari
