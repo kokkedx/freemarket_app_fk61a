@@ -17,16 +17,16 @@
               Facebookで登録する
             = f.button :submit, {class:"main__container__form__content__group--button btn-sns btn-sns--google"} do
               Googleで登録する
-  .footer
-    %nav.footer__policies
+  .signup-footer
+    %nav.policies
       %ul.clearfix
-        %li.footer__policies__list
-          %a.footer__policies__list--link{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-        %li.footer__policies__list
-          %a.footer__policies__list--link{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-        %li.footer__policies__list
-          %a.footer__policies__list--link{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-    %a.footer__logo{href: "https://www.mercari.com/jp/"}
+        %li.policies__list
+          %a.policies__link{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %li.policies__list
+          %a.policies__link{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %li.policies__list
+          %a.policies__link{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+    %a.signup-footer__logo{href: "https://www.mercari.com/jp/"}
       %img{alt: "mercari",height: "65",src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195",width: "80"}/
-    %p.footer__copyrights
-      %small.footer__copyrights--small © 2019 Mercari
+    %p.signup-footer__copyrights
+      %small.signup-footer__copyrights--small © 2019 Mercari
