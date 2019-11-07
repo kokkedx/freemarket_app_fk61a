@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
+
+  resources :login , only: [:index]
   resources :signup , only: [:index,:create] do 
     collection do
       post 'registration'

@@ -6,7 +6,6 @@ $(function(){
   $.js = function(el){
     return $('[data-js=' + el + ']')
   };
-
   
   // クレカ登録「カード裏面の番号とは？」で参照画面をつけたり消したりする
   $.js('show-tips-toggle').on('click', function() {
