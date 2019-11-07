@@ -38,6 +38,11 @@ gem 'jbuilder', '~> 2.5'
   gem "mini_magick"
   gem 'aws-sdk-s3', require: false
 
+ gem 'omniauth'
+ gem 'omniauth-facebook'
+ gem 'omniauth-google-oauth2'
+ gem 'omniauth-rails_csrf_protection'
+
 # 都道府県リストを生成するために必要
   gem 'jp_prefecture'
 
