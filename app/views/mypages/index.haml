@@ -64,9 +64,10 @@
       %nav.mypage-nav
         %ul.mypage-nav__list
           %li
-            %a.mypage-nav-list-item.active{:href => "#"}
-              マイページ
-              %i.fa.fa-angle-right.icon.active
+            = link_to mypages_path do
+              .mypage-nav-list-item.active
+                マイページ
+                %i.fa.fa-angle-right.icon.active
           %li
             %a.mypage-nav-list-item{href: "#"}
               お知らせ
@@ -135,35 +136,37 @@
         %h3.mypage-nav-head 設定
 
         %ul.mypage-nav__list
-          %li
-            %a.mypage-nav-list-item{href: "#"}
-              プロフィール
-              %i.fa.fa-angle-right.icon
+          %li            
+            = link_to profile_mypages_path do
+              .mypage-nav-list-item
+                プロフィール
+                %i.fa.fa-angle-right.icon
           %li
             %a.mypage-nav-list-item{href: "#"}
               住所変更
               %i.fa.fa-angle-right.icon
           %li
-            %a.mypage-nav-list-item{href: "#"}
-              支払い方法
-              %i.fa.fa-angle-right.icon
+            = link_to credit_mypages_path do
+              .mypage-nav-list-item{href: "#"}
+                支払い方法
+                %i.fa.fa-angle-right.icon
           %li
             %a.mypage-nav-list-item{href: "#"}
               メール/パスワード
               %i.fa.fa-angle-right.icon
           %li
-            %a.mypage-nav-list-item{href: "#"}
-              本人情報
-              %i.fa.fa-angle-right.icon
+            = link_to confirm_mypages_path do
+              .mypage-nav-list-item
+                本人情報
+                %i.fa.fa-angle-right.icon
           %li
             %a.mypage-nav-list-item{href: "#"}
               電話番号の確認
               %i.fa.fa-angle-right.icon
           %li
-            %a.mypage-nav-list-item{href: "#"}
-              ログアウト
-              %i.fa.fa-angle-right.icon
-%button{onclick: "#", id: "footer--sell-btn"}
-  %div 出品
-  %i.fa.fa-camera
+            = link_to logout_mypages_path do
+              .mypage-nav-list-item
+                ログアウト
+                %i.fa.fa-angle-right.icon
+= render "items/sellbtn"
 

@@ -12,5 +12,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: [:index]
+  resources :mypages, only: [:index] do
+    collection do
+      get 'profile'
+      get 'confirm'
+      get 'credit'
+      get 'logout'
+    end
+  end
 end
