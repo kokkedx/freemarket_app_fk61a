@@ -1,21 +1,21 @@
 .container
-  .header
-    %h1.header__logo
-      %a.header__logo__link{href: "https://www.mercari.com/jp/"}
-        %img.header__logo__link--image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
-  .main
-    .main__container
-      %h2.main__container__heading 新規会員登録
-      = form_with url: registration_signup_index_path, method: :post,local: true, html: {class: 'main__container__form'} do |f|
-        .main__container__form__content
-          .main__container__form__content__group
-            = f.button :submit, {class:"main__container__form__content__group--button btn-mail"} do
-              %i.btn-mail__icon--mail
+  .signup-header
+    %h1.logo
+      %a.logo__link{href: "https://www.mercari.com/jp/"}
+        %img.logo__image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
+  .signup-main
+    .signup-main__container
+      %h2.signup-main__heading 新規会員登録
+      = form_with url: registration_signup_index_path, method: :post,local: true, html: {class: 'signup-form'} do |f|
+        .signup-form__content
+          .signup-form__group
+            = f.button :submit, {class:"signup-form__button signup-form__button--mail"} do
+              %i.signup-form__button__icon
               メールアドレスで登録する
-            = f.button :submit, {class:"main__container__form__content__group--button btn-sns btn-sns--facebook"} do
-              %i.btn-sns__icon--facebook
+            = f.button :submit, {class:"signup-form__button signup-form__button--facebook"} do
+              %i.signup-form__button__icon
               Facebookで登録する
-            = f.button :submit, {class:"main__container__form__content__group--button btn-sns btn-sns--google"} do
+            = f.button :submit, {class:"signup-form__button signup-form__button--google"} do
               Googleで登録する
   .signup-footer
     %nav.policies
