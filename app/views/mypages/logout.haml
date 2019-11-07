@@ -1,0 +1,120 @@
+.mypage-main
+  .mypage-container.clearfix
+    .logout-content
+      .logout-chapter-container
+        .logout-single-inner
+          =form_with url:destroy_user_session_path,method: :delete,local: true do |f|
+            .logout-single-content
+              = f.submit "ログアウト", {class:"btn-default btn-red"}
+              -# = button_to destroy_user_session_path, method: :delete do
+              -#   %button.btn-default.btn-red{type: "submit"} ログアウト
+          
+    .mypage-container__side
+      %nav.mypage-nav
+        %ul.mypage-nav__list
+          %li
+            = link_to mypages_path do
+              .mypage-nav-list-item
+                マイページ
+                %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              お知らせ
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              やることリスト
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              いいね！一覧
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              出品する
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              出品した商品 - 出品中
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              出品した商品 - 取引中
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              出品した商品 - 売却済み
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              購入した商品 - 取引中
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              購入した商品 - 過去の取引
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              ニュース一覧
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              評価一覧
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              ガイド
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              お問い合わせ
+              %i.fa.fa-angle-right.icon
+
+        %h3.mypage-nav-head メルペイ
+
+        %ul.mypage-nav__list
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              売上・振込申請
+              %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              ポイント
+              %i.fa.fa-angle-right.icon
+
+        %h3.mypage-nav-head 設定
+
+        %ul.mypage-nav__list
+          %li            
+            = link_to profile_mypages_path do
+              .mypage-nav-list-item
+                プロフィール
+                %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              住所変更
+              %i.fa.fa-angle-right.icon
+          %li
+            = link_to credit_mypages_path do
+              .mypage-nav-list-item{href: "#"}
+                支払い方法
+                %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              メール/パスワード
+              %i.fa.fa-angle-right.icon
+          %li
+            = link_to confirm_mypages_path do
+              .mypage-nav-list-item
+                本人情報
+                %i.fa.fa-angle-right.icon
+          %li
+            %a.mypage-nav-list-item{href: "#"}
+              電話番号の確認
+              %i.fa.fa-angle-right.icon
+          %li
+            = link_to logout_mypages_path do
+              .mypage-nav-list-item.active
+                ログアウト
+                %i.fa.fa-angle-right.icon.active
+= render "items/sellbtn"

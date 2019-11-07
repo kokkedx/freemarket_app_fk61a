@@ -9,6 +9,9 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 
+select{
+  -webkit-appearance: none;
+}
 
 *, ::before, ::after {
   box-sizing: border-box;
@@ -35,10 +38,6 @@ element.style {
   opacity: 1;
 }
 
-
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, 
 body, 
