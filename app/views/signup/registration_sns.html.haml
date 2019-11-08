@@ -20,9 +20,9 @@
         %li.signup-progress__button
           完了
           .signup-progress__status
-  .main
-    .main__container
-      %h2.main__container__heading 会員情報入力
+  .signup-main
+    .signup-main__container
+      %h2.signup-main__heading 会員情報入力
       = form_with model:@user, url: sms_confirmation_signup_index_path, method: :post,local: true, html: {class: 'signup-form'} do |f|
         %input{:name => "__csrf_value", :type => "hidden", :value => "7e1be97269b1e42a21c994fb2c87ecbc19e7e6728a59946f30d733a70fb3a34a7786b0d04a8452e041fecc544f4141b07c1890846640cdcc7567fb6cbf15b468c"}/
         .signup-form__content
@@ -34,15 +34,8 @@
             = f.label :email, "メールアドレス", {class:"signup-form__label"}
             %span.signup-form__status.signup-form__status--require 必須
             = f.email_field :email, {placeholder: "PC・携帯どちらでも可",class:"signup-form__input-default"}
-          %input{name:"login_type",type: "hidden",value: ""}/
-          .signup-form__group
-            = f.label :password, "パスワード", {class:"signup-form__label"}
-            %span.signup-form__status.signup-form__status--require 必須
-            = f.password_field :password, {placeholder: "7文字以上",class:"signup-form__input-default"}
-          .signup-form__group
-            = f.label :password_confirmation, "パスワード（確認）", {class:"signup-form__label"}
-            %span.signup-form__status.signup-form__status--require 必須
-            = f.password_field :password_confirmation, {placeholder: "7文字以上",class:"signup-form__input-default"}
+          = f.password_field :password,type:"hidden",value:"#{@password}"
+          = f.password_field :password_confirmation,type:"hidden",value:"#{@password}"
           .signup-form__group
             %h3.signup-form__text-left 本人確認
             %p.signup-form__single-text

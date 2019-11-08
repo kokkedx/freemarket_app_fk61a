@@ -6,17 +6,20 @@
   .signup-main
     .signup-main__container
       %h2.signup-main__heading 新規会員登録
-      = form_with url: registration_signup_index_path, method: :post,local: true, html: {class: 'signup-form'} do |f|
+      .signup-form
         .signup-form__content
           .signup-form__group
-            = f.button :submit, {class:"signup-form__button signup-form__button--mail"} do
-              %i.signup-form__button__icon
-              メールアドレスで登録する
-            = f.button :submit, {class:"signup-form__button signup-form__button--facebook"} do
-              %i.signup-form__button__icon
-              Facebookで登録する
-            = f.button :submit, {class:"signup-form__button signup-form__button--google"} do
-              Googleで登録する
+            = form_with url: registration_signup_index_path, method: :post,local: true do |f|
+              = f.button :submit, {class:"signup-form__button signup-form__button--mail"} do
+                %i.signup-form__button__icon
+                メールアドレスで登録する
+            = form_with url: user_facebook_omniauth_authorize_path, method: :post,local: true do |f|
+              = f.button :submit, {class:"signup-form__button signup-form__button--facebook"} do
+                %i.signup-form__button__icon
+                Facebookで登録する
+            = form_with url: user_google_oauth2_omniauth_authorize_path, method: :post,local: true  do |f|
+              = f.button :submit, {class:"signup-form__button signup-form__button--google"} do
+                Googleで登録する
   .signup-footer
     %nav.policies
       %ul.clearfix
