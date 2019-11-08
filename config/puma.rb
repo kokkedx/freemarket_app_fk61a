@@ -32,3 +32,8 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+#dev/test環境での認証鍵（Port9292でhttps化可能にする）
+cert = "config/localhost.pem"
+key = "config/localhost-key.pem"
+ssl_bind "0.0.0.0", 9292, cert: cert, key: key 

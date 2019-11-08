@@ -74,7 +74,14 @@ class SignupController < ApplicationController
     )
     if @user.save
       session[:id] = @user.id
-      redirect_to finish_signup_index_path
+      #SNS経由のアクセスであるならば（=sns_idが登録されているのであるならば）
+      if session["devise.sns_id"]
+        # セッションの最初に作ったsns_credentialのidからレコードを呼び出して
+        sns = SnsCredential.find(session["devise.sns_id"])
+        # そのレコードの「user_id」に、今誕生したUserのIDを紐づける。
+        sns.update_attribute(:user_id, @user.id)
+      end
+        redirect_to finish_signup_index_path
     else
       redirect_to root_path
     end

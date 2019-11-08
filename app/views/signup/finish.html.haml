@@ -26,14 +26,14 @@
       = form_with url: root_path, method: :get,local: true, html: {class: 'signup-form'} do |f|
         .signup-form__content
           .signup-form__group
-            %p.signup-form__single-text.signup-form__single-text--center
+            %p.signup-form__single-text.signup-form__single-text--text-center
               ありがとうございます。
               %br/
               会員登録が完了しました。
-            %button.main__container__form__content__group--button.btn-red{type: "submit"} メルカリをはじめる
+            %button.signup-form__button.signup-form__button--red{type: "submit"} メルカリをはじめる
 
           .signup-form__group
-            %p.signup-form__single-text.signup-form__single-text--center
+            %p.signup-form__single-text.signup-form__single-text--text-center
               ここにメルカリのフッターが入る
   .signup-footer
     %nav.policies
