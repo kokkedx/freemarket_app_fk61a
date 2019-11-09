@@ -43,6 +43,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'omniauth-google-oauth2'
  gem 'omniauth-rails_csrf_protection'
 
+gem 'recaptcha', require: "recaptcha/rails"
 # 都道府県リストを生成するために必要
   gem 'jp_prefecture'
 
