@@ -72,8 +72,7 @@
           %input{name: "after_save_callback",type: "hidden",value: ""}/
           .signup-form__group
             .recaptcha__wrapper
-              .recaptcha{style: "width: 304px; height: 78px;"}
-                .recaptcha--tmp{style: "width: 243.2px; height: 62.4px; border:1px; background:#ddd;"} recaptcha実装準備箇所
+              = recaptcha_tags
           .signup-form__group
             %p.signup-form__single-text.signup-form__single-text--center
               「次へ進む」のボタンを押すことにより、
