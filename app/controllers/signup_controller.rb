@@ -11,6 +11,12 @@ class SignupController < ApplicationController
     birthday =  Date.new(user_params["birthday(1i)"].to_i,
                         user_params["birthday(2i)"].to_i,
                         user_params["birthday(3i)"].to_i)
+    # validation用の@userインスタンス
+    @user = User.new(user_params)
+    render 'registration' and return unless @user.valid?
+    # recaptchaが無効のときは@userを持った状態でrender
+    render 'registration' and return unless verify_recaptcha
+
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -21,6 +27,8 @@ class SignupController < ApplicationController
     session[:first_name_kana] = user_params[:first_name_kana]
     session[:birthday] = birthday
     @user = User.new
+
+
   end
 
   def sms
@@ -119,12 +127,6 @@ class SignupController < ApplicationController
         :address_phone_number
         )
     end
-
-
-
-
-
-
 
 
 

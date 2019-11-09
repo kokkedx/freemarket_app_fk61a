@@ -141,9 +141,16 @@
       text-align:center;
     }
   }
+  // エラーメッセージ
+  &__error-message{
+    color:$buttonColor
+  }
   // フォームの見出しと「必須」「任意」のラベルをblockとしてまとめる
   &__label-wrapper{
     display:block;
+  }
+  &__input-wrapper{
+    display:flex;
   }
   // フォームの見出し。「お名前（全角）」「生年月日」etc  
   &__label{
@@ -495,4 +502,15 @@
   background-color:#b3d4fc;
   color: #fff;
   text-shadow:none;
+}
+
+
+.field_with_errors {
+  display: inline;
+  .signup-form__input-default{
+    border: 1px solid $buttonColor; 
+  }
+  .signup-form__input-default--half{
+    width: calc( 100% - 6px)
+  }
 }
