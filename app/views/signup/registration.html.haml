@@ -69,6 +69,14 @@
             .signup-form__input-wrapper
               = f.text_field :last_name, {placeholder: "例) 山田" ,class:"signup-form__input-default signup-form__input-default--half"}
               = f.text_field :first_name, {placeholder: "例) 彩" ,class:"signup-form__input-default signup-form__input-default--half"}
+            - if @user.errors[:first_name].any?
+              - @user.errors[:first_name].each do |e|
+                %span.signup-form__error-message
+                  = "firstname #{e}"
+            - if @user.errors[:last_name].any?
+              - @user.errors[:last_name].each do |e|
+                %span.signup-form__error-message
+                  = "lastname #{e}"
           .signup-form__group
             .signup-form__label-wrapper
               = f.label  "お名前カナ（全角）", {class:"signup-form__label"}
@@ -76,6 +84,14 @@
             .signup-form__input-wrapper
               = f.text_field :last_name_kana, {placeholder: "例) ヤマダ" ,class:"signup-form__input-default signup-form__input-default--half"}
               = f.text_field :first_name_kana, {placeholder: "例) アヤ" ,class:"signup-form__input-default signup-form__input-default--half"}
+            - if @user.errors[:first_name_kana].any?
+              - @user.errors[:first_name_kana].each do |e|
+                %span.signup-form__error-message
+                  = "firstname_kana #{e}"
+            - if @user.errors[:last_name_kana].any?
+              - @user.errors[:last_name_kana].each do |e|
+                %span.signup-form__error-message
+                  = "lastname_kana #{e}"
           .signup-form__group
             = f.label :birthday, "生年月日", {class:"signup-form__label"}
             %span.signup-form__status.signup-form__status--require 必須

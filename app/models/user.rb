@@ -13,7 +13,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
-
+  validates :phone_number, presence: true
+  
 
   def self.find_oauth(auth)
     # OAuth認証先で取ってきたデータ「auth」の中から必要なものを取り出す

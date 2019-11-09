@@ -15,6 +15,7 @@ class SignupController < ApplicationController
     # validation用の@userインスタンス
     @user = User.new(user_params)
     # 今の時点では以降のバリデーションを通らないので、今回バリデーションをかける必要がないパラメータには仮データを入れる
+    @user.phone_number = "0123456789"
     @user.prefecture_id = 1
 
     # バリデーションがダメだったときに戻るページを指定する
@@ -42,6 +43,10 @@ class SignupController < ApplicationController
   end
 
   def sms
+    @user = User.new(dummy_params)
+    @user.phone_number = user_params[:phone_number]
+    @user.prefecture_id = 1
+    render 'sms_confirmation' and return unless @user.valid?
     session[:phone_number] = user_params[:phone_number]
     # 取得した電話番号をもとに、認証番号を発行する機能を導入する
     # twilio api(under construction)
@@ -136,6 +141,31 @@ class SignupController < ApplicationController
         :address_building,
         :address_phone_number
         )
+    end
+    def dummy_params
+      # 「@user = User.new(dummy_params)」で、バリデーション用インスタンスを作る
+      # 以下のダミーデータは、全てバリデーションを通過するものでなければならない。
+      dummy = {nickname: "メルカリ太郎", 
+        email: "aaa@xxx", 
+        password: "dfdfdfdfasfadsfa", 
+        password_confirmation: "dfdfdfdfasfadsfa", 
+        last_name: "山田", 
+        first_name: "太郎", 
+        last_name_kana: "やまだ", 
+        first_name_kana: "たろう", 
+        phone_number: "0123456789",
+        address_last_name: "山田",
+        address_first_name: "太郎",
+        address_last_name_kana: "やまだ",
+        address_first_name_kana: "たろう",
+        address_number: "1234567",
+        prefecture_id: 1,
+        address_name: "札幌市",
+        address_block: "なんとか区なんとか",
+        address_building: " ",
+        address_phone_number: " "
+       }
+      return dummy
     end
 
 
