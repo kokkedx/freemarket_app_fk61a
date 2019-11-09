@@ -8,15 +8,27 @@ class SignupController < ApplicationController
   end
 
   def sms_confirmation
-    birthday =  Date.new(user_params["birthday(1i)"].to_i,
-                        user_params["birthday(2i)"].to_i,
-                        user_params["birthday(3i)"].to_i)
+    birthday =  Date.new( user_params["birthday(1i)"].to_i,
+                          user_params["birthday(2i)"].to_i,
+                          user_params["birthday(3i)"].to_i)
+
     # validation用の@userインスタンス
     @user = User.new(user_params)
-    render 'registration' and return unless @user.valid?
-    # recaptchaが無効のときは@userを持った状態でrender
-    render 'registration' and return unless verify_recaptcha
+    # 今の時点では以降のバリデーションを通らないので、今回バリデーションをかける必要がないパラメータには仮データを入れる
+    @user.prefecture_id = 1
 
+    # バリデーションがダメだったときに戻るページを指定する
+    if params[:login_type] == "mail"
+      render 'registration' and return unless @user.valid?
+      render 'registration' and return unless verify_recaptcha
+    elsif params[:login_type] == "sns"
+      # passwordが消えてしまうので、改めてランダムな値を作ってあげる
+      @password = Devise.friendly_token[0,20]
+      render 'registration_sns' and return unless @user.valid?
+      render 'registration_sns' and return unless verify_recaptcha
+    end
+
+    # 無事にバリデーションを通ったら、現在のuser_paramsの内容をsessionに一時保存する
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -27,8 +39,6 @@ class SignupController < ApplicationController
     session[:first_name_kana] = user_params[:first_name_kana]
     session[:birthday] = birthday
     @user = User.new
-
-
   end
 
   def sms

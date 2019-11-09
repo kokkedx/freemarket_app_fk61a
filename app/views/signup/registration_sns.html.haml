@@ -1,7 +1,7 @@
 .container
   .signup-header
     %h1.logo
-      %a.logo__link{href: "#"}
+      =link_to root_path,class:"logo__link" do
         %img.logo__image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
     %nav.signup-progress
       %ol.signup-progress__list.clearfix
@@ -22,9 +22,11 @@
           .signup-progress__status
   .signup-main
     .signup-main__container
+      - if @user.errors.any?
+        = @user.errors.each do |e|
+          = e 
       %h2.signup-main__heading 会員情報入力
       = form_with model:@user, url: sms_confirmation_signup_index_path, method: :post,local: true, html: {class: 'signup-form'} do |f|
-        %input{:name => "__csrf_value", :type => "hidden", :value => "7e1be97269b1e42a21c994fb2c87ecbc19e7e6728a59946f30d733a70fb3a34a7786b0d04a8452e041fecc544f4141b07c1890846640cdcc7567fb6cbf15b468c"}/
         .signup-form__content
           .signup-form__group
             = f.label :nickname, "ニックネーム", {class:"signup-form__label"}
@@ -34,6 +36,7 @@
             = f.label :email, "メールアドレス", {class:"signup-form__label"}
             %span.signup-form__status.signup-form__status--require 必須
             = f.email_field :email, {placeholder: "PC・携帯どちらでも可",class:"signup-form__input-default"}
+          %input{name:"login_type",type: "hidden",value: "sns"}/
           = f.password_field :password,type:"hidden",value:"#{@password}"
           = f.password_field :password_confirmation,type:"hidden",value:"#{@password}"
           .signup-form__group
@@ -44,14 +47,16 @@
             .signup-form__label-wrapper
               = f.label  "お名前（全角）", {class:"signup-form__label"}
               %span.signup-form__status.signup-form__status--require 必須
-            = f.text_field :last_name, {placeholder: "例) 山田" ,class:"signup-form__input-default signup-form__input-default--half"}
-            = f.text_field :first_name, {placeholder: "例) 彩" ,class:"signup-form__input-default signup-form__input-default--half"}
+            .signup-form__input-wrapper
+              = f.text_field :last_name, {placeholder: "例) 山田" ,class:"signup-form__input-default signup-form__input-default--half"}
+              = f.text_field :first_name, {placeholder: "例) 彩" ,class:"signup-form__input-default signup-form__input-default--half"}
           .signup-form__group
             .signup-form__label-wrapper
               = f.label  "お名前カナ（全角）", {class:"signup-form__label"}
               %span.signup-form__status.signup-form__status--require 必須
-            = f.text_field :last_name_kana, {placeholder: "例) ヤマダ" ,class:"signup-form__input-default signup-form__input-default--half"}
-            = f.text_field :first_name_kana, {placeholder: "例) アヤ" ,class:"signup-form__input-default signup-form__input-default--half"}
+            .signup-form__input-wrapper
+              = f.text_field :last_name_kana, {placeholder: "例) ヤマダ" ,class:"signup-form__input-default signup-form__input-default--half"}
+              = f.text_field :first_name_kana, {placeholder: "例) アヤ" ,class:"signup-form__input-default signup-form__input-default--half"}
           .signup-form__group
             = f.label :birthday, "生年月日", {class:"signup-form__label"}
             %span.signup-form__status.signup-form__status--require 必須
@@ -65,8 +70,7 @@
           %input{name: "after_save_callback",type: "hidden",value: ""}/
           .signup-form__group
             .recaptcha__wrapper
-              .recaptcha{style: "width: 304px; height: 78px;"}
-                .recaptcha--tmp{style: "width: 243.2px; height: 62.4px; border:1px; background:#ddd;"} recaptcha実装準備箇所
+              = recaptcha_tags
           .signup-form__group
             %p.signup-form__single-text.signup-form__single-text--center
               「次へ進む」のボタンを押すことにより、
