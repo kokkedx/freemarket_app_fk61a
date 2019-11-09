@@ -8,11 +8,15 @@ class SignupController < ApplicationController
   end
 
   def sms_confirmation
-    # recaptchaが有効のときはsessionを保存して、次の画面にうつる
     birthday =  Date.new(user_params["birthday(1i)"].to_i,
                         user_params["birthday(2i)"].to_i,
                         user_params["birthday(3i)"].to_i)
-    if verify_recaptcha
+    # validation用の@userインスタンス
+    @user = User.new(user_params)
+    render 'registration' and return unless @user.valid?
+    # recaptchaが無効のときは@userを持った状態でrender
+    render 'registration' and return unless verify_recaptcha
+
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -23,22 +27,8 @@ class SignupController < ApplicationController
     session[:first_name_kana] = user_params[:first_name_kana]
     session[:birthday] = birthday
     @user = User.new
-    # recaptchaが無効のときは前の画面をrenderするわけだが、そのままrenderしたら@userが存在しなくなるので次の送信で詰む
-    # なので、@userを作り直してあげる、これによってフォームに入れた値が存在した状態でrenderできる
-    # ついでにエラーメッセージを表示するようにしたいけど、未実装です
-    else
-      @user = User.new(
-        nickname: user_params[:nickname],
-        email: user_params[:email],
-        password: user_params[:password],
-        last_name: user_params[:last_name],
-        first_name: user_params[:first_name],
-        last_name_kana: user_params[:last_name_kana],
-        first_name_kana: user_params[:first_name_kana],
-        birthday: birthday
-      )
-      render 'registration'
-    end
+
+
   end
 
   def sms
