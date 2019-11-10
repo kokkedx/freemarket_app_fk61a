@@ -128,7 +128,7 @@ Categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 | name | string | null: false |
-| ancestry | string |
+| ancestry | string | |
 
 ### Association
 has_many :brans through: categories_brands
@@ -170,7 +170,7 @@ shippingテーブル
 |Column|Type|Options|
 |------|----|-------|
 | name | string | null: false |
-| ancestry | string |
+| ancestry | string | |
 
 ### Association
 has_many :items
