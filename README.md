@@ -149,7 +149,7 @@ commentテーブル
 |------|----|-------|
 | user | reference | null: false, foreign_key: true |
 | item | reference | null: false, foreign_key: true |
-| text | text | null: false
+| text | text | null: false |
 
 ### Association
 belongs_to :user
