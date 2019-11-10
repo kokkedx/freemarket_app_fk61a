@@ -93,7 +93,6 @@ itemsテーブル
 | category | reference | null: false, foreign_key: true |
 | shipping | reference | null: false, foreign_key: true |
 | state | reference | null: false, foreign_key: true |
-| shipping | references | null: false, foreign_key: true |
 
 ### Association
 - has_many :comments
