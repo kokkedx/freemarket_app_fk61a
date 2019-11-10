@@ -58,6 +58,7 @@ Cardsテーブル
 |------|----|-------|
 | user| references |null: false, foreign_key: true |
 | card | string |null: false |
+
 ### Association
 - belongs_to :user
 
@@ -75,6 +76,7 @@ Profilesテーブル
 | address | string | null: false |
 | building | string | null: false |
 | user-id|references | null: false |
+
 ### Association
 - belongs_to :user
 
