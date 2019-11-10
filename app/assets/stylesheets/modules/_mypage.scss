@@ -4,8 +4,6 @@
 }
 
 .mypage-main{
-  background-color: #f5f5f5;
-  // font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   .mypage-container{
     margin: 0 auto;
     height: 1252px;
@@ -168,7 +166,7 @@
       }
       &-contents{
         .mypage-item-not-found{
-        background: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?12295559);
+        background: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?12295559");
         background-repeat: no-repeat;
         background-position: center 40px;
         background-size: 78px 85px;
@@ -189,7 +187,7 @@
         }
         ul#trading-tab-list-after{
           display: none;
-          li.list-contents{
+          .list-contents{
             list-style: none;
             border-bottom: 1px solid #eee;
             position: relative;
