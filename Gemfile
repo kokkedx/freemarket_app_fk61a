@@ -42,6 +42,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'omniauth-facebook'
  gem 'omniauth-google-oauth2'
  gem 'omniauth-rails_csrf_protection'
+ gem 'twilio-ruby'
+
 
 gem 'recaptcha', require: "recaptcha/rails"
 # 都道府県リストを生成するために必要

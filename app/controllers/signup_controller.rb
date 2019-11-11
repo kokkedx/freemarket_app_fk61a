@@ -12,11 +12,21 @@ class SignupController < ApplicationController
                           user_params["birthday(2i)"].to_i,
                           user_params["birthday(3i)"].to_i)
 
-    # validation用の@userインスタンス
-    @user = User.new(user_params)
-    # 今の時点では以降のバリデーションを通らないので、今回バリデーションをかける必要がないパラメータには仮データを入れる
-    @user.phone_number = "0123456789"
-    @user.prefecture_id = 1
+    # validation
+    # validation用に100%通る検査用インスタンスを作る
+    @user = User.new(dummy_params)
+
+    # 今回送ったフォームのアクションで生成した値で検査用インスタンスの該当箇所を上書きする
+    @user.nickname = user_params[:nickname]
+    @user.email = user_params[:email]
+    @user.password = user_params[:password]
+    @user.password_confirmation = user_params[:password_confirmation]
+    @user.last_name = user_params[:last_name]
+    @user.first_name = user_params[:first_name]
+    @user.last_name_kana = user_params[:last_name_kana]
+    @user.first_name_kana = user_params[:first_name_kana]
+    birthday = birthday
+    # バリデーションに引っかかったら前のページにrenderする、検査用インスタンスにエラーメッセージが乗るので、前ページのviewで表示する
 
     # バリデーションがダメだったときに戻るページを指定する
     if params[:login_type] == "mail"
@@ -43,22 +53,62 @@ class SignupController < ApplicationController
   end
 
   def sms
+    # validation用に100%通る検査用インスタンスを作る
     @user = User.new(dummy_params)
+    # 今回送ったフォームのアクションで生成した値で検査用インスタンスの該当箇所を上書きする
     @user.phone_number = user_params[:phone_number]
-    @user.prefecture_id = 1
+    # バリデーションに引っかかったら前のページにrenderする、検査用インスタンスにエラーメッセージが乗るので、前ページのviewで表示する
     render 'sms_confirmation' and return unless @user.valid?
+
+    # バリデーションを通ったら、この値をsessionに保存する
     session[:phone_number] = user_params[:phone_number]
+
+
     # 取得した電話番号をもとに、認証番号を発行する機能を導入する
-    # twilio api(under construction)
-    @user = User.new
+    # ６桁の数字をランダムで生成（する予定）、「SMS」ページでこれと一致するかでコントローラレベルのバリデーションをかける
+    cert_num = random_gen(6)
+
+    # twilio api(テスト用アカウントの為電話番号は登録している818039443443で固定、500円の無料枠から９円/回かかるのでテストは計画的に)
+
+    # @client = Twilio::REST::Client.new Rails.application.credentials.twilio[:account_sid], Rails.application.credentials.twilio[:auth_token]
+    # message = @client.messages.create(
+    #     body: "認証番号：#{cert_num}",
+    #     to: "+818039443443",
+    #     from: "+12015540486")
+
+    # 送れているかの確認
+    # # puts message.body
+    puts "認証番号：#{cert_num}"
+    session[:cert_num] = cert_num
   end
 
   def address
-    # 認証番号がOKかどうかのバリデーションを行う
+    @err_msg = "認証番号が違います"
+    render "sms" and return unless session[:cert_num] == params[:confirm_number]
     @user = User.new
   end
 
   def payment
+    # validation
+
+    # validation用に100%通る検査用インスタンスを作る
+    @user = User.new(dummy_params)
+    # 今回送ったフォームのアクションで生成した値で検査用インスタンスの該当箇所を上書きする
+    @user.address_last_name = user_params[:address_last_name]
+    @user.address_first_name = user_params[:address_first_name]
+    @user.address_last_name_kana = user_params[:address_last_name_kana]
+    @user.address_first_name_kana = user_params[:address_first_name_kana]
+    @user.address_number = user_params[:address_number]
+    @user.prefecture_id = user_params[:prefecture_id]
+    @user.address_name = user_params[:address_name]
+    @user.address_block = user_params[:address_block]
+    @user.address_building = user_params[:address_building]
+    @user.address_phone_number = user_params[:address_phone_number]
+    # バリデーションに引っかかったら前のページにrenderする、検査用インスタンスにエラーメッセージが乗るので、前ページのviewで表示する
+
+    render 'address' and return unless @user.valid?
+
+    # sessionに保存
     session[:address_last_name] = user_params[:address_last_name]
     session[:address_first_name] = user_params[:address_first_name]
     session[:address_last_name_kana] = user_params[:address_last_name_kana]
@@ -168,7 +218,10 @@ class SignupController < ApplicationController
       return dummy
     end
 
-
+private
+def random_gen(n)
+  ''.tap { |s| n.times { s << rand(0..9).to_s } }
+end
 
 
 end
