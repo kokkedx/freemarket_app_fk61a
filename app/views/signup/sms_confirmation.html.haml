@@ -1,7 +1,7 @@
 .container
   .signup-header
     %h1.logo
-      %a.logo__link{href: "#"}
+      =link_to root_path,class:"logo__link" do
         %img.logo__image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
     %nav.signup-progress
       %ol.signup-progress__list.clearfix
@@ -28,6 +28,10 @@
           .signup-form__group
             = f.label :phone_number, "携帯電話の番号", {class:"signup-form__label"}
             = f.phone_field :phone_number, {placeholder: "携帯電話の番号を入力",class:"signup-form__input-default"}
+            - if @user.errors[:phone_number].any?
+              - @user.errors[:phone_number].each do |e|
+                %span.signup-form__error-message
+                  = "phone_number #{e}"
             %p.signup-form__single-text
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
             = f.submit "SMSを送信する", {class:"signup-form__button signup-form__button--red"}

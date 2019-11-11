@@ -13,6 +13,16 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
+  validates :phone_number, presence: true, numericality: true
+  validates :address_last_name, presence: true
+  validates :address_first_name, presence: true
+  validates :address_last_name_kana, presence: true
+  validates :address_first_name_kana, presence: true
+  validates :address_number, presence: true, numericality: true
+  validates :prefecture_id, numericality: true
+  validates :address_name, presence: true
+  validates :address_block, presence: true
+  validates :address_phone_number, numericality: true
 
 
   def self.find_oauth(auth)
