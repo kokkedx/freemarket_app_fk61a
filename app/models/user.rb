@@ -22,7 +22,6 @@ class User < ApplicationRecord
   validates :prefecture_id, numericality: true
   validates :address_name, presence: true
   validates :address_block, presence: true
-  validates :address_phone_number, numericality: true
 
 
   def self.find_oauth(auth)
