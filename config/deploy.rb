@@ -58,6 +58,22 @@ set :keep_releases, 5
 set :linked_files, %w{ config/master.key }
 
 
+
+
+
+namespace :deploy do
+  desc 'reload the database with seed data'
+  task :seed do
+    on roles(:db) do
+      with rails_env: fetch(:rails_env) do
+        within release_path do
+          execute :bundle, :exec, :rake, 'db:seed'
+        end
+      end
+    end
+  end
+end
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do

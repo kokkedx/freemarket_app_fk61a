@@ -23,9 +23,6 @@
   .signup-main
     .signup-main__container
       %h2.signup-main__heading 会員情報入力
-      - if @user.errors.any?
-        -@user.errors.each do |e|
-          = e
       = form_with model:@user, url: sms_confirmation_signup_index_path, method: :post,local: true, html: {class: 'signup-form'} do |f|
         .signup-form__content
           .signup-form__group
