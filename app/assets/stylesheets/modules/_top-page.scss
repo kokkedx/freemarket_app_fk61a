@@ -774,142 +774,115 @@ element.style {
       }
     }
   }
+}
 
-  //今すぐ無料ダウンロード <aside class>
-  &__hvtMHp {
-    margin-top: auto;
-  }
-  &__tMFrx {
+
+.tMFrx {
+  color: rgb(255, 255, 255);
+  background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1….jpg');
+
+  &__eaokGr {
+    background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg');
+
+    &__cLeTwE {
+      -webkit-box-align: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.2);
       color: rgb(255, 255, 255);
-      background: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1….jpg) center center / cover;
-      background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1….jpg');
-      background-position-x: center;
-      background-position-y: center;
-      background-size: cover;
-      background-origin: initial;
-      background-clip: initial;
-      background-color: initial;
-      background-position: center center;
-      background-position-x: center;
-      background-position-y: center; 
-    &__eaokGr {
-      background: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1….jpg) center center / cover;
-      background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg');
-      background-position-x: center;
-      background-position-y: center;
-      background-size: cover;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px 0px;
 
-      background-attachment: initial;
-      background-origin: initial;
-      background-clip: initial;
-      background-color: initial;
-      background-position: center center;
+      //メルカリのロゴ画像
+      &__kfjLdP {
+        height: 50px;
+        margin-right: 20px;
+        width: 50px;
+      }
+      //スマホで簡単フリマアプリ 今すぐ無料ダウンロード
+      &__jQKwxH {
+        display: inline-flex;
+        flex-direction: column;
+        text-align: left;
+        &__bOqOHJ {
+          font-size: 20px;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
 
-      &__cLeTwE {
-        -webkit-box-align: center;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.2);
-        color: rgb(255, 255, 255);
+  //今すぐ無料ダウンロード
+  &__ezxxhU {
+    background: url('https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1….jpg') center center / cover;
+    background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg');
+
+    &__chTgRp {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      width: 750px;
+      margin: 0px auto;
+
+      // <div class>
+      &__iVGjEK {
         display: flex;
+        flex-direction: column;
         -webkit-box-pack: center;
         justify-content: center;
-        text-align: center;
-        padding: 15px 0px;
+        //スマホで簡単フリマアプリ
+        &__bdqVww {
+          color: rgb(255, 255, 255);
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+        //今すぐ無料ダウンロード
+        &__jURitu {
+          color: rgb(255, 255, 255);
+          font-size: 35px;
+          margin-bottom: 20px;
+        }
+
         //メルカリのロゴ画像
-        &__kfjLdP {
-          height: 50px;
-          margin-right: 20px;
-          width: 50px;
-        }
-        //スマホで簡単フリマアプリ 今すぐ無料ダウンロード
-        &__jQKwxH {
-          display: inline-flex;
-          flex-direction: column;
-          text-align: left;
-          &__bOqOHJ {
-            font-size: 20px;
-            margin-top: 8px;
-          }
-        }
-      }
-    }
-
-    //今すぐ無料ダウンロード
-    &__ezxxhU {
-      background: url('https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1….jpg') center center / cover;
-      background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg');
-      background-position-x: center;
-      background-position-y: center;
-      background-size: cover;
-      background-attachment: initial;
-      background-origin: initial;
-      background-clip: initial;
-      background-color: initial;
-      background-position: center center;
-  
-      &__chTgRp {
-        display: flex;
-        -webkit-box-pack: justify;
-        justify-content: space-between;
-        width: 750px;
-        margin: 0px auto;
-
-        // <div class>
-        &__iVGjEK {
+        &__dhItlX {
+          width: 417px;
+          height: 68px;
           display: flex;
-          flex-direction: column;
-          -webkit-box-pack: center;
-          justify-content: center;
-          //スマホで簡単フリマアプリ
-          &__bdqVww {
-            color: rgb(255, 255, 255);
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 15px;
+
+          &__jSTnBt {
+            height: 68px;
+            margin-right: 20px;
+            width: 68px;
           }
-          //今すぐ無料ダウンロード
-          &__jURitu {
-            color: rgb(255, 255, 255);
-            font-size: 35px;
-            margin-bottom: 20px;
-          }
-          //メルカリのロゴ画像
-          &__dhItlX {
-            &__jSTnBt {
-              height: 68px;
-              margin-right: 20px;
-              width: 68px;
+
+          &__lgmdCB {
+            margin-top: 20px;
+            //App store
+            &__kDwjrS {
+              height: 40px;
+              margin-right: 8px;
+              width: 144px;
             }
-  
-            &__lgmdCB {
-              //App store
-              &__kDwjrS {
-                height: 40px;
-                margin-right: 8px;
-                width: 144px;
-              }
-              //Google play
-              &__fofvah {
-                height: 40px;
-                width: 144px;
-              }
+            //Google play
+            &__fofvah {
+              height: 40px;
+              width: 144px;
             }
-          }
-        }
-        // <fiqure class>
-        &__kzQJRg {
-          display: block;
-          &__cYtUcH {
-            height: 260px;
-            width: 300px;
           }
         }
       }
-    }
-    &__fqhRHK {
-      display: none;
-      height: 390px;
-      width: 1300px;
+
+      // <fiqure class>
+      &__kzQJRg {
+        display: block;
+        &__cYtUcH {
+          height: 260px;
+          width: 300px;
+        }
+      }
     }
   }
 }
