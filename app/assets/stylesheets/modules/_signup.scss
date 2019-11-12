@@ -143,8 +143,12 @@
   }
   // エラーメッセージ
   &__error-message{
-    color:$buttonColor
-  }
+    color:$buttonColor;
+    line-height: 1.5;
+    font-size: 14px;
+    margin: 8px 0 0;
+    list-style: none;
+    }
   // フォームの見出しと「必須」「任意」のラベルをblockとしてまとめる
   &__label-wrapper{
     display:block;
@@ -482,6 +486,10 @@
   color: $buttonColor;
   line-height: 1.5;
   font-size: 14px;
+  li{
+    margin: 8px 0 0;
+    list-style: none;
+  }
 }
 
 .question{

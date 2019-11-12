@@ -29,10 +29,18 @@
             = f.label :nickname, "ニックネーム", {class:"signup-form__label"}
             %span.signup-form__status.signup-form__status--require 必須
             = f.text_field :nickname, {placeholder: "例) メルカリ太郎",class:"signup-form__input-default"}
+            - if @user.errors[:nickname].any?
+              - @user.errors[:nickname].each do |e|
+                %li.signup-form__error-message
+                  = "nickname #{e}"
           .signup-form__group
             = f.label :email, "メールアドレス", {class:"signup-form__label"}
             %span.signup-form__status.signup-form__status--require 必須
             = f.email_field :email, {placeholder: "PC・携帯どちらでも可",class:"signup-form__input-default"}
+            - if @user.errors[:email].any?
+              - @user.errors[:email].each do |e|
+                %li.signup-form__error-message
+                  = "email #{e}"
           %input{name:"login_type",type: "hidden",value: "sns"}/
           = f.password_field :password,type:"hidden",value:"#{@password}"
           = f.password_field :password_confirmation,type:"hidden",value:"#{@password}"
@@ -49,11 +57,11 @@
               = f.text_field :first_name, {placeholder: "例) 彩" ,class:"signup-form__input-default signup-form__input-default--half"}
             - if @user.errors[:first_name].any?
               - @user.errors[:first_name].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "firstname #{e}"
             - if @user.errors[:last_name].any?
               - @user.errors[:last_name].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "lastname #{e}"
           .signup-form__group
             .signup-form__label-wrapper
@@ -64,11 +72,11 @@
               = f.text_field :first_name_kana, {placeholder: "例) アヤ" ,class:"signup-form__input-default signup-form__input-default--half"}
             - if @user.errors[:first_name_kana].any?
               - @user.errors[:first_name_kana].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "firstname_kana #{e}"
             - if @user.errors[:last_name_kana].any?
               - @user.errors[:last_name_kana].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "lastname_kana #{e}"
           .signup-form__group
             = f.label :birthday, "生年月日", {class:"signup-form__label"}

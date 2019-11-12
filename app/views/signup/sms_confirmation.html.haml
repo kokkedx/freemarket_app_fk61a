@@ -30,7 +30,7 @@
             = f.phone_field :phone_number, {placeholder: "携帯電話の番号を入力",class:"signup-form__input-default"}
             - if @user.errors[:phone_number].any?
               - @user.errors[:phone_number].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "phone_number #{e}"
             %p.signup-form__single-text
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。

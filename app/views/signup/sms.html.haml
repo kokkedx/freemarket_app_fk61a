@@ -30,7 +30,7 @@
             - if @err_msg
               .field_with_errors
                 = f.number_field :confirm_number, {placeholder: "認証番号を入力（local:consoleを確認）",class:"signup-form__input-default"}
-              %span.signup-form__error-message
+              %li.signup-form__error-message
                 = @err_msg
             - else
               = f.number_field :confirm_number, {placeholder: "認証番号を入力（local:consoleを確認）",class:"signup-form__input-default"}

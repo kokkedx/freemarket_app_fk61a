@@ -9,11 +9,10 @@
         %p アカウントをお持ちでない方はこちら
         = link_to "新規会員登録",signup_index_path,class:"login-main__button"
       .login-main__group
-        #facebook-login.signup-form__button.signup-form__button--sns.signup-form__button--facebook
-          %i.icon-facebook
-          Facebookでログイン
-        #google-login.signup-form__button.signup-form__button--sns.signup-form__button--google
-          Googleでログイン
+        =form_with url: user_facebook_omniauth_authorize_path, method: :post,local: true do |f|
+          = f.submit "Facebookでログイン", {id:"facebook-login", class:"signup-form__button signup-form__button--sns signup-form__button--facebook"}
+        =form_with url: user_google_oauth2_omniauth_authorize_path, method: :post,local: true do |f|
+          = f.submit "Googleでログイン", {id:"google-login", class:"signup-form__button signup-form__button--sns signup-form__button--google"}
       = form_with model:@user, url: user_session_path,method: :post,local: true do |f|
         .login-main__group
           .signup-form__group
