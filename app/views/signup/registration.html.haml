@@ -2,7 +2,7 @@
   .signup-header
     %h1.logo
       =link_to root_path,class:"logo__link" do
-        %img.logo__image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
+        =image_tag "/assets/logo.svg",class: 'logo__image'
     %nav.signup-progress
       %ol.signup-progress__list.clearfix
         %li.signup-progress__button.signup-progress__button--active
@@ -31,7 +31,7 @@
             = f.text_field :nickname, {placeholder: "例) メルカリ太郎",class:"signup-form__input-default"}
             - if @user.errors[:nickname].any?
               - @user.errors[:nickname].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "nickname #{e}"
           .signup-form__group
             = f.label :email, "メールアドレス", {class:"signup-form__label"}
@@ -39,7 +39,7 @@
             = f.email_field :email, {placeholder: "PC・携帯どちらでも可",class:"signup-form__input-default"}
             - if @user.errors[:email].any?
               - @user.errors[:email].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "email #{e}"
           %input{name:"login_type",type: "hidden",value: "mail"}/
           .signup-form__group
@@ -48,7 +48,7 @@
             = f.password_field :password, {placeholder: "7文字以上",class:"signup-form__input-default"}
             - if @user.errors[:password].any?
               - @user.errors[:password].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "password #{e}"
           .signup-form__group
             = f.label :password_confirmation, "パスワード（確認）", {class:"signup-form__label"}
@@ -56,7 +56,7 @@
             = f.password_field :password_confirmation, {placeholder: "7文字以上",class:"signup-form__input-default"}
             - if @user.errors[:password_confirmation].any?
               - @user.errors[:password_confirmation].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "#{e}"
           .signup-form__group
             %h3.signup-form__text-left 本人確認
@@ -71,11 +71,11 @@
               = f.text_field :first_name, {placeholder: "例) 彩" ,class:"signup-form__input-default signup-form__input-default--half"}
             - if @user.errors[:first_name].any?
               - @user.errors[:first_name].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "firstname #{e}"
             - if @user.errors[:last_name].any?
               - @user.errors[:last_name].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "lastname #{e}"
           .signup-form__group
             .signup-form__label-wrapper
@@ -86,11 +86,11 @@
               = f.text_field :first_name_kana, {placeholder: "例) アヤ" ,class:"signup-form__input-default signup-form__input-default--half"}
             - if @user.errors[:first_name_kana].any?
               - @user.errors[:first_name_kana].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "firstname_kana #{e}"
             - if @user.errors[:last_name_kana].any?
               - @user.errors[:last_name_kana].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "lastname_kana #{e}"
           .signup-form__group
             = f.label :birthday, "生年月日", {class:"signup-form__label"}
@@ -117,16 +117,4 @@
               %a{href: "#",target: "_blank"}
                 本人情報の登録について
                 %i.icon-arrow-right
-  .signup-footer
-    %nav.policies
-      %ul.clearfix
-        %li.policies__list
-          %a.policies__link{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-        %li.policies__list
-          %a.policies__link{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-        %li.policies__list
-          %a.policies__link{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-    %a.signup-footer__logo{href: "https://www.mercari.com/jp/"}
-      %img{alt: "mercari",height: "65",src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195",width: "80"}/
-    %p.signup-footer__copyrights
-      %small.signup-footer__copyrights--small © 2019 Mercari
+  = render partial: "signup_footer"

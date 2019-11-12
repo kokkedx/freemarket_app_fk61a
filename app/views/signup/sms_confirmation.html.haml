@@ -2,7 +2,7 @@
   .signup-header
     %h1.logo
       =link_to root_path,class:"logo__link" do
-        %img.logo__image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
+        =image_tag "/assets/logo.svg",class: 'logo__image'
     %nav.signup-progress
       %ol.signup-progress__list.clearfix
         %li.signup-progress__button.signup-progress__button--through
@@ -30,7 +30,7 @@
             = f.phone_field :phone_number, {placeholder: "携帯電話の番号を入力",class:"signup-form__input-default"}
             - if @user.errors[:phone_number].any?
               - @user.errors[:phone_number].each do |e|
-                %span.signup-form__error-message
+                %li.signup-form__error-message
                   = "phone_number #{e}"
             %p.signup-form__single-text
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
@@ -42,16 +42,4 @@
               %a{href: "#",target: "_blank"}
                 電話番号の確認が必要な理由
                 %i.icon-arrow-right
-  .signup-footer
-    %nav.policies
-      %ul.clearfix
-        %li.policies__list
-          %a.policies__link{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-        %li.policies__list
-          %a.policies__link{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-        %li.policies__list
-          %a.policies__link{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-    %a.signup-footer__logo{href: "https://www.mercari.com/jp/"}
-      %img{alt: "mercari",height: "65",src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195",width: "80"}/
-    %p.signup-footer__copyrights
-      %small.signup-footer__copyrights--small © 2019 Mercari
+  = render partial: "signup_footer"

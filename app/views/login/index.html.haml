@@ -1,19 +1,18 @@
 .container
   .login-header
     %h1.logo
-      %a.logo__link{href: "/"}
-        %img.logo__image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
+      =link_to root_path,class:"logo__link" do
+        =image_tag "/assets/logo.svg",class: 'logo__image'
   .login-main
     .login-main__panel
       .login-main__group
         %p アカウントをお持ちでない方はこちら
         = link_to "新規会員登録",signup_index_path,class:"login-main__button"
       .login-main__group
-        #facebook-login.signup-form__button.signup-form__button--sns.signup-form__button--facebook
-          %i.icon-facebook
-          Facebookでログイン
-        #google-login.signup-form__button.signup-form__button--sns.signup-form__button--google
-          Googleでログイン
+        =form_with url: user_facebook_omniauth_authorize_path, method: :post,local: true do |f|
+          = f.submit "Facebookでログイン", {id:"facebook-login", class:"signup-form__button signup-form__button--sns signup-form__button--facebook"}
+        =form_with url: user_google_oauth2_omniauth_authorize_path, method: :post,local: true do |f|
+          = f.submit "Googleでログイン", {id:"google-login", class:"signup-form__button signup-form__button--sns signup-form__button--google"}
       = form_with model:@user, url: user_session_path,method: :post,local: true do |f|
         .login-main__group
           .signup-form__group
