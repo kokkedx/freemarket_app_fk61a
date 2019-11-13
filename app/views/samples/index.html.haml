@@ -1,6 +1,150 @@
-- if user_signed_in?
-  = "Yay! #{current_user.nickname} is on Rails!＼(^o^)／"
-  = link_to "サインアウト", destroy_user_session_path, method: :delete
-- else
-  = "Yay! You're on Rails!＼(^o^)／"
-  = link_to "ユーザ新規登録",signup_index_path, method: :get
+.container
+  .signup-header
+    %h1.logo
+      =link_to root_path,class:"logo__link" do
+        =image_tag "/assets/logo.svg",class: 'logo__image'
+  .signup-main
+    .signup-main__container.buy-wrapper
+      %h2.signup-main__heading 購入内容の確認
+      %section.buy-content.buy-item
+        .buy-content__inner
+          %h3.buy-item__image
+            %img.buy-item__image--mini.lazyload{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m99983749419_1.jpg?1573215026"}/
+          %p.buy-item__name 【I've Sound】柚子乃 2ndシングル「Luminous」
+          %form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m99983749419/", :method => "POST", :novalidate => "novalidate"}
+            %p.buy-price-ja.bold
+              ¥2,090
+              %span.item-shipping-fee.f14.bold 送料込み
+            %ul.buy-accordion
+              %li.accordion-parent
+                .accordion-toggle
+                  ポイントを使う
+                  %i.icon-arrow-bottom.accordion-icon
+                %ul.accordion-child
+                  %li.bold 所持ポイント: P126
+                  %li.form-group{"data-buy" => "parent"}
+                    .radio-default
+                      %label
+                        %input{"data-buy" => "none", :name => "consume_point_radio", :type => "radio", :value => "none"}>/
+                        ポイントを使わない
+                    .radio-default
+                      %label
+                        %input{"data-buy" => "all", :name => "consume_point_radio", :type => "radio", :value => "all"}/
+                        %input{:type => "hidden", :value => "126"}/
+                        すべてのポイントを使う
+                        %br/
+                        P126
+                    .radio-default
+                      %label
+                        %input{"data-buy" => "part", :name => "consume_point_radio", :type => "radio", :value => "partial"}/
+                        一部のポイントを使う
+                    %input.input-default{"data-buy" => "part_num", "data-input" => "money", :placeholder => "使うポイントを入力", :type => "number", :value => ""}/
+                    %input{"data-buy" => "result", :name => "consume_point", :type => "hidden", :value => "0"}/
+            %ul.buy-price-table
+              %li.buy-price-row.buy-you-pay.bold
+                .buy-price-cell 支払い金額
+                .buy-price-cell
+                  %span{"data-buy-pay" => "2090"} ¥2,090
+            %input{:name => "seller_id", :type => "hidden", :value => "840198600"}/
+            %input{:name => "payment_fee", :type => "hidden", :value => "0"}/
+            %input{:name => "payment_amount", :type => "hidden", :value => "2090"}/
+            %input{:name => "price", :type => "hidden", :value => "2090"}/
+            %input{:name => "category_id", :type => "hidden", :value => "696"}/
+            %input{:name => "item_condition", :type => "hidden", :value => "3"}/
+            %input{:name => "shipping_payer", :type => "hidden", :value => "2"}/
+            %input{:name => "shipping_method", :type => "hidden", :value => "17"}/
+            %input{:name => "shipping_duration", :type => "hidden", :value => "1"}/
+            %input{:name => "shipping_class", :type => "hidden", :value => "0"}/
+            %input{:name => "zip_code1", :type => "hidden", :value => "814"}/
+            %input{:name => "zip_code2", :type => "hidden", :value => "0011"}/
+            %input{:name => "paid_method", :type => "hidden", :value => "card"}/
+            %input{:name => "checksum", :type => "hidden", :value => "d35dc36e858ce97e991cdf11521794fa"}/
+            %input{:name => "payment_card_sequence_no", :type => "hidden", :value => "Q8uH1P7sQYzLV2SMvTeFY9cc"}/
+            %input{:name => "payment_use_last_card_base64", :type => "hidden", :value => "eWVz"}/
+            %input{:name => "item_name_base64", :type => "hidden", :value => "44CQSSd2ZSBTb3VuZOOAkeafmuWtkOS5gyAybmTjgrfjg7PjgrDjg6vjgIxMdW1pbm91c+OAjQ=="}/
+            %input{:name => "description_base64", :type => "hidden", :value => "54m544Gr55uu56uL44Gk5YK3562J44Gq44GP44CB54q25oWL44Gv6Imv5aW944Gn44GZ44CC"}/
+            %input{:name => "shipping_from_area_base64", :type => "hidden", :value => "MTQ="}/
+            %input{:name => "family_name_base64", :type => "hidden", :value => "5bCP5bmh"}/
+            %input{:name => "first_name_base64", :type => "hidden", :value => "56WQ5Lmf"}/
+            %input{:name => "family_name_kana_base64", :type => "hidden", :value => "44Kq44OQ44K/"}/
+            %input{:name => "first_name_kana_base64", :type => "hidden", :value => "44Om44Km44Ok"}/
+            %input{:name => "prefecture_base64", :type => "hidden", :value => "56aP5bKh55yM"}/
+            %input{:name => "city_base64", :type => "hidden", :value => "56aP5bKh5biC5pep6Imv5Yy6"}/
+            %input{:name => "address1_base64", :type => "hidden", :value => "6auY5Y+WMS0xLTM0LTkwMQ=="}/
+            %input{:name => "address2_base64", :type => "hidden", :value => ""}/
+            %input{:name => "telephone_base64", :type => "hidden", :value => "MDgwMzk0NDM0NDM="}/
+            %input{:name => "__csrf_value", :type => "hidden", :value => "31049a9987fde051e3793e82036881fde269827f673462a2adc1cc4f8ed078560a7093a446c226d6e64ac80ae5ee107a36024d97af0070cc4e8b7067f5e6b804b"}/
+            %input{:name => "_s", :type => "hidden", :value => "U2FsdGVkX18uHFQe9pl2_qrKDrvT8gEYQVdZRAAOzMWWc6Fc2vF5uycKTeJJb1YCbWUl618TI2SEHXxbSKqWio1yoDO6qdGGG-KOCA0DSgiIzau0x56I-L_ArDUXZWSZ"}/
+            %p.has-error-text
+              この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+            %ul.buy-accordion.not-have
+              %li.accordion-parent
+                .accordion-toggle
+                  購入する
+            %input#is_yuu_yuu_mercari_bin{:type => "hidden"}/
+            .buy-detail-open-app{"data-action" => "item/openDetail", "data-key" => "id=m99983749419", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
+              アプリで購入
+            %p アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+            %br/
+            %div
+              %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?210491352"}/
+              %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?210491352"}/
+      %section.buy-content.buy-user-info
+        .buy-content__inner
+          %h3 配送先
+          %address.buy-user-info-text
+            〒814-0011
+            %br/
+            福岡県 福岡市早良区
+            高取1-1-34-901
+            %br/
+            小幡 祐也
+          %p.buy-user-info-text
+          %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m99983749419/?_s=U2FsdGVkX18uHFQe9pl2_qrKDrvT8gEYQVdZRAAOzMWWc6Fc2vF5uycKTeJJb1YCbWUl618TI2SEHXxbSKqWio1yoDO6qdGGG-KOCA0DSgiIzau0x56I-L_ArDUXZWSZ"}
+            %span 変更する
+            %i.icon-arrow-right
+      %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
+        .buy-content__inner
+          %h3 支払い方法
+          %p.buy-user-info-text
+            ************7310
+            %br/
+            04 / 20
+            %figure
+              %img{:alt => "visa", :height => "15", :src => "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?210491352", :width => "49"}/
+          %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/select_card/m99983749419/?_s=U2FsdGVkX18uHFQe9pl2_qrKDrvT8gEYQVdZRAAOzMWWc6Fc2vF5uycKTeJJb1YCbWUl618TI2SEHXxbSKqWio1yoDO6qdGGG-KOCA0DSgiIzau0x56I-L_ArDUXZWSZ"}
+            %span 変更する
+            %i.icon-arrow-right
+  %footer.single-footer
+    %nav
+      %ul.clearfix
+        %li
+          %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %li
+          %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %li
+          %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+    %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
+      %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?210491352", :width => "80"}/
+    %p
+      %small © 2019 Mercari
+%script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?3718743368"}
+:javascript
+  window.dataLayer = window.dataLayer || []
+  dataLayer.push({
+    'event': 'dynamic_cart',
+    'ecomm_pagetype': 'cart',
+    'ecomm_prodid': 'm99983749419',
+    'ecomm_totalvalue': '2090',
+    'uid': '809473232'
+  });
+/ Google Tag Manager
+:javascript
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KLPT5L5');
+/ End Google Tag Manager
