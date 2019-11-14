@@ -1,0 +1,317 @@
+%script{:src => "//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js", :type => "text/javascript"}
+
+
+.header 
+  = render "headers"
+
+.container
+  .itembox
+    %h1.name momosaki yuta
+
+    .itembox-main
+      .itembox-photos
+        .itembox-photo
+
+          .image-for
+
+            .image-box
+              %img{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
+            .image-box
+              %img{:alt => "", :src => "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png"}/
+            .image-box
+              %img{:alt => "", :src => "https://publicdomainq.net/images/201611/11s/publicdomainq-0002543hcs.jpg"}/
+            .image-box
+              %img{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
+            .image-box
+              %img{:alt => "", :src => "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png"}/
+            .image-box
+              %img{:alt => "", :src => "https://publicdomainq.net/images/201611/11s/publicdomainq-0002543hcs.jpg"}/
+            .image-box
+              %img{:alt => "", :src => "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png"}/
+            .image-box
+              %img{:alt => "", :src => "https://publicdomainq.net/images/201611/11s/publicdomainq-0002543hcs.jpg"}/
+            .image-box
+              %img{:alt => "", :src => "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png"}/
+            .image-box
+              %img{:alt => "", :src => "https://publicdomainq.net/images/201611/11s/publicdomainq-0002543hcs.jpg"}/
+
+      //出品者
+      %table.itembox-table
+        %tr
+          %th.itembox-seller 出品者
+          %td.itembox-all-now
+            %a.itembox-all-now__owner{:href => "https://www.mercari.com/jp/u/947242834/"} momo
+            %div
+              .item-user-ratings
+                %i.icon-good
+                %span 17
+              -# .item-user-ratings
+              -#   %i.icon-normal
+              -#   %span 0
+              -# .item-user-ratings
+              -#   %i.icon-bad
+              -#   %span 0
+
+
+        %tr
+          %th.itembox-category カテゴリー
+          %td.itembox-all-now
+            %a{:href => "https://www.mercari.com/jp/category/1/"}
+              %div.category-now レディース
+        -#     %a{:href => "https://www.mercari.com/jp/category/12/"}
+        -# -#       .item-detail-table-sub-category
+        -# -#         %i.icon-arrow-right
+        -# -#         ジャケット/アウター
+    
+        %tr
+          %th.itembox-brand ブランド
+          %td.itembox-all-now
+            %a.itembox-all-now__owner{:href => "https://www.mercari.com/jp/brand/1027/"}
+              %div
+                momo
+
+
+        %tr
+          %th.itembox-size 商品のサイズ
+          %td.itembox-all-now M
+        %tr
+          %th.itembox-status 商品の状態
+          %td.itembox-all-now 目立った傷や汚れなし
+        %tr
+          %th.itembox-burden 配送料の負担
+          %td.itembox-all-now 送料込み(出品者負担)
+        %tr
+          %th.itembox-status 配送の方法
+          %td.itembox-all-now ゆうゆうメルカリ便
+        %tr
+          %th.itembox-area 配送元地域
+          %td.itembox-all-now
+            %a.itembox-all-now__japan-area{:href => "https://www.mercari.com/jp/area/12/"} 千葉県
+        %tr
+          %th.itembox-indication 発送日の目安
+          %td.itembox-all-now 1~2日で発送
+
+
+    .itembox__price-box
+      %span.item-price ¥500
+      %span.item-tax (税込)
+      %span.item-shipping-fee 送料込み
+
+    %a.buy-btn{:href => "https://www.mercari.com/jp/transaction/buy/m87638910422/"}
+      購入画面に進む
+
+    %p.shipping-only
+      この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+
+    .itembox-description
+      %p.itembox-description__inner
+        Sサイズですが、海外のSサイズなので大きめで
+        日本だとMサイズになるとおもいます。
+        
+        自宅保管のため神経質な方は
+        ご遠慮ください(*_*)
+        
+        フォーエバー21
+        ザラ
+        ZARA
+
+    .itembox-buttonbox
+      .button-left
+        %button.button-left__button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m87638910422", "data-toggle" => "like", :name => "like!", :type => "button"}
+          %i.icon-like-border
+          %span いいね!
+          %span.fade-in-down{"data-num" => "like"} 1
+        %button.button-left__button-report{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
+          %i.icon-flag
+          %span 不適切な商品の報告
+        %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m87638910422/"}/
+        %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m87638910422/"}/
+        %input{:name => "__csrf_value", :type => "hidden", :value => "71762cf3e3cd18c9222fcc765e1ef1dc9571de78a4647a2b88c1586443e156243d7a38413204f61d25e00f9faafa01122cf34323893357e7395320d68935d95e0"}/
+      .button-right
+        %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
+          -# %i.icon-lock
+          %span あんしん・あんぜんへの取り組み
+
+  .messagebox
+    .messagebox-wrapper
+      .messagebox-message
+        %form.messagebox-message__message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
+          %input{:name => "__csrf_value", :type => "hidden", :value => "71762cf3e3cd18c9222fcc765e1ef1dc9571de78a4647a2b88c1586443e156243d7a38413204f61d25e00f9faafa01122cf34323893357e7395320d68935d95e0"}/
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+          %input{:name => "item_id", :type => "hidden", :value => "m87638910422"}/
+          %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+          %textarea.messagebox-message__text{:name => "body", :type => "text", :value => ""}
+          %button.messagebox-message__submit{:type => "submit"}
+            %span コメントする
+
+  .item-link
+    %ul.link-group-left
+      = link_to "#", class: "item-link__icon--angle-left" do
+        = fa_icon 'angle-left'
+      %li.link-group-left__link-left momo
+    
+    %ul.link-group-right
+      %li.link-group-right__link-right saki
+      = link_to "#", class: "item-link__icon--angle-right" do
+        = fa_icon 'angle-right'
+
+
+  .iconbox
+    .iconbox-wrapper
+
+    %ul.social-mediabox
+      %li
+        %a.sharebtn{"data-window-name" => "facebook_window", :href => "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm89737403392%2F", :target => "_blank"}
+          %i.facebook-icon 
+      %li
+        %a.sharebtn{"data-window-name" => "twitter_window", :href => "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm89737403392%2F&text=%E3%80%90coen%E3%80%91%E8%86%9D%E4%B8%88%E3%83%8B%E3%83%83%E3%83%88%E2%80%A6%20%28%C2%A51%2C450%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm89737403392%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89", :target => "_blank"}
+          %i.tweet-icon
+      %li.social-hidden-item
+        %a{:href => "http://line.me/R/msg/text/?【coen】膝丈ニットワンピース コーエン グレー パーカー%20%7C%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%0D%0Ahttps://item.mercari.com/jp/m89737403392/", :target => "_blank"}
+          %i.icon-line
+      %li
+        %a.sharebtn{"data-window-name" => "pinterest_window", :href => "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm89737403392%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm89737403392_1.jpg%3F1570195668&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%80%90coen%E3%80%91%E8%86%9D%E4%B8%88%E3%83%8B%E3%83%83%E3%83%88%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%E3%82%B3%E3%83%BC%E3%82%A8%E3%83%B3%20%E3%82%B0%E3%83%AC%E3%83%BC%20%E3%83%91%E3%83%BC%E3%82%AB%E3%83%BC%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA", :target => "_blank"}
+          %i.pinterest-icon 
+
+
+      -#   %a.share-btn{"data-window-name" => "twitter_window", :href => "http://twitter.com/share?count=horizontal&"}
+      -#     -# %i.icon-twitter
+      -# %li.social-hidden-item
+      -#   %a{:href => "http://line.me/R/msg/text/?K10 ゴールド メレダイヤ クロスネックレス"}
+      -# %li
+      -#   %a.share-btn{"data-window-name" => "pinterest_window", :href => "http://pinterest.com/pin/create/button"}
+
+  .userbox
+    %section.userbox-items
+
+      %h2.username-collection
+        %a{:href => "https://www.mercari.com/jp/u/715899526/"} momoさんのその他の出品
+
+      .user-items
+        %section.user-items__item-box
+          %figure.user-items__item-box__item-photo
+            %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
+
+          .item-introduction
+            %h3.item-introduction__name 激安ダオ
+            .item-price
+              .item-price__num ¥221,000
+
+        %section.user-items__item-box
+          %figure.user-items__item-box__item-photo
+            %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
+
+          .item-introduction
+            %h3.item-introduction__name 激安ダオ
+            .item-price
+              .item-price__num ¥221,000
+        
+        %section.user-items__item-box
+          %figure.user-items__item-box__item-photo
+            %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
+
+          .item-introduction
+            %h3.item-introduction__name 激安ダオ
+            .item-price
+              .item-price__num ¥221,000
+
+        -# %section.user-items__item-box
+        -#   %figure.user-items__item-box__item-photo
+        -#     %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
+
+        -#   .item-introduction
+        -#     %h3.item-introduction__name 激安ダオ
+        -#     .item-price
+        -#       .item-price__num ¥221,000
+
+    
+      
+.tMFrx
+  .tMFrx__ezxxhU
+    .tMFrx__ezxxhU__chTgRp
+      .tMFrx__ezxxhU__chTgRp__iVGjEK
+        .tMFrx__ezxxhU__chTgRp__iVGjEK__bdqVww スマホでかんたんフリマアプリ
+        .tMFrx__ezxxhU__chTgRp__iVGjEK__jURitu 今すぐ無料ダウンロード！
+        .tMFrx__ezxxhU__chTgRp__iVGjEK__dhItlX
+          %img.tMFrx__ezxxhU__chTgRp__iVGjEK__dhItlX__jSTnBt{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png"}/
+          %a.tMFrx__ezxxhU__chTgRp__iVGjEK__dhItlX__lgmdCB{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+            %img.tMFrx__ezxxhU__chTgRp__iVGjEK__dhItlX__lgmdCB__kDwjrS{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
+          %a.tMFrx__ezxxhU__chTgRp__iVGjEK__dhItlX__lgmdCB{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+            %img.tMFrx__ezxxhU__chTgRp__iVGjEK__dhItlX__lgmdCB__fofvah{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}/
+            
+      %figure.tMFrx__ezxxhU__chTgRp__kzQJRg
+        %img.tMFrx__ezxxhU__chTgRp__kzQJRg__cYtUcH{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png"}/
+
+.footer
+  %nav.footer__drJXHf
+    .footer__drJXHf__hHaGTu
+      %h2.footer__drJXHf__hHaGTu__cPzMyz メルカリについて
+      %ul.footer__drJXHf__hHaGTu__ewFVzB
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          会社概要（運営会社）
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          採用情報
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          プレスリリース
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          公式ブログ
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          メルカリロゴ利用ガイドライン
+        %a.footer__drJXHf__hHaGTu__ewFVzB__icmRxI{:href => "https://twitter.com/mercari_jp", :target => "_blank"}
+          %svg.footer__drJXHf__hHaGTu__ewFVzB__icmRxI__iQCNqi{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 21 16", :width => "21"}
+            %path{:d => "M6.343 15.969c7.61 0 11.773-6.134 11.773-11.444 0-.172 0-.345-.008-.517a8.303 8.303 0 0 0 2.066-2.086 8.576 8.576 0 0 1-2.38.635A4.07 4.07 0 0 0 19.616.329a8.377 8.377 0 0 1-2.63.973 4.186 4.186 0 0 0-3.019-1.27c-2.283 0-4.14 1.803-4.14 4.023 0 .314.041.62.106.918A11.866 11.866 0 0 1 1.404.769a3.936 3.936 0 0 0-.557 2.023c0 1.396.735 2.628 1.84 3.35a4.278 4.278 0 0 1-1.872-.503v.055c0 1.945 1.428 3.577 3.317 3.945-.347.094-.71.141-1.09.141-.266 0-.524-.023-.774-.07.524 1.6 2.057 2.76 3.865 2.792a8.452 8.452 0 0 1-5.14 1.725 8.19 8.19 0 0 1-.985-.054 12.02 12.02 0 0 0 6.335 1.796", :fill => "currentColor", "fill-rule" => "evenodd"}
+        %a.footer__drJXHf__hHaGTu__ewFVzB__icmRxI{:href => "https://www.facebook.com/mercarijp", :target => "_blank"}
+          %svg.footer__drJXHf__hHaGTu__ewFVzB__icmRxI__gJZiyP{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 16 16", :width => "16"}
+            %path{:d => "M15.111 0H.89A.889.889 0 0 0 0 .889V15.11c0 .491.398.889.889.889h7.658V9.813H6.469V7.391h2.078V5.613c0-2.066 1.262-3.193 3.11-3.193.623-.002 1.244.03 1.863.096v2.15h-1.276c-1.002 0-1.197.478-1.197 1.178v1.543h2.397l-.31 2.422h-2.087V16h4.064c.491 0 .889-.398.889-.889V.89A.889.889 0 0 0 15.111 0z", :fill => "currentColor", "fill-rule" => "evenodd"}
+    .footer__drJXHf__hHaGTu
+      %h2.footer__drJXHf__hHaGTu__cPzMyz ヘルプ＆ガイド
+      %ul.footer__drJXHf__hHaGTu__ewFVzB
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          メルカリガイド
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          らくらくメルカリ便
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          ゆうゆうメルカリ便
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          大型メルカリ便
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          車体取引ガイド
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          メルカリあんしん・あんぜん宣言！
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          偽ブランド品撲滅への取り組み
+        %li.footer__drJXHf__hHaGTu__ewFVzB__cbYKEG
+          メルカリボックス
+    .footer__drJXHf__aWegH
+      %h2.footer__drJXHf__aWegH__cPzMyz プライバシーと利用規約
+      .footer__drJXHf__aWegH__dzjMfv
+        %ul.footer__drJXHf__aWegH__dzjMfv__ewFVzB
+          %li.footer__drJXHf__aWegH__dzjMfv__ewFVzB__cbYKEG
+            プライバシーポリシー
+          %li.footer__drJXHf__aWegH__dzjMfv__ewFVzB__cbYKEG
+            メルカリ利用規約
+          %li.footer__drJXHf__aWegH__dzjMfv__ewFVzB__cbYKEG
+            あんしんスマホサポート制度に関する利用特約
+          %li.footer__drJXHf__aWegH__dzjMfv__ewFVzB__cbYKEG
+            コンプライアンスポリシー
+      .footer__drJXHf__aWegH__dzjMfv
+        %ul.footer__drJXHf__aWegH__dzjMfv__ewFVzB
+          %li.footer__drJXHf__aWegH__dzjMfv__ewFVzB__cbYKEG
+            個人データの安全管理に係る基本方針
+          %li.footer__drJXHf__aWegH__dzjMfv__ewFVzB__cbYKEG
+            特定商取引に関する表記
+          %li.footer__drJXHf__aWegH__dzjMfv__ewFVzB__cbYKEG
+            資金決済法に基づく表示
+          %li.footer__drJXHf__aWegH__dzjMfv__ewFVzB__cbYKEG
+            法令順守と犯罪抑止のために
+    .footer__drJXHf__doTCXK
+      %h2.footer__drJXHf__doTCXK__cPzMyz 国
+      %ul.footer__drJXHf__doTCXK__ewFVzB
+        %li.footer__drJXHf__doTCXK__ewFVzB__cbYKEG
+          %a.footer__drJXHf__doTCXK__ewFVzB__cbYKEG__hIUIIb{:href => "/jp/"} 日本
+          %a.footer__drJXHf__doTCXK__ewFVzB__cbYKEG__hIUIIb{:href => "/"} United States
+  .footer__igdlOb
+    %a.footer__igdlOb__hdALBW{:href => "/jp/"}
+      %img.footer__igdlOb__hdALBW__ioByYU{:alt => "Mercari", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logo-white-1a0696cf557ee1ed6f3c3444661d21ad.svg"}/
+    %span.footer__igdlOb__exdDTv © 2019 Mercari
