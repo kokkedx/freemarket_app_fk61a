@@ -9,37 +9,38 @@
       %section.buy-content.buy-item
         .buy-content__inner
           %h3.buy-item__image
-            %img.buy-item__image--mini.lazyload{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m99983749419_1.jpg?1573215026"}/
+            %img.buy-item__image--mini{alt: "", src: "https://static.mercdn.net/thumb/photos/m99983749419_1.jpg?1573215026"}/
           %p.buy-item__name 【I've Sound】柚子乃 2ndシングル「Luminous」
-          %form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m99983749419/", :method => "POST", :novalidate => "novalidate"}
-            %p.buy-price-ja.bold
+          -# = form_with model:@transaction, url: transactionのcreateメソッド_path, method: :post,local: true do |f|
+          %form.buy-form{action: "https://www.mercari.com/jp/transaction/buy/done/m99983749419/", :method => "POST", :novalidate => "novalidate"}
+            %p.buy-price
               ¥2,090
-              %span.item-shipping-fee.f14.bold 送料込み
+              %span.buy-item__shipping-fee 送料込み
             %ul.buy-accordion
-              %li.accordion-parent
-                .accordion-toggle
+              %li.accordion
+                .accordion__toggle{"data-js": "show-accordion-toggle"}
                   ポイントを使う
                   %i.icon-arrow-bottom.accordion-icon
-                %ul.accordion-child
+                %ul.accordion__child{"data-js": "show-accordion-content",visibility: "hidden"}
                   %li.bold 所持ポイント: P126
-                  %li.form-group{"data-buy" => "parent"}
+                  %li.form-group{"data-js": "parent"}
                     .radio-default
                       %label
-                        %input{"data-buy" => "none", :name => "consume_point_radio", :type => "radio", :value => "none"}>/
+                        %input{"data-js": "none", name: "consume_point_radio", type: "radio", value: "none"}>/
                         ポイントを使わない
                     .radio-default
                       %label
-                        %input{"data-buy" => "all", :name => "consume_point_radio", :type => "radio", :value => "all"}/
-                        %input{:type => "hidden", :value => "126"}/
+                        %input{"data-js": "all", name: "consume_point_radio", type: "radio", value: "all"}/
+                        %input{type: "hidden", value: "100"}/
                         すべてのポイントを使う
                         %br/
-                        P126
+                        P100
                     .radio-default
                       %label
-                        %input{"data-buy" => "part", :name => "consume_point_radio", :type => "radio", :value => "partial"}/
+                        %input{"data-js": "part", name: "consume_point_radio", type: "radio", value: "partial"}/
                         一部のポイントを使う
-                    %input.input-default{"data-buy" => "part_num", "data-input" => "money", :placeholder => "使うポイントを入力", :type => "number", :value => ""}/
-                    %input{"data-buy" => "result", :name => "consume_point", :type => "hidden", :value => "0"}/
+                    %input.input-default{"data-js": "part_num", "data-input": "money", placeholder: "使うポイントを入力", type: "number", value: ""}/
+                    %input{"data-js": "result", name: "consume_point", type: "hidden", value: "0"}/
             %ul.buy-price-table
               %li.buy-price-row.buy-you-pay.bold
                 .buy-price-cell 支払い金額
@@ -130,7 +131,6 @@
       %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?210491352", :width => "80"}/
     %p
       %small © 2019 Mercari
-%script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?3718743368"}
 :javascript
   window.dataLayer = window.dataLayer || []
   dataLayer.push({

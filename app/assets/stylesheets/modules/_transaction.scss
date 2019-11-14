@@ -124,3 +124,22 @@
   }
 
 }
+
+.buy-form{
+  width:100%;
+}
+
+.accordion{
+  &__toggle{
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 16px;
+  }
+  &__child{
+    display:none;
+    padding: 24px 40px;
+    background: #fafafa;
+    text-align: left;
+  }    
+}
