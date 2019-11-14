@@ -1,4 +1,4 @@
-.container
+.signup-container
   .signup-header
     %h1.logo
       =link_to root_path,class:"logo__link" do
@@ -104,4 +104,4 @@
                 %li.signup-form__error-message
                   = "address_phone_number #{e}"
           = f.submit "次へ進む", {class:"signup-form__button signup-form__button--red"}
-  = render partial: "signup_footer"
+  = render partial: "/signup/signup_footer"

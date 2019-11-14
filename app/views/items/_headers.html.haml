@@ -3,24 +3,23 @@
     //header1
     .header-first
       .first-group
-        %a.mercari{:href => "/jp/"}
-          %img.mercari__logo{:alt => "Mercari", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}/
+        =link_to root_path,{class:"mercari"} do
+          %img.mercari__logo{alt: "Mercari", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}/
 
-      %form.form-box{:action => "/jp/search/"}
-        %input.form-box__form{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search"}/
-
+      %form.form-box{action: "/jp/search/"}
+        %input.form-box__form{name: "keyword", placeholder: "何かお探しですか？", type: "search"}/
         %button.form-box__btn
-          %svg.form-box__btn__search{"aria-hidden" => "true", :height => "16", :viewbox => "0 n0 16 16", :width => "16"}
-            %path{:d => "M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z", :fill => "currentColor", "fill-rule" => "nonzero"}
+          %svg.form-box__btn__search{"aria-hidden": "true", height: "16",viewbox: "0 n0 16 16",width: "16"}
+            %path{d: "M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z",fill: "currentColor", "fill-rule": "nonzero"}
     
 
     - if user_signed_in?
       .header-second
         .second-group
           .category-menu
-            %a.header-category{:href => "/jp/category/"}
-              %svg.category-search{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}>
-                %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
+            %a.header-category{href: "/jp/category/"}
+              %svg.category-search{"aria-hidden": "true",height: "16",viewbox: "0 0 20 16",width: "20"}>
+                %path{d: "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", fill: "currentColor", "fill-rule": "nonzero"}
               カテゴリーから探す
 
             .category-menus
@@ -319,6 +318,6 @@
         %ul.newmember-list
           .member-new
             .new-registration
-              %a.new-registration-link{:href => "/jp/signup/"} 新規会員登録
+              =link_to '新規会員登録',signup_index_path,{class:"new-registration-link"}
             .exisiting-member
-              %a.exsiting-member-link{:href => "/jp/login/?login_callback=%2Fjp%2F"} ログイン
+              =link_to 'ログイン',login_index_path,{class:"exsiting-member-link"}
