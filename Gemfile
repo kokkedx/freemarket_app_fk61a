@@ -43,6 +43,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'omniauth-google-oauth2'
  gem 'omniauth-rails_csrf_protection'
  gem 'twilio-ruby'
+ gem 'ancestry'
 
 
 gem 'recaptcha', require: "recaptcha/rails"
@@ -62,6 +63,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'gimei'
   gem 'pry-rails'
   gem 'capistrano'
   gem 'capistrano-rbenv'

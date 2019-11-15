@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   root to: 'items#index'
+  
+  resources :items, only: [:index] 
+  resources :categories, only: [:index, :new, :show]
+ 
 
   resources :login , only: [:index]
   resources :signup , only: [:index,:create] do 
@@ -26,5 +30,6 @@ Rails.application.routes.draw do
 
   resources :samples , only: [:index]
   resources :transactions , only: [:new, :create]
-
+  resources :sell do
+  end
 end

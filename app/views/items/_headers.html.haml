@@ -1,57 +1,323 @@
-.wYTWu__header
-  .wYTWu__header__jrJWo
+.header-main
+  .header-wrapper
     //header1
-    .wYTWu__header__jrJWo__hABnEO
-      .wYTWu__header__jrJWo__hABnEO__xUiJL
-        %a.wYTWu__header__jrJWo__hABnEO__xUiJL__KzmkZ{:href => "/jp/"}
-          %img.wYTWu__header__jrJWo__hABnEO__xUiJL__KzmkZ__kuQyNF{:alt => "Mercari", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}/
-      %form.wYTWu__header__jrJWo__hABnEO__jhhfpc{:action => "/jp/search/"}
-        %input.wYTWu__header__jrJWo__hABnEO__jhhfpc__uBYjF{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search"}/
-        %button.wYTWu__header__jrJWo__hABnEO__jhhfpc__eEWgtr
-          %svg.wYTWu__header__jrJWo__hABnEO__jhhfpc__eEWgtr__gKFuLS{"aria-hidden" => "true", :height => "16", :viewbox => "0 n0 16 16", :width => "16"}
-            %path{:d => "M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z", :fill => "currentColor", "fill-rule" => "nonzero"}
+    .header-first
+      .first-group
+        =link_to root_path,{class:"mercari"} do
+          %img.mercari__logo{alt: "Mercari", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}/
 
-    //header2
-    .wYTWu__header__jrJWo__fBRiXF
-      .wYTWu__header__jrJWo__fBRiXF__iUysIE
-        .wYTWu__header__jrJWo__fBRiXF__iUysIE__duCyXi
-          %a.wYTWu__header__jrJWo__fBRiXF__iUysIE__duCyXi__jreoh{:href => "/jp/category/"}
-            %svg.wYTWu__header__jrJWo__fBRiXF__iUysIE__duCyXi__jreoh__dKBFhm{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}>
-              %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
-            カテゴリーから探す
-        .wYTWu__header__jrJWo__fBRiXF__iUysIE__duCyXi
-          %a.wYTWu__header__jrJWo__fBRiXF__iUysIE__duCyXi__jreoh{:href => "/jp/brand/"}
-            %svg.wYTWu__header__jrJWo__fBRiXF__iUysIE__duCyXi__jreoh__kspmux{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 23 16", :width => "23"}>
-              %path{:d => "M6.315 0L4.473 1.806 2.833.019.73 1.977l1.69 1.84L1.198 5.02c-1.594 1.594-1.594 4.188-.01 5.772L6.3 16h13.272a3.08 3.08 0 0 0 3.077-3.077V3.076A3.08 3.08 0 0 0 19.57 0H6.315zm13.46 12.925a.211.211 0 0 1-.205.205H7.504L3.227 8.771a1.226 1.226 0 0 1-.01-1.71L4.38 5.92l1.28 1.371a2.68 2.68 0 1 0 2.13-1.93L6.433 3.907 7.49 2.87h12.082a.211.211 0 0 1 .206.205v9.848h-.002z", :fill => "currentColor", "fill-rule" => "nonzero"}
-            ブランドから探す
+      %form.form-box{action: "/jp/search/"}
+        %input.form-box__form{name: "keyword", placeholder: "何かお探しですか？", type: "search"}/
+        %button.form-box__btn
+          %svg.form-box__btn__search{"aria-hidden": "true", height: "16",viewbox: "0 n0 16 16",width: "16"}
+            %path{d: "M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z",fill: "currentColor", "fill-rule": "nonzero"}
+    
+
+    - if user_signed_in?
+      .header-second
+        .second-group
+          .category-menu
+            %a.header-category{href: "/jp/category/"}
+              %svg.category-search{"aria-hidden": "true",height: "16",viewbox: "0 0 20 16",width: "20"}>
+                %path{d: "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", fill: "currentColor", "fill-rule": "nonzero"}
+              カテゴリーから探す
+
+            .category-menus
+              %ul.category-list
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} レディース
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} メンズ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} ベビーキッズ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} インテリア・住まい・小物
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} 本・音楽・ゲーム
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} おもちゃ・ボビー・グッズ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} コスメ・香水・美容
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} 家電・スマホ・カメラ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} スポーツ・レジャー
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} ハンドメイド
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} チケット
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} 自転車・オートバイ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} その他
+                  %ul.sc-kcbnda.bOAnUl
+                  
+                %li.ladies
+                  = link_to "カテゴリ一覧", categories_path, class: ".ladies" 
+
+          .brands-menu
+            %a.header-brands{:href => "/jp/brand/"}
+              %svg.brands-search{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 23 16", :width => "23"}>
+                %path{:d => "M6.315 0L4.473 1.806 2.833.019.73 1.977l1.69 1.84L1.198 5.02c-1.594 1.594-1.594 4.188-.01 5.772L6.3 16h13.272a3.08 3.08 0 0 0 3.077-3.077V3.076A3.08 3.08 0 0 0 19.57 0H6.315zm13.46 12.925a.211.211 0 0 1-.205.205H7.504L3.227 8.771a1.226 1.226 0 0 1-.01-1.71L4.38 5.92l1.28 1.371a2.68 2.68 0 1 0 2.13-1.93L6.433 3.907 7.49 2.87h12.082a.211.211 0 0 1 .206.205v9.848h-.002z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              ブランドから探す
+
+            .brand-menu
+              %ul.brand-list
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} シャネル
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} ナイキ
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} ルイ ヴィトン
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} シュプリーム
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} アディダス
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} ブランド一覧
+
+        %ul.fours-group
+          %li.like-list
+            %a.like{:href => "/jp/mypage/like/history/"}
+              %svg.like-menu{"aria-hidden" => "true", :height => "15", :viewbox => "0 0 16 15", :width => "16"}
+                %path{:d => "M8.08 12.711l-.08.082-.08-.082C4.112 9.188 1.6 6.858 1.6 4.496c0-1.635 1.2-2.861 2.8-2.861 1.232 0 2.432.81 2.856 1.929h1.496c.416-1.12 1.616-1.93 2.848-1.93 1.6 0 2.8 1.227 2.8 2.862 0 2.362-2.512 4.692-6.32 8.215M11.6 0C10.208 0 8.872.662 8 1.708 7.128.662 5.792 0 4.4 0 1.936 0 0 1.978 0 4.496c0 3.09 2.72 5.608 6.84 9.433L8 15l1.16-1.079C13.28 10.104 16 7.586 16 4.496 16 1.978 14.064 0 11.6 0", :fill => "currentColor", "fill-rule" => "evenodd"}
+              いいね！一覧
+
+          %li.notice-list
+            %a.notice-menu{:href => "/jp/mypage/notification/"}
+              %svg.notice{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 14 16", :width => "14"}
+                %path{:d => "M6.592 16c.89 0 1.632-.734 1.632-1.632H4.928c0 .898.742 1.632 1.664 1.632zm4.896-4.928V6.976c-.008-2.521-1.345-4.63-3.712-5.184v-.576C7.79.55 7.241 0 6.56 0c-.68 0-1.23.55-1.216 1.216v.576c-2.36.554-3.704 2.654-3.712 5.184v4.096L0 12.704v.832h13.12v-.832l-1.632-1.632zm-1.632.832h-6.56V6.976c0-2.024 1.238-3.68 3.296-3.68 2.026 0 3.264 1.656 3.264 3.68v4.928z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              お知らせ
             
-      //いいね
-      %ul.wYTWu__header__jrJWo__fBRiXF__fzedbE
-        %li.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl
-          %a.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl__jwHbWf{:href => "/jp/mypage/like/history/"}
-            %svg.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl__jwHbWf__elIJWw{"aria-hidden" => "true", :height => "15", :viewbox => "0 0 16 15", :width => "16"}
-              %path{:d => "M8.08 12.711l-.08.082-.08-.082C4.112 9.188 1.6 6.858 1.6 4.496c0-1.635 1.2-2.861 2.8-2.861 1.232 0 2.432.81 2.856 1.929h1.496c.416-1.12 1.616-1.93 2.848-1.93 1.6 0 2.8 1.227 2.8 2.862 0 2.362-2.512 4.692-6.32 8.215M11.6 0C10.208 0 8.872.662 8 1.708 7.128.662 5.792 0 4.4 0 1.936 0 0 1.978 0 4.496c0 3.09 2.72 5.608 6.84 9.433L8 15l1.16-1.079C13.28 10.104 16 7.586 16 4.496 16 1.978 14.064 0 11.6 0", :fill => "currentColor", "fill-rule" => "evenodd"}
-            いいね！一覧
+            //js
+            .news-box
+              %ul.news-list
+              
+                %li.news-menu
+                  
+                  %a.news-hoge{:href => "/jp/mypage/"}
+                    .news-mercari-logo
+                      %img.news-mercari-logo__mercari-logo{:alt => "", :src => "https://static.mercdn.net/images/mercari_profile.png"}/
 
-        //お知らせ
-        %li.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl
-          %a.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl__jwHbWf{:href => "/jp/mypage/notification/"}
-            %svg.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl__jwHbWf__kjjLAK{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 14 16", :width => "14"}
-              %path{:d => "M6.592 16c.89 0 1.632-.734 1.632-1.632H4.928c0 .898.742 1.632 1.664 1.632zm4.896-4.928V6.976c-.008-2.521-1.345-4.63-3.712-5.184v-.576C7.79.55 7.241 0 6.56 0c-.68 0-1.23.55-1.216 1.216v.576c-2.36.554-3.704 2.654-3.712 5.184v4.096L0 12.704v.832h13.12v-.832l-1.632-1.632zm-1.632.832h-6.56V6.976c0-2.024 1.238-3.68 3.296-3.68 2.026 0 3.264 1.656 3.264 3.68v4.928z", :fill => "currentColor", "fill-rule" => "nonzero"}
-            お知らせ
+                    .news-now
+                      %p.news-campaign 招待コード「MOTTAINAI」を入力してメルペイをはじめるとP1,000が必ずもらえる！
+                      %time.news-watch
+                        %svg.news-watch-logo{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 16 16", :width => "16"}
+                          %path{:d => "M7.992 0C3.576 0 0 3.584 0 8s3.576 8 7.992 8C12.416 16 16 12.416 16 8s-3.584-8-8.008-8zM8 14.4A6.398 6.398 0 0 1 1.6 8c0-3.536 2.864-6.4 6.4-6.4 3.536 0 6.4 2.864 6.4 6.4 0 3.536-2.864 6.4-6.4 6.4zM8.4 4H7.2v4.8l4.2 2.52.6-.984L8.4 8.2V4z", :fill => "currentColor", "fill-rule" => "nonzero"}
+
+
+          %li.to-do-list
+            %a.to-do-menu{:href => "/jp/mypage/todo/"}
+              %svg.to-do{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 21 16", :width => "21"}
+                %path{:d => "M6.682 12.657L1.67 7.642 0 9.313 6.682 16 21 1.672 19.33 0z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              やることリスト
+
+            //js部分です。
+            .doing-list
+              %ul.doing-menu
+                %li.doing-do
+                  %a.doing-logo{:href => "https://www.mercari.com/jp/help_center/article/759/"}
+                    .doing-picture
+                      %img.doing-mercari{:alt => "", :src => "https://static.mercdn.net/images/mercari_profile.png"}/
+
+                    .doing-news
+                      %p.doing-news-list ご登録のメールアドレスに認証メールを送りました。メールに記載のURLをクリックして、メールアドレスを認証してください。
+                      %time.doing-watch
+                        %svg.doing-watch-logo{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 16 16", :width => "16"}
+                          %path{:d => "M7.992 0C3.576 0 0 3.584 0 8s3.576 8 7.992 8C12.416 16 16 12.416 16 8s-3.584-8-8.008-8zM8 14.4A6.398 6.398 0 0 1 1.6 8c0-3.536 2.864-6.4 6.4-6.4 3.536 0 6.4 2.864 6.4 6.4 0 3.536-2.864 6.4-6.4 6.4zM8.4 4H7.2v4.8l4.2 2.52.6-.984L8.4 8.2V4z", :fill => "currentColor", "fill-rule" => "nonzero"}
+                        %span.sc-kPVwWT.ciZoNz 17日前
+
+                    %svg.doing-path{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                      %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
+
         
-        //やることリスト
-        %li.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl
-          %a.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl__jwHbWf{:href => "/jp/mypage/todo/"}
-            %svg.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl__jwHbWf__hkkZYC{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 21 16", :width => "21"}
-              %path{:d => "M6.682 12.657L1.67 7.642 0 9.313 6.682 16 21 1.672 19.33 0z", :fill => "currentColor", "fill-rule" => "nonzero"}
-            やることリスト
-        
+          %li.mypage-list
+            %a.mypage-menu{:href => "/jp/mypage/"}
+              %img.mypage{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}>/
+              マイページ
+            
 
-        //マイページ
-        %li.wtYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl
-          = link_to mypages_path,class:"%a.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl__jwHbWf__elIJWw" do
-            %img.wYTWu__header__jrJWo__fBRiXF__fzedbE__gDLVUl__jwHbWf__kmSGSf{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}>/
-            マイページ
+            //jsの部分です
+            .sc-ibxdXY.fVKnBn
+              .sc-jqCOkK.heXNii
+                %figure.sc-uJMKN.gMAtgd
+                  .sc-bbmXgH.CsUdK
+                    %img.sc-gGBfsJ.jsXHUn{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}/
+                  %figcaption.sc-jnlKLf.ZXktj 百崎悠太
+                .sc-tilXH.iZdtmU
+                  %a.sc-hEsumM.cDbCXs{:href => "/jp/mypage/review/history/"}
+                    評価:
+                    / 
+                    0
+                  %a.sc-hEsumM.cDbCXs{:href => "/jp/mypage/listings/listing/"}
+                    出品数:
+                    / 
+                    0
+                %ul.sc-ktHwxA.dPywGa
+                  %li.sc-cIShpX.iGdAxI
+                    %a.sc-kafWEX.hBTVOE{:href => "/jp/mypage/sales/"}
+                      .sc-feJyhm.fRrBax 売上金
+                      .sc-iELTvK.ohuBD
+                        ¥0
+                        %svg.sc-jzJRlG.hwpmcw{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                          %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
+                  %li.sc-cIShpX.iGdAxI
+                    %a.sc-kafWEX.hBTVOE{:href => "/jp/mypage/point/"}
+                      .sc-feJyhm.fRrBax ポイント
+                      .sc-iELTvK.ohuBD
+                        P
+                        / 
+                        0
+                        %svg.sc-jzJRlG.hwpmcw{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                          %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
+                .sc-fYxtnH.hSLfWw
+                  %ul.sc-cmTdod.eoxnDQ
+                    %li.sc-jwKygS.koyiHx
+                      %a.sc-lhVmIH.ihIPHG{:href => "/jp/mypage/like/history/"}
+                        いいね！一覧
+                        %svg.sc-jzJRlG.sc-btzYZH.gttrDa{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                          %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
+                    %li.sc-jwKygS.koyiHx
+                      %a.sc-lhVmIH.ihIPHG{:href => "/jp/mypage/listings/listing/"}
+                        出品した商品 - 出品中
+                        %svg.sc-jzJRlG.sc-btzYZH.gttrDa{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                          %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
+                    %li.sc-jwKygS.koyiHx
+                      %a.sc-lhVmIH.ihIPHG{:href => "/jp/mypage/listings/in_progress/"}
+                        出品した商品 - 取引中
+                        %svg.sc-jzJRlG.sc-btzYZH.gttrDa{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                          %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
+                    %li.sc-jwKygS.koyiHx
+                      %a.sc-lhVmIH.ihIPHG{:href => "/jp/mypage/listings/completed/"}
+                        出品した商品 - 売却済み
+                        %svg.sc-jzJRlG.sc-btzYZH.gttrDa{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                          %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
+                    %li.sc-jwKygS.koyiHx
+                      %a.sc-lhVmIH.ihIPHG{:href => "/jp/mypage/purchase/"}
+                        購入した商品 - 取引中
+                        %svg.sc-jzJRlG.sc-btzYZH.gttrDa{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                          %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
+                    %li.sc-jwKygS.koyiHx
+                      %a.sc-lhVmIH.ihIPHG{:href => "/jp/mypage/purchased/"}
+                        購入した商品 - 過去の取引
+                        %svg.sc-jzJRlG.sc-btzYZH.gttrDa{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 10 16", :width => "10"}
+                          %path{:d => "M0 14.12L6.18 8 0 1.88 1.903 0 10 8l-8.097 8z", :fill => "currentColor", "fill-rule" => "nonzero"}
 
-         
+    - else
+      .header-second
+        .second-group
+          .category-menu
+            %a.header-category{:href => "/jp/category/"}
+              %svg.category-search{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}>
+                %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              カテゴリーから探す
+            
+            .category-menus
+              %ul.category-list
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} レディース
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} メンズ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} ベビーキッズ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} インテリア・住まい・小物
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} 本・音楽・ゲーム
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} おもちゃ・ボビー・グッズ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} コスメ・香水・美容
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.mens
+                  %a.mens__men{:href => "/jp/category/1/"} 家電・スマホ・カメラ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} スポーツ・レジャー
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} ハンドメイド
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} チケット
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} 自転車・オートバイ
+                  %ul.sc-kcbnda.bOAnUl
+
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} その他
+                  %ul.sc-kcbnda.bOAnUl
+                  
+                %li.ladies
+                  %a.ladies__lady{:href => "/jp/category/1/"} カテゴリ一覧
+                  %ul.sc-kcbnda.bOAnUl
+
+          .brands-menu
+            %a.header-brands{:href => "/jp/brand/"}
+              %svg.brands-search{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 23 16", :width => "23"}>
+                %path{:d => "M6.315 0L4.473 1.806 2.833.019.73 1.977l1.69 1.84L1.198 5.02c-1.594 1.594-1.594 4.188-.01 5.772L6.3 16h13.272a3.08 3.08 0 0 0 3.077-3.077V3.076A3.08 3.08 0 0 0 19.57 0H6.315zm13.46 12.925a.211.211 0 0 1-.205.205H7.504L3.227 8.771a1.226 1.226 0 0 1-.01-1.71L4.38 5.92l1.28 1.371a2.68 2.68 0 1 0 2.13-1.93L6.433 3.907 7.49 2.87h12.082a.211.211 0 0 1 .206.205v9.848h-.002z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              ブランドから探す
+
+            .brand-menu
+              %ul.brand-list
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} シャネル
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} ナイキ
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} ルイ ヴィトン
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} シュプリーム
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} アディダス
+                %li.brands
+                  %a.brands__shanel{:href => "/jp/brand/658/"} ブランド一覧
+
+        %ul.newmember-list
+          .member-new
+            .new-registration
+              =link_to '新規会員登録',signup_index_path,{class:"new-registration-link"}
+            .exisiting-member
+              =link_to 'ログイン',login_index_path,{class:"exsiting-member-link"}

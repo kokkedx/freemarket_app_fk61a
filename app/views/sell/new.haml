@@ -1,0 +1,145 @@
+.sell-container
+  .sell-header
+    %h1.sell-logo
+      %a.sell-logo__link{href: "https://www.mercari.com/jp/"}
+        %img.sell-logo__image{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
+  .sell-main
+    .sell-main__containar
+      %h2.sell-main__heading 商品の情報を入力
+      = form_with model: @item, url: sell_index_path, class:'sell-form' do |f|
+        .upload-box
+          %h3.upload-box__head
+            出品画像
+            %span.upload-box__status.upload-box__status--require 必須
+          %p.upload-box__text 最大10枚までアップロードできます
+          .sell-upload.clearfix.state-image-number-10
+            .sell-upload__containar
+              %ul.sell-upload__containar__items.sell-upload__containar__items--have-item-0{ id: 'sell-upload__containar__items' }
+                -# %ul.sell-upload__containar__image
+                -#   .sell-upload__containar__figure.landscape
+                -#     .for-crop-class
+                -#       image
+                -#   .sell-upload__containar__button
+                -#     .sell-upload__containar__button--edit 編集
+                -#     .sell-upload__containar__button--delete 削除
+                
+            = f.label :images, class: 'sell-upload__label', id: 'file' do
+              .sell-upload__drop-box.sell-upload__drop-box--have-item-0{ id: 'sell-upload__drop-box' }
+                = f.file_field :images, multiple: true, class: 'sell-upload__drop-box__drop-file', style: 'visibility: hidden;'
+                %pre.sell-upload__drop-box__visible-pc
+                  ドラッグアンドドロップ
+                  またはクリックしてファイルをアップロード
+                  %i.fa.fa-camera.icon
+        .sell-content
+          .sell-content__form-group
+            =f.label :name, class:'sell-content__form-group--text' do
+              商品名
+              %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+            %div
+              = f.text_field :name, { class:'sell-content__input-default', placeholder: '商品名（必須 40文字まで)' , :value => ""}
+          .sell-content__form-group
+            =f.label :description, class: 'sell-content__form-group--text' do
+              商品の説明
+              %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+            = f.text_area :description, { class: 'sell-content__textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5' }
+        .sell-content.clearfix
+          %h3.sell-content__sub-head 商品の詳細
+          .sell-content__form-box
+            .sell-content__form-group
+              =f.label :category_id, class: 'sell-content__form-group--text' do
+                カテゴリー
+                %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+              %div
+                .sell-content__select-wrap
+                  %i.fa.fa-angle-down.icon
+                  -# = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'select-default'
+            .sell-content__form-group
+              =f.label :state, class: 'sell-content__form-group--text' do
+                商品の状態
+                %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+              .sell-content__select-wrap
+                %i.fa.fa-angle-down.icon
+                %select.select-default
+        .sell-content.clearfix
+          %h3.sell-content__sub-head 配送について
+          %a.sell-content__form-question.sell-content__form-question--require{:href => "#", :target => "_blank"} ?
+          .sell-content__form-box
+            .sell-content__form-group
+              %label.sell-content__form-group--text
+                配送料の負担
+                %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+              .sell-content__select-wrap
+                %i.fa.fa-angle-down.icon
+                %select.select-default
+            .sell-content__form-group
+              %label.sell-content__form-group--text
+                発送元の地域
+                %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+              .sell-content__select-wrap
+                %i.fa.fa-angle-down.icon
+                %select.select-default
+            .sell-content__form-group
+              %label.sell-content__form-group--text
+                発送までの日数
+                %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+              .sell-content__select-wrap
+                %i.fa.fa-angle-down.icon
+                %select.select-default
+        .sell-content.clearfix
+          %h3.sell-content__sub-head 販売価格(300〜9,999,999)
+          %a.sell-content__form-question.sell-content__form-question--edit{:href => "#", :target => "_blank"} ?
+          .sell-content__form-box
+            %ul.sell-content__price
+              %li.sell-content__form-group
+                .clearfix
+                  %label.sell-content__form-group__left
+                    価格
+                    %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+                  .sell-content__form-group__right.sell-content__price-input
+                    ¥
+                    %div
+                      %input.sell-content__input-default{:placeholder => "例）300", :value => ""}/
+              %li.clearfix
+                .sell-content__left
+                  販売手数料 (10%)
+                .sell-content__right -
+              %li.clearfix.bold
+                .sell-content__left 販売利益
+                .sell-content__right -
+        .modal{:role => "dialog", :tabindex => "-1"}
+          .modal__inner
+        .sell-content.sell-content-btn-box
+          %div
+            %p
+              %a{:href => "/jp/help_center/getting_started/prohibited_items/", :target => "_blank"} 禁止されている出品
+              、
+              %a{:href => "/jp/help_center/getting_started/prohibited_conduct/", :target => "_blank"} 行為
+              を必ずご確認ください。
+            %p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              %a{:href => "/jp/help_center/getting_started/counterfeit_goods/", :target => "_blank"} 偽ブランドの販売
+              は犯罪であり処罰される可能性があります。
+            %p
+              また、出品をもちまして
+              %a{:href => "/jp/seller_terms/"} 加盟店規約
+              に同意したことになります。
+          -# %button.btn-default.btn-red{:type => "submit"}
+          = f.submit '出品する', class: 'btn-default btn-red'
+          = link_to root_path, class: 'btn-default btn-gray' do
+            もどる
+          -# %a.btn-default.btn-gray もどる
+      .overlay
+
+  %footer.sell-footer
+    %nav
+      %ul.clearfix
+        %li
+          %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %li
+          %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %li
+          %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+    %a.sell-footer__logo{:href => "https://www.mercari.com/jp/"}
+      %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2651893653", :width => "80"}/
+    %p
+      %small © 2019 Mercari

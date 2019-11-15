@@ -1,0 +1,919 @@
+.header 
+  = render "items/headers"
+
+.bred
+
+  
+
+%button{onclick: "#", id: "footer--sell-btn"}
+  %div 出品
+  %i.fa.fa-camera
+
+.category
+  .category-main
+
+    %section.category-search
+      .category-list
+        %h2.categories-menu カテゴリー一覧
+
+      .category-parent
+        -@parents.each do |parent|
+          .parent-name
+            = parent.name
+  
+      .category-children
+        .children-list
+          .children-name
+            %h3.children-ladies レディース
+
+          .ladies-all
+            %a.lady-all{:href => "/jp/category/1/"}
+              すべて
+
+            .ladies-tops
+              トップス
+            
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  Tシャツ/カットソー(半袖/袖なし)
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  Tシャツ/カットソー(七分/長袖)
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  シャツ/ブラウス(半袖/袖なし)
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  シャツ/ブラウス(七分/長袖)
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ポロシャツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  キャミソール
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  タンクトップ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ホルターネック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ニット/セーター
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  チュニック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  カーディガン/ボレロ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  アンサンブル
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ベスト/ジレ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  パーカー
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  トレーナー/スウェット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ベアトップ/チューブトップ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ジャージ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              ジャケット/アウター
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  テーラードジャケット
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ノーカラージャケット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  Gジャン/デニムジャケット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  レザージャケット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ダウンジャケット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ライダージャケット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ミリタリージャケット
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ダウンベスト
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ジャンバー/ブルゾン
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ポンチョ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ロングコート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  トレンチコート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ダッフルコート
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ピーコート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  チェスターコート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  モッズコート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              パンツ
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  デニム/ジーンズ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショートパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  カジュアルパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハーフパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  チノパン
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ワークパンツ/カーゴパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  クロッドパンツ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  サロペッド/オーバーオール
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  オールインワン
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  サルエルパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ガウチョパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              パンツ
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  デニム/ジーンズ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショートパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  カジュアルパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハーフパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  チノパン
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ワークパンツ/カーゴパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  クロッドパンツ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  サロペッド/オーバーオール
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  オールインワン
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  サルエルパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ガウチョパンツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+            
+            .ladies-tops
+              スカート
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ミニスカート
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ひざ丈スカート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ロングスカート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  キュロット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              ワンピース
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ミニワンピース
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ひざ丈ワンピース
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ロングワンピース
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              靴
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハイヒール/バンプス
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ブーツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  サンダル
+                  
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  スニーカー
+              
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ミュール
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  モカシン
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ローファー/革靴
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  フラットシューズ/バレエシューズ
+                  
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  長靴/レインシューズ
+                      
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              ルームウェア/パジャマ
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  パジャマ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ルームウェア
+
+            .ladies-tops
+              レッグウェア
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ソックス
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  スパッツ/レギンス
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ストッキング/タイツ
+                  
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  レッグウォーマー
+              
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              帽子
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ニットキャップ/ビーニー
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハンチング/ベレー帽
+                  
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  キャップ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  キャスケット
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  麦わら帽子
+              
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              バック
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハンドバック
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  トートバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  エコバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  リュック/バックパック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ボストンバック
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  スポーツバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショルダーバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  クラッチバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ポーチ/バニティ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ボディバック/ウェストバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  マザースバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  メッセンジャーバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ビジネスバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  旅行用バック/キャリーバック
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショップ袋
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  和装用バック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+
+            .ladies-tops
+              アクセサリー
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハイヒール/バンプス
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ブーツ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  サンダル
+                  
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  スニーカー
+              
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ミュール
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  モカシン
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ローファー/革靴
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  フラットシューズ/バレエシューズ
+                  
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  長靴/レインシューズ
+                      
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              小物
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハンドバック
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  トートバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  エコバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  リュック/バックパック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ボストンバック
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  スポーツバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショルダーバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  クラッチバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ポーチ/バニティ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ボディバック/ウェストバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  マザースバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  メッセンジャーバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ビジネスバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  旅行用バック/キャリーバック
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショップ袋
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  和装用バック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+            .ladies-tops
+              時計
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ハンドバック
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  トートバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  エコバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  リュック/バックパック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ボストンバック
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  スポーツバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショルダーバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  クラッチバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ポーチ/バニティ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ボディバック/ウェストバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  マザースバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  メッセンジャーバック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ビジネスバック
+
+            .ladies-tops
+              ウィッグ/エステ
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  前髪ウィッグ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ロングストレート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ロングカール
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショートストレート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ショートカール
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
+
+            .ladies-tops
+              浴衣/水着
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  浴衣
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  着物
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  振袖
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  リュック/バックパック
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  水着セパレート
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  水着ワンピース
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  水着スポーツ用
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+            
+            .ladies-tops
+              スーツ/フォーマ/ドレス
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  スカートスーツ上下
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  パンツスーツ上下
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ドレス
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  パーティバッグ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  シューズ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ウェディング
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  水着スポーツ用
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+            
+            .ladies-tops
+              マタニティ
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  トップス
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  アウター
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  インナー
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  ワンピース
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  パンツ/スパッツ
+              
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  スカート
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  パジャマ
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  授乳服
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+            
+
+            .ladies-tops
+              その他
+
+            .all-list
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  すべて
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  コスプレ
+            
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  下着
+
+              .all-list__list-menu
+                %a.all-list__list-menu__genre{:href => "/jp/category/11/"}
+                  その他
+
