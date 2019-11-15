@@ -28,7 +28,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :samples , only: [:index]
+  resources :transactions , only: [:new, :create]
   resources :sell do
   end
-  
 end
