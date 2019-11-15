@@ -9,7 +9,7 @@ class SellController < ApplicationController
 
 
   def create
-    @items = Item.new(item_params)
+    @items = Item.new(item_params)    
     if @items.save
       redirect_to root_path
     else
