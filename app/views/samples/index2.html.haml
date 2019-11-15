@@ -1,6 +1,0 @@
-- if user_signed_in?
-  = "Yay! #{current_user.nickname} is on Rails!＼(^o^)／"
-  = link_to "サインアウト", destroy_user_session_path, method: :delete
-- else
-  = "Yay! You're on Rails!＼(^o^)／"
-  = link_to "ユーザ新規登録",signup_index_path, method: :get

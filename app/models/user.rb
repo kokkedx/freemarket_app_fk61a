@@ -8,6 +8,10 @@ class User < ApplicationRecord
   belongs_to :prefecture
   has_one :sns_credential, dependent: :destroy
 
+  has_many :buyer_transactions, class_name: 'Transaction', foreignn_key: 'buyer_id'
+  has_many :seller_transactions, class_name: 'Transaction', foreign_key: 'seller_id'
+
+  
   validates :nickname, presence: true
   validates :last_name, presence: true
   validates :first_name, presence: true
