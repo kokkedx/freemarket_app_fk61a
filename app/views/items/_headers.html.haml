@@ -292,9 +292,8 @@
                   %ul.sc-kcbnda.bOAnUl
                   
                 %li.ladies
-                  %a.ladies__lady{:href => "/jp/category/1/"} カテゴリ一覧
-                  %ul.sc-kcbnda.bOAnUl
-
+                  = link_to "カテゴリ一覧", categories_path, class: ".ladies" 
+        
           .brands-menu
             %a.header-brands{:href => "/jp/brand/"}
               %svg.brands-search{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 23 16", :width => "23"}>

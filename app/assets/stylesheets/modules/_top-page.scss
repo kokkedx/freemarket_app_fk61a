@@ -321,10 +321,18 @@ element.style {
 
   &__wrapper {
     &__center {
-      // height: 390px;
-      // width:1360px;
 
       &__sliders {
+        .slick-prev{
+          height: 46px;
+          width: 31px;
+          background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca886ce42c4c02610cd15421ddcad.png");
+        }
+        .slick-next {
+          height: 46px;
+          width: 31px;
+          background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-next-bc3a1438a1435e953bc67d720cd05c61.png");
+        }
         &__add {
           &__yuta {
             width: 1450px;
@@ -924,45 +932,6 @@ element.style {
 }
 
 
-.slick-prev 
-{
-  position: absolute;
-  // display: block;
-  height: 46px;
-  width: 31px;
-  line-height: 0px;
-  font-size: 0px;
-  background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca886ce42c4c02610cd15421ddcad.png");
-  cursor: pointer;
-  background: transparent;
-  color: transparent;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  padding: 0;
-  border: none;
-  outline: none;
-  z-index: 20000;
-}
-
-
-.slick-next
-{
-  background-color: transparent;
-  cursor: pointer;
-  height: 46px;
-  width: 31px;
-  -webkit-appearance: none;
-  background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-next-bc3a1438a1435e953bc67d720cd05c61.png");
-  border-width: initial;
-  border-style: none;
-  border-color: initial;
-  border-image: initial;
-  padding: 0px;
-  z-index: 20000;
-}
-
 
 //js部分です。
 .category-menus {
@@ -1209,11 +1178,41 @@ element.style {
         .itembox-photo {
           height: 300px;
           width: 300px;
+          .slick-prev {
+            display: none;
+          }
+          .slick-next {
+            display:none;
+          }
 
           .image-for {
             display: block;
             height: 300px;
             width: 300px;
+            img {
+              width: 300px;
+              height: 300px;
+            }
+            .slick-prev {
+              display: none;
+            }
+            .slick-next {
+              display:none;
+            }
+
+            .slick-dots {
+              opacity: .4;
+              width: 300px;
+              height: 300px;
+              margin-bottom: -95px;
+              img {
+                width: 60px;
+                height: 60px;
+              }
+              li {
+                bottom: -180px;
+              }
+            }
           }
         }
       }
