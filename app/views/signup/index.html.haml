@@ -2,7 +2,7 @@
   .signup-header
     %h1.logo
       =link_to root_path,class:"logo__link" do
-        =image_tag "/assets/logo.svg",class: 'logo__image'
+        =image_tag "/assets/images/logo.svg",class: 'logo__image'
   .signup-main
     .signup-main__container
       %h2.signup-main__heading 新規会員登録
@@ -20,4 +20,4 @@
             = form_with url: user_google_oauth2_omniauth_authorize_path, method: :post,local: true  do |f|
               = f.button :submit, {class:"signup-form__button signup-form__button--google"} do
                 Googleで登録する
-  = render partial: "signup_footer"
+  = render partial: "signup/signup_footer"
