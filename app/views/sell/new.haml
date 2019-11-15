@@ -52,9 +52,9 @@
               %div
                 .sell-content__select-wrap
                   %i.fa.fa-angle-down.icon
-                  -# = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'select-default', id: 'sell-main__select-category--main'
+                  -# = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'select-default'
             .sell-content__form-group
-              %label.sell-content__form-group--text
+              =f.label :state, class: 'sell-content__form-group--text' do
                 商品の状態
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
