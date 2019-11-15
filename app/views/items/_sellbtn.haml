@@ -1,3 +1,5 @@
-%button{onclick: "#", id: "footer--sell-btn"}
-  %div 出品
-  %i.fa.fa-camera
+.footer-sell-btn
+  = link_to new_sell_path, class: 'footer-sell-btn__button' do
+    .footer-sell-btn__content
+      .footer-sell-btn__name 出品
+      %i.fas.fa-camera.footer-sell-btn__icon
