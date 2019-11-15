@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :shipping do
+  factory :ship_cost do
     
   end
 end

@@ -6,6 +6,17 @@ require 'jp_prefecture'
   Prefecture.create(name: "#{pref.name}")
 end
 
+#shipping
+ShipCost.create!(
+   name: '送料込み(出品者負担)',
+)
+ShipDate.create!(
+   name: '1~2日で発送',
+)
+#State
+State.create!(
+   name: '新品',
+)
 
 # レディース
 lady = Category.create(name: "レディース")

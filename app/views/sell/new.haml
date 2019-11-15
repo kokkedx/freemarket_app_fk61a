@@ -6,7 +6,7 @@
   .sell-main
     .sell-main__containar
       %h2.sell-main__heading 商品の情報を入力
-      = form_with model: @item, url: sell_index_path, class:'sell-form' do |f|
+      = form_with model: @item, url: sell_index_path,method: :post,local: true, class:'sell-form' do |f|
         .upload-box
           %h3.upload-box__head
             出品画像
@@ -32,13 +32,13 @@
                   %i.fa.fa-camera.icon
         .sell-content
           .sell-content__form-group
-            =f.label :name, class:'sell-content__form-group--text' do
+            = f.label :name, class:'sell-content__form-group--text' do
               商品名
               %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
             %div
               = f.text_field :name, { class:'sell-content__input-default', placeholder: '商品名（必須 40文字まで)' , :value => ""}
           .sell-content__form-group
-            =f.label :description, class: 'sell-content__form-group--text' do
+            = f.label :description, class: 'sell-content__form-group--text' do
               商品の説明
               %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
             = f.text_area :description, { class: 'sell-content__textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5' }
@@ -46,45 +46,45 @@
           %h3.sell-content__sub-head 商品の詳細
           .sell-content__form-box
             .sell-content__form-group
-              =f.label :category_id, class: 'sell-content__form-group--text' do
+              = f.label :category_id, class: 'sell-content__form-group--text' do
                 カテゴリー
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               %div
                 .sell-content__select-wrap
                   %i.fa.fa-angle-down.icon
-                  -# = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'select-default'
+                  = f.collection_select :category_id, Category.where('1'), :id, :name, { prompt: '--' }, class: 'select-default'
             .sell-content__form-group
-              =f.label :state, class: 'sell-content__form-group--text' do
+              = f.label :state_id, class: 'sell-content__form-group--text' do
                 商品の状態
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                %select.select-default
+                = f.collection_select :state_id, State.all, :id, :name, { prompt: '--' }, class: 'select-default'
         .sell-content.clearfix
           %h3.sell-content__sub-head 配送について
           %a.sell-content__form-question.sell-content__form-question--require{:href => "#", :target => "_blank"} ?
           .sell-content__form-box
             .sell-content__form-group
-              %label.sell-content__form-group--text
+              = f.label :ship_cost, class: 'sell-content__form-group--text' do
                 配送料の負担
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                %select.select-default
+                = f.collection_select :ship_cost, ShipCost.all, :id, :name, { prompt: '--' }, class: 'select-default'
             .sell-content__form-group
-              %label.sell-content__form-group--text
+              = f.label :prefecture_id, class: 'sell-content__form-group--text' do
                 発送元の地域
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                %select.select-default
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "--"}, {class:"select-default"}
             .sell-content__form-group
-              %label.sell-content__form-group--text
+              = f.label :ship_date, class: 'sell-content__form-group' do
                 発送までの日数
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                %select.select-default
+                = f.collection_select :ship_date, ShipDate.all, :id, :name,{prompt: "--"}, {class:"select-default"}
         .sell-content.clearfix
           %h3.sell-content__sub-head 販売価格(300〜9,999,999)
           %a.sell-content__form-question.sell-content__form-question--edit{:href => "#", :target => "_blank"} ?
@@ -92,13 +92,13 @@
             %ul.sell-content__price
               %li.sell-content__form-group
                 .clearfix
-                  %label.sell-content__form-group__left
+                  = f.label :price, class:'sell-content__form-group__left' do
                     価格
                     %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
                   .sell-content__form-group__right.sell-content__price-input
                     ¥
                     %div
-                      %input.sell-content__input-default{:placeholder => "例）300", :value => ""}/
+                      = f.text_field :price, { class: 'sell-content__input-default', placeholder: '例）300',  value: '' }
               %li.clearfix
                 .sell-content__left
                   販売手数料 (10%)

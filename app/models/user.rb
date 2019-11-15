@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   belongs_to :prefecture
   has_one :sns_credential, dependent: :destroy
+  has_many :items
 
   validates :nickname, presence: true
   validates :last_name, presence: true
