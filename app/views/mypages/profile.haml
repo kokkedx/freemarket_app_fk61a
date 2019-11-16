@@ -1,4 +1,8 @@
-= render "items/headers"
+.header
+  = render "items/headers"
+
+- breadcrumb :mypage
+= breadcrumbs separator: " &rsaquo; "
 
 .mypage-main
   .mypage-container.clearfix
