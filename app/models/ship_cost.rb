@@ -1,3 +1,3 @@
 class ShipCost < ApplicationRecord
-  has_many :itemss
+  has_many :items
 end

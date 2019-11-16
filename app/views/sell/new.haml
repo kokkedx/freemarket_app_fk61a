@@ -49,10 +49,10 @@
               = f.label :category_id, class: 'sell-content__form-group--text' do
                 カテゴリー
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
-              %div
+              %div.buid-js
                 .sell-content__select-wrap
                   %i.fa.fa-angle-down.icon
-                  = f.collection_select :category_id, Category.where('1'), :id, :name, { prompt: '--' }, class: 'select-default'
+                  = f.collection_select :category_id, Category.where(ancestry:nil), :id, :name, { prompt: '--' }, class: 'select-default', id: 'parent-form' 
             .sell-content__form-group
               = f.label :state_id, class: 'sell-content__form-group--text' do
                 商品の状態
@@ -65,12 +65,12 @@
           %a.sell-content__form-question.sell-content__form-question--require{:href => "#", :target => "_blank"} ?
           .sell-content__form-box
             .sell-content__form-group
-              = f.label :ship_cost, class: 'sell-content__form-group--text' do
+              = f.label :ship_cost_id, class: 'sell-content__form-group--text' do
                 配送料の負担
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                = f.collection_select :ship_cost, ShipCost.all, :id, :name, { prompt: '--' }, class: 'select-default'
+                = f.collection_select :ship_cost_id, @cost, :id, :name, { prompt: '--' }, class: 'select-default',id:'#deliver-form'
             .sell-content__form-group
               = f.label :prefecture_id, class: 'sell-content__form-group--text' do
                 発送元の地域
@@ -79,12 +79,12 @@
                 %i.fa.fa-angle-down.icon
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "--"}, {class:"select-default"}
             .sell-content__form-group
-              = f.label :ship_date, class: 'sell-content__form-group' do
+              = f.label :ship_date_id, class: 'sell-content__form-group' do
                 発送までの日数
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                = f.collection_select :ship_date, ShipDate.all, :id, :name,{prompt: "--"}, {class:"select-default"}
+                = f.collection_select :ship_date_id, ShipDate.all, :id, :name,{prompt: "--"}, {class:"select-default"}
         .sell-content.clearfix
           %h3.sell-content__sub-head 販売価格(300〜9,999,999)
           %a.sell-content__form-question.sell-content__form-question--edit{:href => "#", :target => "_blank"} ?

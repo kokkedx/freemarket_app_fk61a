@@ -7,16 +7,31 @@ require 'jp_prefecture'
 end
 
 #shipping
-ShipCost.create!(
-   name: '送料込み(出品者負担)',
-)
-ShipDate.create!(
-   name: '1~2日で発送',
-)
+ShipCost.create(name: '送料込み(出品者負担)')
+ShipCost.create(name: '着払い(購入者負担)')
+ShipCost.create(name: '未定')
+ShipCost.create(name: 'クロネコヤマト')
+ShipCost.create(name: 'ゆうパック')
+ShipCost.create(name: 'ゆうメール')
+ShipCost.create(name: 'らくらくメルカリ便')
+ShipCost.create(name: 'レターパック')
+ShipCost.create(name: '普通郵便(定形、定形外)')
+ShipCost.create(name: '着払い(購入者負担)')
+ShipCost.create(name: 'クリックポスト')
+ShipCost.create(name: 'ゆうパケット')
+
+
+ShipDate.create( name: '1~2日で発送')
+ShipDate.create( name: '2~3日で発送')
+ShipDate.create( name: '4~7日で発送')
+
 #State
-State.create!(
-   name: '新品',
-)
+State.create(name: '新品、未使用')
+State.create(name: '未使用に近い')
+State.create(name: '目立った傷や汚れなし')
+State.create(name: 'やや傷や汚れあり')
+State.create(name: '全体的に状態が悪い')
+
 
 # レディース
 lady = Category.create(name: "レディース")

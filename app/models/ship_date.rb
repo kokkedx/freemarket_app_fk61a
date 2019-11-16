@@ -1,3 +1,3 @@
 class ShipDate < ApplicationRecord
-  has_many :itemss
+  has_many :items
 end

@@ -6,17 +6,15 @@ class SellController < ApplicationController
   
   def new
     @item = Item.new
+    @cost = ShipCost.find(1,2)
   end
 
 
   def create
     @item = Item.new(item_params)
-    @item.size = 1
-    # @item.ship_cost = 1
-    # @item.ship_date = 1
-
-
-    binding.pry
+    @item.size = "1"
+    
+    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -26,7 +24,7 @@ class SellController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :state_id, :ship_cost,:ship_date, :price, :size, :category_id, images: [])
+    params.require(:item).permit(:name, :description, :state_id, :ship_cost_id,:ship_date_id, :price, :size, :category_id, :prefecture_id, images: [])
     # params.require(:item).permit(:name, :description, :state_id, :price, :category_id, images: [])
   end
 end
