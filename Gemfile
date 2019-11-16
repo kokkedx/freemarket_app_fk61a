@@ -44,6 +44,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'omniauth-rails_csrf_protection'
  gem 'twilio-ruby'
  gem 'ancestry'
+ gem 'gretel'
+
 
 
 gem 'recaptcha', require: "recaptcha/rails"
