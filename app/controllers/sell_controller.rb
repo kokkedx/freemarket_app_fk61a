@@ -1,15 +1,18 @@
 class SellController < ApplicationController
   def index
-    # @items = Item.limit(10).order('created_at DESC')
+    @items = Item.limit(10).order('created_at DESC')
+    @category = Categpry.all
   end
   
   def new
     @item = Item.new
+    @cost = ShipCost.find(1,2)
   end
 
 
   def create
-    @items = Item.new(item_params)    
+    @item = Item.new(item_params)
+    @item.size = "1"
     if @items.save
       redirect_to root_path
     else
@@ -19,6 +22,7 @@ class SellController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, images: [])
+    params.require(:item).permit(:name, :description, :state_id, :ship_cost_id,:ship_date_id, :price, :size, :category_id, :prefecture_id, images: [])
+    # params.require(:item).permit(:name, :description, :state_id, :price, :category_id, images: [])
   end
 end

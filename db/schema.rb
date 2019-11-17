@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_15_082845) do
+ActiveRecord::Schema.define(version: 2019_11_16_111925) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,11 +48,16 @@ ActiveRecord::Schema.define(version: 2019_11_15_082845) do
     t.string "size", null: false
     t.bigint "state_id"
     t.bigint "category_id"
-    t.bigint "shipping_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ship_cost_id"
+    t.bigint "ship_date_id"
+    t.bigint "prefecture_id"
+    t.integer "user_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["shipping_id"], name: "index_items_on_shipping_id"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["ship_cost_id"], name: "index_items_on_ship_cost_id"
+    t.index ["ship_date_id"], name: "index_items_on_ship_date_id"
     t.index ["state_id"], name: "index_items_on_state_id"
   end
 
@@ -60,14 +65,16 @@ ActiveRecord::Schema.define(version: 2019_11_15_082845) do
     t.string "name"
   end
 
-  create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "ship_costs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "cost", null: false
-    t.bigint "prefecture_id"
-    t.string "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["prefecture_id"], name: "index_shippings_on_prefecture_id"
+  end
+
+  create_table "ship_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -126,7 +133,9 @@ ActiveRecord::Schema.define(version: 2019_11_15_082845) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "shippings"
+  add_foreign_key "items", "prefectures"
+  add_foreign_key "items", "ship_costs"
+  add_foreign_key "items", "ship_dates"
   add_foreign_key "items", "states"
   add_foreign_key "sns_credentials", "users"
 end

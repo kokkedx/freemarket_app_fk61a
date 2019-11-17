@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   root to: 'items#index'
-  
-  resources :items, only: [:index, :show] 
+
+  resources :items, only: [:index, :show, :create] do
+    collection do
+      get 'search'
+    end
+  end
+
   resources :categories, only: [:index, :new, :show]
- 
+
 
   resources :login , only: [:index]
   resources :signup , only: [:index,:create] do 
@@ -14,8 +19,8 @@ Rails.application.routes.draw do
       post 'sms_confirmation'
       post 'sms'
       post 'address'
-      post 'payment' # ここで、入力の全てが終了する
-      get 'finish' # 登録完了後のページ
+      post 'payment'
+      get 'finish'
     end
   end
 
