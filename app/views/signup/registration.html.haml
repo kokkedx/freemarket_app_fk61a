@@ -1,8 +1,8 @@
-.container
+.signup-container
   .signup-header
     %h1.logo
       =link_to root_path,class:"logo__link" do
-        =image_tag "/assets/logo.svg",class: 'logo__image'
+        =image_tag "logo.svg",class: 'logo__image'
     %nav.signup-progress
       %ol.signup-progress__list.clearfix
         %li.signup-progress__button.signup-progress__button--active
@@ -117,4 +117,4 @@
               %a{href: "#",target: "_blank"}
                 本人情報の登録について
                 %i.icon-arrow-right
-  = render partial: "signup_footer"
+  = render partial: "signup/signup_footer"

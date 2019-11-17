@@ -1,8 +1,8 @@
-.container
+.signup-container
   .signup-header
     %h1.logo
       =link_to root_path,class:"logo__link" do
-        =image_tag "/assets/logo.svg",class: 'logo__image'
+        =image_tag "logo.svg",class: 'logo__image'
     %nav.signup-progress
       %ol.signup-progress__list.clearfix
         %li.signup-progress__button.signup-progress__button--through
@@ -35,4 +35,4 @@
           .signup-form__group
             %p.signup-form__single-text.signup-form__single-text--text-center
               ここにメルカリのフッターが入る
-  = render partial: "signup_footer"
+  = render partial: "signup/signup_footer"

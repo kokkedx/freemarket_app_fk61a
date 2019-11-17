@@ -1,0 +1,60 @@
+.container
+  .signup-header
+    %h1.logo
+      =link_to root_path,class:"logo__link" do
+        =image_tag "logo.svg",class: 'logo__image'
+  .signup-main
+    .signup-main__container.buy-wrapper
+      .transact-attention
+        %h3.transact-attention__heading
+          %i.icon-time
+          %span 発送をお待ちください
+        %p 出品者からの発送通知をお待ちください
+      %h2.signup-main__heading.transact-heading 購入が完了しました
+      %section.buy-content.buy-item
+        .buy-content__inner
+          %h3.buy-item__image
+            %img.buy-item__image--big{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m39846776563_1.jpg?1573002852", :src => "https://static.mercdn.net/thumb/photos/m39846776563_1.jpg?1573002852"}/
+          %p.buy-item__name Item Name
+      %section.buy-content.buy-user__info.buy-item
+        .buy-content__inner
+          %p.buy-price
+            ¥540
+            %span.buy-item__shipping-fee 送料込み
+      %section.buy-content.buy-user__info
+        .buy-content__inner
+          %h3 配送先
+          %address.buy-user__info-text
+            〒810-0000
+            %br/
+            福岡県 福岡市北区
+            架空1-1-1-243
+            %br/
+            小幡 祐也
+          %p.buy-user__info-text
+      %section.buy-content.buy-user__info{"data-buy" => "pay-method"}
+        .buy-content__inner
+          %h3 支払い方法
+          %p.buy-user__info-text
+            ************1234
+            %br/
+            01 / 22
+          %figure
+            %img{:alt => "visa", :height => "15", :src => "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3580354878", :width => "49"}/
+          %p
+      %section.buy-content.buy-done-flow
+        %h3 発送通知後の流れ
+        %div
+          %i.icon-good
+          %i.icon-normal
+          %i.icon-bad
+        %p
+          商品を受け取ったら
+          %br>/
+          出品者の評価をしましょう。
+          %br>/
+          購入代金が出品者に振り込まれます。
+          %br>/
+          評価後に取引は完了です。
+        =link_to "マイページへ戻る",root_path
+  = render partial: "signup/signup_footer"
