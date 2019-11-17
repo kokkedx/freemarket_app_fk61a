@@ -7,6 +7,7 @@
     .sell-main__containar
       %h2.sell-main__heading 商品の情報を入力
       = form_with model: @item, url: sell_index_path,method: :post,local: true, class:'sell-form' do |f|
+        = f.number_field :user_id, {value:current_user.id, type:"hidden"}
         .upload-box
           %h3.upload-box__head
             出品画像

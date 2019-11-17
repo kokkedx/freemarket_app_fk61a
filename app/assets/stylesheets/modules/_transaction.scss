@@ -40,6 +40,10 @@
   }
 }
 
+.buy-accordion{
+  margin: 16px 0 0;
+}
+
 
 .buy-item{
   text-align: center;
@@ -55,10 +59,12 @@
   }
   &__name{
     flex:1;
-    margin: 8px 0 0;
     font-size: 16px;
     line-height: 1.5;
     font-weight: bold;
+    text-align: left;
+    width: calc(100% - 80px);
+    margin: 0 0 0 16px;
     text-align: left;
   }
   &__shipping-fee{
@@ -94,8 +100,28 @@
 
 .buy-price{
   margin: 16px 0 0;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: bold;
+  &__table{
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  &__row{
+    display: table-row;
+  }
+  &__cell{
+    display: table-cell;
+    padding: 16px 0;
+    text-align: right;
+    font-weight:bold;
+    &:first-of-type{
+      text-align:left;
+    }
+    span{
+    font-size:28px;
+    }
+  }
 }
 
 .buy-done-flow{
@@ -135,6 +161,18 @@
     cursor: pointer;
     border: 1px solid #ccc;
     padding: 16px;
+    width:100%;
+    &--red{
+      background: $buttonColor;
+      border: 1px solid $buttonColor;
+      color: #fff;
+      margin: 24px 0 0 ;
+      &:disabled{
+        background: #ccc;
+        border: 1px solid #ccc;
+        transition: none
+      }
+    }
   }
   &__child{
     display:none;
@@ -142,4 +180,40 @@
     background: #fafafa;
     text-align: left;
   }    
+}
+
+.radio-default{
+  margin: 16px 0 0;
+  position: relative;
+  label{
+    margin: 0 0 0 28px;
+    font-weight: 400;
+    cursor: pointer;
+    display: block;
+  }
+  input[type='radio']{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-transition: all ease-out .3s;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+
+    &:focus{
+      outline: 0;
+    }
+    &:checked{
+    border: 0;
+    border: 6px solid #0099e8;
+    }
+  }
 }
