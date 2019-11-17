@@ -98,14 +98,14 @@
                   .sell-content__form-group__right.sell-content__price-input
                     ¥
                     %div
-                      %input.sell-content__input-default{:placeholder => "例）300", :value => ""}/
+                      %input.sell-content__input-default{:placeholder => "例）300","data-js": "price-imput", :value => ""}/
               %li.clearfix
                 .sell-content__left
                   販売手数料 (10%)
-                .sell-content__right -
+                %p.sell-content__right{"data-js": "tesuryo"} -
               %li.clearfix.bold
                 .sell-content__left 販売利益
-                .sell-content__right -
+                .sell-content__right{"data-js": "goukei"} -
         .modal{:role => "dialog", :tabindex => "-1"}
           .modal__inner
         .sell-content.sell-content-btn-box

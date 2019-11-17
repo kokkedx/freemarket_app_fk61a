@@ -117,16 +117,20 @@ $(function () {
   //カテゴリメニュー
   $(".category-menu").on("mouseover", function() {
     $(".category-menus").show();
+    $(".header-category").css({"color": "#0099FF"});
   });
   $(".category-menu").on("mouseout", function() {
     $(".category-menus").hide();
+    $(".header-category").css({"color": "black"});
   });
   //ブランドメニュー
   $(".brands-menu").on("mouseover", function() {
     $(".brand-menu").show();
+    $(".header-brands").css({"color": "#0099FF"});
   });
   $(".brands-menu").on("mouseout", function() {
     $(".brand-menu").hide();
+    $(".header-brands").css({"color": "black"});
   });
   //お知らせメニュー
   $(".notice-menu").on("mouseover", function() {
