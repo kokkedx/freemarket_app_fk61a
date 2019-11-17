@@ -1,6 +1,7 @@
 class SignupController < ApplicationController
 
   def index
+    reset_session
   end
 
   def registration
