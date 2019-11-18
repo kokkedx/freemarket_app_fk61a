@@ -40,6 +40,8 @@ State.create(name: 'やや傷や汚れあり')
 State.create(name: '全体的に状態が悪い')
 
 
+
+
 # レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")

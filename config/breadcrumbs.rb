@@ -28,6 +28,12 @@ crumb :card do
   parent :mypage
 end
 
+crumb :edit do
+  link "出品した商品-出品 ", myitem_mypages_path
+  parent :mypage
+end
+
+
 
 # crumb :project do |project|
 #   link project.name, project_path(project)

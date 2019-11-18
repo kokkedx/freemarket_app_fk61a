@@ -14,7 +14,6 @@ class SellController < ApplicationController
     binding.pry
     @item = Item.new(item_params)
     @item.size = "ここにサイズの名前が入ります"
-    
     if @item.save
       redirect_to root_path
     else

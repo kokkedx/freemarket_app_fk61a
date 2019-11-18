@@ -1,5 +1,5 @@
 $(function () {
-  //マウスオーバー、マウスアウト(カテゴリー)
+  
   $(".ladies").on("mouseover", function(){
     $(".ladies").css({"background-color": "red", "color": "white"});
   }).on("mouseout",function(){
@@ -111,7 +111,6 @@ $(function () {
   }).on("mouseout",function(){
     $(".brands").css({"background-color": "#FFFFFF", "color": "black"});
   })
-
 
 
   //カテゴリメニュー

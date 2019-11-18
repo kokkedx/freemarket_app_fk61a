@@ -71,6 +71,7 @@
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
+
                 = f.collection_select :ship_cost_id, @cost, :id, :name, { prompt: '--' }, class: 'select-default'
             .sell-content__form-group{ id: 'sell-content__form-group--delivery-cost'}
               = f.label :ship_delivery_id, class: 'sell-content__form-group--text' do
