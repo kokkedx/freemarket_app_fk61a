@@ -35,7 +35,20 @@ Rails.application.routes.draw do
   end
 
   resources :samples , only: [:index]
-  resources :transactions , only: [:new, :create]
+
+  resources :transactions , only: [:create] do
+    collection do
+      post 'buying'
+    end
+  end
+
   resources :sell do
   end
+
+  
+  # namespace :api do
+  #   resources :sell, only: :new, defaults: { format: 'json' }
+  #   get '/sell/new_delivery', to: 'sell#new_delivery', defaults: { format: 'json' }
+  # end
+
 end

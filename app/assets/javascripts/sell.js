@@ -47,11 +47,11 @@ $(function(){
 //画像プレビューから削除
 $(document).on('click', '.sell-upload__containar__button--delete', function(){
   $(this).parents('.sell-upload__containar__image').remove();
-  console.log('発火')
   let uploadItemLength = $(uploadItems).children('li').length;
   $(uploadItems).removeClass().addClass(`sell-upload__containar__items sell-upload__containar__items--have-item-${uploadItemLength % 5}`);
   $(uploadDropBox).removeClass().addClass(`sell-upload__drop-box sell-upload__drop-box--have-item-${uploadItemLength % 5}`);
 });
+
 
 // $('#sell-upload__containar__button--delete').on('click', function(){
 //   $(this).parents('.sell-upload__containar__image').remove();

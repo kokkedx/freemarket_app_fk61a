@@ -38,13 +38,13 @@ gem 'jbuilder', '~> 2.5'
   gem "mini_magick"
   gem 'aws-sdk-s3', require: false
 
- gem 'omniauth'
- gem 'omniauth-facebook'
- gem 'omniauth-google-oauth2'
- gem 'omniauth-rails_csrf_protection'
- gem 'twilio-ruby'
- gem 'ancestry'
- gem 'gretel'
+  gem 'omniauth'
+  gem 'omniauth-facebook'
+  gem 'omniauth-google-oauth2'
+  gem 'omniauth-rails_csrf_protection'
+  gem 'twilio-ruby'
+  gem 'ancestry'
+  gem 'gretel'
 
 
 
@@ -100,4 +100,3 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
-gem 'rails-erd'

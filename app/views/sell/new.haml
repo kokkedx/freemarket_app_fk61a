@@ -7,6 +7,7 @@
     .sell-main__containar
       %h2.sell-main__heading 商品の情報を入力
       = form_with model: @item, url: sell_index_path,method: :post,local: true, class:'sell-form' do |f|
+        = f.number_field :user_id, {value:current_user.id, type:"hidden"}
         .upload-box
           %h3.upload-box__head
             出品画像
@@ -64,13 +65,21 @@
           %h3.sell-content__sub-head 配送について
           %a.sell-content__form-question.sell-content__form-question--require{:href => "#", :target => "_blank"} ?
           .sell-content__form-box
-            .sell-content__form-group
+            .sell-content__form-group{ id: 'sell-content__form-group--delivery-cost'}
               = f.label :ship_cost_id, class: 'sell-content__form-group--text' do
                 配送料の負担
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                -# = f.collection_select :ship_cost_id, @cost, :id, :name, { prompt: '--' }, class: 'select-default',id:'#deliver-form'
+
+                = f.collection_select :ship_cost_id, @cost, :id, :name, { prompt: '--' }, class: 'select-default'
+            .sell-content__form-group{ id: 'sell-content__form-group--delivery-cost'}
+              = f.label :ship_delivery_id, class: 'sell-content__form-group--text' do
+                発送の方法
+                %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
+              .sell-content__select-wrap
+                %i.fa.fa-angle-down.icon
+                = f.collection_select :ship_delivery_id, ShipDelivery.all, :id, :name, { prompt: '--' }, class: 'select-default'
             .sell-content__form-group
               = f.label :prefecture_id, class: 'sell-content__form-group--text' do
                 発送元の地域
