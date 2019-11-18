@@ -45,9 +45,9 @@ Rails.application.routes.draw do
   end
 
   
-  namespace :api do
-    resources :sell, only: :new, defaults: { format: 'json' }
-    get '/sell/new_delivery', to: 'sell#new_delivery', defaults: { format: 'json' }
-  end
+  # namespace :api do
+  #   resources :sell, only: :new, defaults: { format: 'json' }
+  #   get '/sell/new_delivery', to: 'sell#new_delivery', defaults: { format: 'json' }
+  # end
 
 end
