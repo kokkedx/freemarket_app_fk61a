@@ -10,8 +10,9 @@
       %section.mypage-container__content__user-icon
         %a{href: "#"}
           %figure
-            %img{:alt => "", :height => "60", :src => "//static.mercdn.net/thumb/members/530721595.jpg?1572404931", :width => "60"}/
-          %h2 kokke
+            %img{:alt => "", :height => "60", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+          %h2 
+            = current_user.nickname
           .mypage-number
             .mypage-number__detail
               評価
