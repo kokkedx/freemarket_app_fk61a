@@ -19,6 +19,7 @@ li {
 }
 
 
+
 *, ::before, ::after {
   box-sizing: border-box;
 }
@@ -44,303 +45,303 @@ element.style {
   opacity: 1;
 }
 
+
+
 .header {
-  background-color: rgb(245, 245, 245);
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100px;
-  z-index: 3;
-
- 
+  position:relative;
+  z-index:2;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  
+  .breadcrumbs {
+    position: relative;
+    border-top: 1px solid #eee;
+    background: #f5f5f5;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    background: #fff;
+    height: 48px;
+    padding-left: 210px;
+    
+    #text {
+      margin: 0 8px;
+      font-size: 9px;
+      color: #888;
+    }
+    a {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      margin-top: 15px;
+      height: 48px;
+      margin-bottom: 10px;
+    }
+  }
+  
   .header-main {
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-    padding-top: 6px;
-  }
+    z-index:1000;
+    height: 100px;
+    width: 100%;
+    
+    .header-wrapper {
+      position: relative;
+      display: block;
+      color: black;
 
-  //mercari-header
-  .header-wrapper {
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-    position: relative;
-    z-index: 2;
-    display: block;
-    color: black;
-    .header-first {
-      display: flex;
-      width: 1020px;
-      margin: 0px auto;
-      padding: 8px 0px 0px;
-
-      //header(1)
-      .first-group {
+    }
+      .header-first {
+        display: flex;
+        width: 1020px;
+        margin: 0px auto;
+        padding: 8px 0px 0px;
+  
+        //header(1)
+        .first-group {
+          display: flex;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          .mercari {
+            -webkit-box-align: center;
+            align-items: center;
+            display: flex;
+            height: 40px;
+            margin-right: 45px;
+            &__logo {
+              display: block;
+              color: inherit;
+              text-decoration: none;
+              font-weight: 400px;
+              height: 36px;
+              width: 134px;
+              // vertical-align: middle;
+            }
+          }
+        }
+  
+        .form-box {
+          position: relative;
+          width: 100%;
+          &__form {
+            background-color: rgb(245, 245, 245);
+            font-size: 16px;
+            height: 40px;
+            width: 840px;
+            -webkit-appearance: none;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(204, 204, 204);
+            border-image: initial;
+            border-radius: 4px;
+            outline: none;
+            padding: 0px 50px 0px 10px;
+            transition: all 0.3s ease-out 0s;
+          }
+          &__btn {
+            background-color: transparent;
+            cursor: pointer;
+            height: 40px;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 40px;
+            -webkit-appearance: none;
+            border-width: initial;
+            border-style: none;
+            border-color: initial;
+            border-image: initial;
+            border-radius: 0px 4px 4px 0px;
+            padding: 0px;
+            &__search {
+              max-width: 100%;
+              max-height: 100%;
+              color: rgb(34, 34, 34);
+              height: 14px;
+              margin-top: 2px;
+              width: 14px;
+            }
+          }
+        }
+      }  
+      
+      //header(2)
+      .header-second {
+        margin: 0 auto;
         display: flex;
         -webkit-box-pack: justify;
         justify-content: space-between;
-        .mercari {
-          -webkit-box-align: center;
-          align-items: center;
-          display: flex;
-          height: 40px;
-          margin-right: 45px;
-          &__logo {
-            display: block;
-            color: inherit;
-            text-decoration: none;
-            font-weight: 400px;
-            height: 36px;
-            width: 134px;
-            // vertical-align: middle;
-          }
-        }
-      }
-
-      .form-box {
-        position: relative;
-        width: 100%;
-        &__form {
-          background-color: rgb(245, 245, 245);
-          font-size: 16px;
-          height: 40px;
-          width: 840px;
-          -webkit-appearance: none;
-          border-width: 1px;
-          border-style: solid;
-          border-color: rgb(204, 204, 204);
-          border-image: initial;
-          border-radius: 4px;
-          outline: none;
-          padding: 0px 50px 0px 10px;
-          transition: all 0.3s ease-out 0s;
-        }
-        &__btn {
-          background-color: transparent;
-          cursor: pointer;
-          height: 40px;
-          position: absolute;
-          right: 0px;
-          top: 0px;
-          width: 40px;
-          -webkit-appearance: none;
-          border-width: initial;
-          border-style: none;
-          border-color: initial;
-          border-image: initial;
-          border-radius: 0px 4px 4px 0px;
-          padding: 0px;
-          &__search {
-            max-width: 100%;
-            max-height: 100%;
-            color: rgb(34, 34, 34);
-            height: 14px;
-            margin-top: 2px;
-            width: 14px;
-          }
-        }
-      }
-    }  
-    
-    //header(2)
-    .header-second {
-      margin: 0 auto;
-      display: flex;
-      -webkit-box-pack: justify;
-      justify-content: space-between;
-      margin-top: 8px;
-      width: 1020px;
-      height: 44px;
-
-
-      //カテゴリー&ブランド
-      .second-group {
-        display: block;
-        display: flex;
-        margin-left: -3px;
-        
-        .category-menu {
-          cursor: pointer;
-          position: relative;
-          z-index: 3;
-          padding: 0px 8px;
-
-          .header-category {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 36px;
-            white-space: nowrap;
-
-            //カテゴリーを探す
-            .category-search {
-              max-width: 170px;
-              max-height: 100%;
-              color: rgb(234, 53, 45);
-              margin-right: 4px;
-            }
-          }
-        }
-        
-        .brands-menu {
-          cursor: pointer;
-          height: 44px;
-          width: 170px;
-          position: relative;
-          padding: 0px 10px;
-
-          .header-brands{
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 36px;
-            z-index: 3;
-
-            //ブランドから探す
-              .brands-search {
-                color: rgb(234, 53, 45);
-              max-width: 100%;
-              max-height: 100%;
-              height: 12px;
-              margin-right: 4px;
-            }
-          }
-        }
-      }
-
-      .fours-group {
-        position: relative;
-        display: flex;
+        margin-top: 8px;
+        width: 1020px;
         height: 44px;
-
-        //いいね!一覧
-        .like-list {
-          -webkit-box-align: center;
-          align-items: center;
-          font-size: 14px;
-          transform: scale(1);
-          transition: all 0.3s ease-out 0s;
-          padding-right: 15px;
-
-          .like {
-            -webkit-box-align: center;
-            align-items: center;
-            display: flex;
-            font-size: 14px;
-            height: 32px;
-            transform: scale(1);
-            transition: all 0.3s ease-out 0s;
-
-            .like-menu {
-              max-width: 100%;
-              height: auto;
-              max-height: 100%;
-              color: rgb(204, 204, 204);
-              margin-right: 10px;
-              width: 19px;
-            } 
+  
+  
+        //カテゴリー&ブランド
+        .second-group {
+          display: block;
+          display: flex;
+          margin-left: -3px;
+          
+          .category-menu {
+            cursor: pointer;
+            position: relative;
+            z-index: 3;
+            padding: 0px 8px;
+  
+            .header-category {
+              display: block;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 36px;
+              white-space: nowrap;
+  
+              //カテゴリーを探す
+              .category-search {
+                max-width: 170px;
+                max-height: 100%;
+                color: rgb(234, 53, 45);
+                margin-right: 4px;
+              }
+            }
           }
-        }
-
-        //お知らせ
-        .notice-list {
-          height: 44px;
-          position: relative;
-          padding: 0px 7px;
-          .notice-menu {
-            -webkit-box-align: center;
-            align-items: center;
-            display: flex;
-            font-size: 14px;
-            height: 32px;
-            transform: scale(1);
-            transition: all 0.3s ease-out 0s;
-            .notice {
-              max-width: 100%;
-              height: auto;
-              max-height: 100%;
-              color: rgb(204, 204, 204);
-              margin-right: 10px;
-              width: 17px;
+          
+          .brands-menu {
+            cursor: pointer;
+            height: 44px;
+            width: 170px;
+            position: relative;
+            padding: 0px 10px;
+  
+            .header-brands{
+              display: block;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 36px;
+              z-index: 3;
+  
+              //ブランドから探す
+                .brands-search {
+                  color: rgb(234, 53, 45);
+                max-width: 100%;
+                max-height: 100%;
+                height: 12px;
+                margin-right: 4px;
+              }
             }
           }
         }
-
-        //やることリスト 
-        .to-do-list {
-          height: 44px;
+  
+        .fours-group {
           position: relative;
-          padding: 0px 7px;
-          .to-do-menu {
+          display: flex;
+          height: 44px;
+  
+          //いいね!一覧
+          .like-list {
             -webkit-box-align: center;
             align-items: center;
-            display: flex;
             font-size: 14px;
-            height: 32px;
             transform: scale(1);
             transition: all 0.3s ease-out 0s;
-            .to-do {
-              max-width: 100%;
-              height: auto;
-              max-height: 100%;
-              color: rgb(204, 204, 204);
-              margin-right: 10px;
+            padding-right: 15px;
+  
+            .like {
+              -webkit-box-align: center;
+              align-items: center;
+              display: flex;
+              font-size: 14px;
+              height: 32px;
+              transform: scale(1);
+              transition: all 0.3s ease-out 0s;
+  
+              .like-menu {
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+                width: 19px;
+              } 
+            }
+          }
+  
+          //お知らせ
+          .notice-list {
+            height: 44px;
+            position: relative;
+            padding: 0px 7px;
+            .notice-menu {
+              -webkit-box-align: center;
+              align-items: center;
+              display: flex;
+              font-size: 14px;
+              height: 32px;
+              transform: scale(1);
+              transition: all 0.3s ease-out 0s;
+              .notice {
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+                width: 17px;
+              }
+            }
+          }
+  
+          //やることリスト 
+          .to-do-list {
+            height: 44px;
+            position: relative;
+            padding: 0px 7px;
+            .to-do-menu {
+              -webkit-box-align: center;
+              align-items: center;
+              display: flex;
+              font-size: 14px;
+              height: 32px;
+              transform: scale(1);
+              transition: all 0.3s ease-out 0s;
+              .to-do {
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+              }
+            }
+          }
+  
+          //マイページ
+          .mypage-list {
+            height: 44px;
+            position: relative;
+            padding: 0px 7px;
+            .mypage-menu {
+              -webkit-box-align: center;
+              align-items: center;
+              display: flex;
+              font-size: 14px;
+              height: 32px;
+              transform: scale(1);
+              transition: all 0.3s ease-out 0s;
+              .mypage {
+                margin-right: 10px;
+                width: 32px;
+                border-radius: 50%;
+                overflow: hidden;
+              }
             }
           }
         }
-
-        //マイページ
-        .mypage-list {
-          height: 44px;
-          position: relative;
-          padding: 0px 7px;
-          .mypage-menu {
-            -webkit-box-align: center;
-            align-items: center;
-            display: flex;
-            font-size: 14px;
-            height: 32px;
-            transform: scale(1);
-            transition: all 0.3s ease-out 0s;
-            .mypage {
-              margin-right: 10px;
-              width: 32px;
-              border-radius: 50%;
-              overflow: hidden;
-            }
-          }
-        }
-      }
+      } 
     } 
-  } 
+  
 }
 
-.breadcrumbs {
-  position: relative;
-  border-top: 1px solid #eee;
-  background: #f5f5f5;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  background: #fff;
-  height: 48px;
-  margin-top: 5px;
-  padding-left: 210px;
-  #text {
-    margin: 0 8px;
-    font-size: 9px;
-    color: #888;
-  }
-  a {
-    display: inline-block;
-    font-size: 14px;
-    line-height: 1.2;
-    margin-top: 15px;
-  }
 
-  span {
-    
-  }
 
-}
 
 //sliderの部分
 .main {
@@ -441,7 +442,7 @@ element.style {
     }
 
     //人気のカテゴリー
-    &__gbACgc {
+    &__famose {
       background-color: rgb(255, 255, 255);
       left: 50%;
       margin-left: -50vw;
@@ -449,7 +450,7 @@ element.style {
       top: 0px;
       width: 100vw;
       padding: 40px 20px 20px;
-      &__vlRns {
+      .famose-category {
         margin-bottom: 16px;
         text-align: center;
         font-size: 20px;
@@ -458,24 +459,21 @@ element.style {
         margin: 0;
         padding: 0;
       }
-      //文字のレイアウト
-      &__common_fontFamily__3-3Si {
-        font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-      }
-      &__eposgx {
+   
+      .category-group {
         overflow-x: auto;
         text-align: center;
         white-space: nowrap;
-        &__jzXryh {
+        .catego-group {
           display: block;
           text-align: center;
           width: 100%;
           margin: -10px 0px 0px -10px;
   
           //人気カテゴリーのメニュー (レディース)
-          &__eltcJe {
+          .items-collection {
             display: inline-block;
-            &__UkWLD {
+            .collection-list {
               background-color: rgb(239, 239, 239);
               cursor: pointer;
               display: inline-block;
@@ -500,32 +498,31 @@ element.style {
       }
     }
     
-    //レディース新着アイテムグループ
-    &__kfypOL {
+    //レディース新着アイテム
+    &__new {
       padding: 30px 0px 60px;
-      // width: 1350px;
-      &__nBmDG {
+      .new-item {
         font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", Meiryo, sans-serif;
         font-weight: 600;
         margin: 0 auto;
         height: 584px;
         width: 1020px;
 
-        &__kHQmYB {
+        .new-itembox {
           display: flex;
           align-items: flex-end;
           -webkit-box-pack: justify;
           justify-content: space-between;
   
           //レディース新着アイテムの文字
-          &__icXKoL {
+          .new-collection {
             flex: 1 1 0%;
             font-family: Arial, sans-serif;
             font-size: 24px;
             font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
           }
           //もっとみる
-          &__cVpVcG {
+          .new-more {
             color: rgb(0, 149, 238);
             display: block;
             font-size: 17px;
@@ -550,23 +547,23 @@ element.style {
         }
 
         //商品一覧
-        &__eBHtrH {
+        .main-collection {
 
           height: 544px;
           width: 1020px;
           
           //商品一覧の親要素 <ul>
-          &__jpYgbZ {
+          .main-imagebox {
             display: flex;
             flex-wrap: wrap;
 
             //商品の中身 <li>
-            &__kxreZ {
+            .main-box{
               padding-right: 16px;
               padding-top: 15px;
 
               //figure要素
-              &__group {
+              .box-figure {
               background-color: #fff;
               -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.18);
               box-shadow: 0 2px 4px rgba(0,0,0,.18);
@@ -580,7 +577,7 @@ element.style {
               width: 188px;
 
               //figcapition
-              &__box {
+              .figure-group {
                 color: #222;
                 font-size: 14px;
                 line-height: 1.4em;
@@ -594,7 +591,7 @@ element.style {
                 width: 188px;
 
                 //span
-                &__text {
+                .figure-text {
                   display: inline-block;
                   height: 2.8em;
                   overflow: hidden;
@@ -603,13 +600,13 @@ element.style {
                 }
               }
 
-              &__product {
+              .product-imagebox {
                 height: 0;
                 position: relative;
                 overflow: hidden;
                 padding: 0 0 100%;
                             
-                &__price {
+                .product-price {
                   -webkit-box-align: center;
                   -ms-flex-align: center;
                   align-items: center;
@@ -628,7 +625,7 @@ element.style {
                   z-index: 2;
                   
                 }
-                &__image {
+                .product-image {
                   bottom: 0;
                   position: absolute;
                   top: 0;
@@ -975,15 +972,15 @@ element.style {
   display: none;
   left: 5px;
   position: absolute;
+  background-color: rgb(255, 255, 255);
   top: 43px;
-  z-index: 1100;
+  
 
   .category-list {
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
     width: 224px;
     z-index: 3;
-    .ladies {
+    .parent-list {
       padding: 0px 16px;
       width: 224px;
       display: block;
@@ -991,8 +988,36 @@ element.style {
       line-height: 44px;
       text-overflow: ellipsis;
       white-space: nowrap;
-      overflow: hidden;
-      
+      overflow: hidden;     
+      .child-list{
+        background-color: rgb(255, 255, 255);
+        bottom: 0px;
+        display: none;
+        left: 224px;
+        position: absolute;
+        width: 224px;
+        top: 0px;
+        .child-menu {
+          background-color: rgb(255, 255, 255);
+          width: 200px;
+          height: 20px;
+          .grandchild-list{
+            background-color: rgb(255, 255, 255);
+            bottom: 0px;
+            display: none;
+            left: 224px;
+            position: absolute;
+            width: 224px;
+            top: 0px;
+            .grand-list {
+              background-color: rgb(255, 255, 255);
+              width: 200px;
+              height: 20px;
+            }
+          }
+        }
+        
+      }
     }
     .mens {
       padding: 0px 16px;
@@ -1128,18 +1153,17 @@ element.style {
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      
     }
   }
 }
+
 
 .brand-menu {
   display: none;
   left: -34px;
   position: absolute;
   margin-left: 45px;
-  top: 44px;
-  z-index: 1;
+  top: 40px;
   .brand-list {
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;

@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
       username == Rails.application.credentials.BASIC_AUTH_USER && password == Rails.application.credentials.BASIC_AUTH_PASSWORD
     end
   end
+
+  def get_category 
+    
+  end
 end

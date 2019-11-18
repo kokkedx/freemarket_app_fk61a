@@ -6,14 +6,14 @@ class SellController < ApplicationController
   
   def new
     @item = Item.new
-    @cost = ShipCost.find(1,2)
+    # @cost = ShipCost.find(1,2)
   end
 
 
   def create
     @item = Item.new(item_params)
     @item.size = "1"
-    if @items.save
+    if @item.save
       redirect_to root_path
     else
       redirect_to new_sell_path unless @item.valid?

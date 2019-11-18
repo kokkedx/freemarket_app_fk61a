@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get 'confirm'
       get 'credit'
       get 'logout'
+      get 'myitem'
     end
   end
 

@@ -70,7 +70,7 @@
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                = f.collection_select :ship_cost_id, @cost, :id, :name, { prompt: '--' }, class: 'select-default',id:'#deliver-form'
+                -# = f.collection_select :ship_cost_id, @cost, :id, :name, { prompt: '--' }, class: 'select-default',id:'#deliver-form'
             .sell-content__form-group
               = f.label :prefecture_id, class: 'sell-content__form-group--text' do
                 発送元の地域

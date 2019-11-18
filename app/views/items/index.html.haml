@@ -42,111 +42,108 @@
 
 
     //人気のカテゴリー
-    .main__wrapper__gbACgc
-      %h2.main__wrapper__gbACgc__vlRns 人気のカテゴリー
-      .main__wrapper__gbACgc__eposgx
-        %ul.main__wrapper__gbACgc__eposgx__jzXryh
-          %li.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe
-            %a.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe__UkWLD レディース
-          %li.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe
-            %a.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe__UkWLD メンズ
-          %li.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe
-            %a.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe__UkWLD 家電・スマホ・カメラ
-          %li.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe
-            %a.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe__UkWLD おもちゃ・ホビー・グッズ
+    .main__wrapper__famose
+      %h2.famose-category 人気のカテゴリー
+      .category-group
+        %ul.catego-group
+          %li.items-collection
+            %a.collection-list レディース
+          %li.items-collection
+            %a.collection-list メンズ
+          %li.items-collection
+            %a.collection-list 家電・スマホ・カメラ
+          %li.items-collection
+            %a.collection-list おもちゃ・ホビー・グッズ
 
-    //レディース新着アイテム
-    .main__wrapper__kfypOL
-      .main__wrapper__kfypOL__nBmDG
-        .main__wrapper__kfypOL__nBmDG__kHQmYB{:name => "scroll-1"}
-          %h3.main__wrapper__kfypOL__nBmDG__kHQmYB__icXKoL レディース新着アイテム
-          %a.main__wrapper__kfypOL__nBmDG__kHQmYB__cVpVcG{:href => "/jp/category/1/"} もっと見る
 
-        //商品一覧
-        .main__wrapper__kfypOL__nBmDG__eBHtrH
+    .main__wrapper__new
+      .new-item
+        .new-itembox
+          %h3.new-collection レディース新着アイテム
+          %a.new-more{:href => "/jp/category/1/"} もっと見る
+
+        
+        .main-collection
           = render "ladies"
 
-    //メンズ新着アイテム
-    .main__wrapper__kfypOL
-      .main__wrapper__kfypOL__nBmDG
-        .main__wrapper__kfypOL__nBmDG__kHQmYB{:name => "scroll-1"}
-          %h3.main__wrapper__kfypOL__nBmDG__kHQmYB__icXKoL メンズ新着アイテム
-          %a.main__wrapper__kfypOL__nBmDG__kHQmYB__cVpVcG{:href => "/jp/category/1/"} もっと見る
 
-        //商品一覧
-        .main__wrapper__kfypOL__nBmDG__eBHtrH
+    .main__wrapper__new
+      .new-item
+        .new-itembox
+          %h3.new-collection レディース新着アイテム
+          %a.new-more{:href => "/jp/category/1/"} もっと見る
+        
+        .main-collection
           = render "mens"
 
 
-    //家電・スマホ・カメラ
-    .main__wrapper__kfypOL
-      .main__wrapper__kfypOL__nBmDG
-        .main__wrapper__kfypOL__nBmDG__kHQmYB{:name => "scroll-1"}
-          %h3.main__wrapper__kfypOL__nBmDG__kHQmYB__icXKoL 家電・スマホ・カメラ新着アイテム
-          %a.main__wrapper__kfypOL__nBmDG__kHQmYB__cVpVcG{:href => "/jp/category/1/"} もっと見る
+
+    .main__wrapper__new
+      .new-item
+        .new-itembox
+          %h3.new-collection レディース新着アイテム
+          %a.new-more{:href => "/jp/category/1/"} もっと見る 
         
-        .main__wrapper__kfypOL__nBmDG__eBHtrH
+        .main-collection
           = render "elect"
     
-    //おもちゃ・ボビー・グッズ
-    .main__wrapper__kfypOL
-      .main__wrapper__kfypOL__nBmDG
-        .main__wrapper__kfypOL__nBmDG__kHQmYB{:name => "scroll-1"}
-          %h3.main__wrapper__kfypOL__nBmDG__kHQmYB__icXKoL おもちゃ・ボビー・グッズ新着アイテム
-          %a.main__wrapper__kfypOL__nBmDG__kHQmYB__cVpVcG{:href => "/jp/category/1/"} もっと見る
-        
-        .main__wrapper__kfypOL__nBmDG__eBHtrH
+
+    .main__wrapper__new
+      .new-item
+        .new-itembox
+          %h3.new-collection レディース新着アイテム
+          %a.new-more{:href => "/jp/category/1/"} もっと見る
+        .main-collection
           = render "goods"
             
-    .main__wrapper__gbACgc
-      %h2.main__wrapper__gbACgc__vlRns 人気のブランド
-      .main__wrapper__gbACgc__eposgx
-        %ul.main__wrapper__gbACgc__eposgx__jzXryh
-          %li.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe
-            %a.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe__UkWLD シャネル
-          %li.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe
-            %a.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe__UkWLD ルイヴィトン
-          %li.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe
-            %a.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe__UkWLD シュプリーム
-          %li.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe
-            %a.main__wrapper__gbACgc__eposgx__jzXryh__eltcJe__UkWLD ナイキ
+    .main__wrapper__famose
+      %h2.famose-category 人気のカテゴリー
+      .category-group
+        %ul.catego-group
+          %li.items-collection
+            %a.collection-list シャネル
+          %li.items-collection
+            %a.collection-list ルイヴィトン
+          %li.items-collection
+            %a.collection-list シュプリーム
+          %li.items-collection
+            %a.collection-list ナイキ
 
-    //おもちゃ・ボビー・グッズ
-    .main__wrapper__kfypOL
-      .main__wrapper__kfypOL__nBmDG
-        .main__wrapper__kfypOL__nBmDG__kHQmYB{:name => "scroll-1"}
-          %h3.main__wrapper__kfypOL__nBmDG__kHQmYB__icXKoL シャネル新着アイテム
-          %a.main__wrapper__kfypOL__nBmDG__kHQmYB__cVpVcG{:href => "/jp/category/1/"} もっと見る
+    .main__wrapper__new
+      .new-item
+        .new-itembox
+          %h3.new-collection レディース新着アイテム
+          %a.new-more{:href => "/jp/category/1/"} もっと見る
         
-        .main__wrapper__kfypOL__nBmDG__eBHtrH
-          = render "chanel"
-      
-    .main__wrapper__kfypOL
-      .main__wrapper__kfypOL__nBmDG
-        .main__wrapper__kfypOL__nBmDG__kHQmYB{:name => "scroll-1"}
-          %h3.main__wrapper__kfypOL__nBmDG__kHQmYB__icXKoL ルイヴィトン新着アイテム
-          %a.main__wrapper__kfypOL__nBmDG__kHQmYB__cVpVcG{:href => "/jp/category/1/"} もっと見る
-        
-        .main__wrapper__kfypOL__nBmDG__eBHtrH
-          = render "chanel"
+        .main-collection
+          = render "shanel"
 
-    .main__wrapper__kfypOL
-      .main__wrapper__kfypOL__nBmDG
-        .main__wrapper__kfypOL__nBmDG__kHQmYB{:name => "scroll-1"}
-          %h3.main__wrapper__kfypOL__nBmDG__kHQmYB__icXKoL シュプリーム新着アイテム
-          %a.main__wrapper__kfypOL__nBmDG__kHQmYB__cVpVcG{:href => "/jp/category/1/"} もっと見る
+    .main__wrapper__new
+      .new-item
+        .new-itembox
+          %h3.new-collection レディース新着アイテム
+          %a.new-more{:href => "/jp/category/1/"} もっと見る
         
-        .main__wrapper__kfypOL__nBmDG__eBHtrH
-          = render "chanel"
+        .main-collection
+          = render "viton"
 
-    .main__wrapper__kfypOL
-      .main__wrapper__kfypOL__nBmDG
-        .main__wrapper__kfypOL__nBmDG__kHQmYB{:name => "scroll-1"}
-          %h3.main__wrapper__kfypOL__nBmDG__kHQmYB__icXKoL ナイキ新着アイテム
-          %a.main__wrapper__kfypOL__nBmDG__kHQmYB__cVpVcG{:href => "/jp/category/1/"} もっと見る
+    .main__wrapper__new
+      .new-item
+        .new-itembox
+          %h3.new-collection レディース新着アイテム
+          %a.new-more{:href => "/jp/category/1/"} もっと見る
         
-        .main__wrapper__kfypOL__nBmDG__eBHtrH
-          = render "chanel"
+        .main-collection
+          = render "suprime"
+
+    .main__wrapper__new
+      .new-item
+        .new-itembox
+          %h3.new-collection レディース新着アイテム
+          %a.new-more{:href => "/jp/category/1/"} もっと見る
+        
+        .main-collection
+          = render "naiki"
      
 
 = render "sellbtn"
