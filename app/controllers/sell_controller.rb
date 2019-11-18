@@ -11,7 +11,6 @@ class SellController < ApplicationController
 
 
   def create
-    binding.pry
     @item = Item.new(item_params)
     @item.size = "ここにサイズの名前が入ります"
     if @item.save
@@ -19,6 +18,14 @@ class SellController < ApplicationController
     else
       render new_sell_path unless @item.valid?
     end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+    @images_length = @item.images.length
+    @parents = Category.where(ancestry: nil)
+    @m_cat = Category.find(params[:l_cat]).children
+    @s_cat = Category.find(params[:m_cat]).children
   end
 
   

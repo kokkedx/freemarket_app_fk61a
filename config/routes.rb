@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sell do
+  resources :sell ,only: [:index, :new, :create, :edit]do
   end
 
   

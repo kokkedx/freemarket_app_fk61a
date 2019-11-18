@@ -1,9 +1,6 @@
 class ItemsController < ApplicationController
   def index 
-    @item = Item.find(1)
     @parents = Category.where(ancestry: nil)
-    
-
   end
 
   def show
@@ -13,10 +10,8 @@ class ItemsController < ApplicationController
   def search
     if params[:l_cat]
       @m_cat = Category.find(params[:l_cat]).children
-    elsif
-      @s_cat = Category.find(params[:m_cat]).children
     else
-      @deliver = DeliveryCost.where(params[:deliver])
+      @s_cat = Category.find(params[:m_cat]).children
     end
     respond_to do |format|
       format.html
