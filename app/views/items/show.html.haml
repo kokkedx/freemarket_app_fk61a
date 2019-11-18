@@ -6,40 +6,24 @@
 
 .container
   .itembox
-    %h1.name momosaki yuta
-
+    %h1.name
+      = @item.name
+    %h1.name
     .itembox-main
       .itembox-photos
         .itembox-photo
 
           .image-for
 
-            .image-box
-              %img{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
-            .image-box
-              %img{:alt => "", :src => "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png"}/
-            .image-box
-              %img{:alt => "", :src => "https://publicdomainq.net/images/201611/11s/publicdomainq-0002543hcs.jpg"}/
-            .image-box
-              %img{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
-            .image-box
-              %img{:alt => "", :src => "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png"}/
-            .image-box
-              %img{:alt => "", :src => "https://publicdomainq.net/images/201611/11s/publicdomainq-0002543hcs.jpg"}/
-            .image-box
-              %img{:alt => "", :src => "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png"}/
-            .image-box
-              %img{:alt => "", :src => "https://publicdomainq.net/images/201611/11s/publicdomainq-0002543hcs.jpg"}/
-            .image-box
-              %img{:alt => "", :src => "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png"}/
-            .image-box
-              %img{:alt => "", :src => "https://publicdomainq.net/images/201611/11s/publicdomainq-0002543hcs.jpg"}/
+            - @item.images.each do |image|
+              .image-box
+                =image_tag image
 
       //出品者
       %table.itembox-table
         %th.itembox-seller 出品者
         %td.itembox-all-now
-          = @item.name
+          = @item.user.nickname
           
           .item-user-ratings
             %i.icon-good
@@ -49,7 +33,7 @@
         %tr
           %th.itembox-category カテゴリー
           %td.itembox-all-now
-            = @item.category_id
+            = @item.category.name
 
         %tr
           %th.itembox-size 商品のサイズ
@@ -58,11 +42,12 @@
 
         %tr
           %th.itembox-status 商品の状態
-          %td.itembox-all-now 目立った傷や汚れなし
-
+          %td.itembox-all-now
+            = @item.state.name
         %tr
           %th.itembox-burden 配送料の負担
-          %td.itembox-all-now 送料込み(出品者負担)
+          %td.itembox-all-now
+            =  @item.ship_cost.name
 
         %tr
           %th.itembox-status 配送の方法
@@ -71,34 +56,32 @@
         %tr
           %th.itembox-area 配送元地域
           %td.itembox-all-now
-            %a.itembox-all-now__japan-area{:href => "https://www.mercari.com/jp/area/12/"} 千葉県
+            %a.itembox-all-now__japan-area{:href => "https://www.mercari.com/jp/area/#{@item.prefecture.id}/"} #{@item.prefecture.name}
         %tr
           %th.itembox-indication 発送日の目安
-          %td.itembox-all-now 1~2日で発送
+          %td.itembox-all-now
+            = @item.ship_date.name
 
 
     .itembox__price-box
-      %span.item-price ¥500
+      %span.item-price 
+        = "¥" + @item.price.to_s
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
 
-    %a.buy-btn{:href => "https://www.mercari.com/jp/transaction/buy/m87638910422/"}
-      購入画面に進む
+    = form_with url: buying_transactions_path ,method: :post, local: true do |f|
+      = f.number_field :item_id, {type:"hidden", value:"#{@item.id}"}
+      - if @item.selling
+        = f.submit "この商品は売り切れています", {class:"buy-btn", disabled:true}
+      - else
+        = f.submit "購入画面に進む", {class:"buy-btn"}
 
     %p.shipping-only
-      この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+      購入制限がある場合はここに警告が表示されることになります
 
     .itembox-description
       %p.itembox-description__inner
-        Sサイズですが、海外のSサイズなので大きめで
-        日本だとMサイズになるとおもいます。
-        
-        自宅保管のため神経質な方は
-        ご遠慮ください(*_*)
-        
-        フォーエバー21
-        ザラ
-        ZARA
+        = @item.description
 
     .itembox-buttonbox
       .button-left
@@ -120,10 +103,8 @@
   .messagebox
     .messagebox-wrapper
       .messagebox-message
-        %form.messagebox-message__message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
-          %input{:name => "__csrf_value", :type => "hidden", :value => "71762cf3e3cd18c9222fcc765e1ef1dc9571de78a4647a2b88c1586443e156243d7a38413204f61d25e00f9faafa01122cf34323893357e7395320d68935d95e0"}/
+        %form.messagebox-message__message-form{:action => "/", :method => "POST"}
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-
           %input{:name => "item_id", :type => "hidden", :value => "m87638910422"}/
           %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
           %textarea.messagebox-message__text{:name => "body", :type => "text", :value => ""}
@@ -134,10 +115,10 @@
     %ul.link-group-left
       = link_to "#", class: "item-link__icon--angle-left" do
         = fa_icon 'angle-left'
-      %li.link-group-left__link-left momo
+      %li.link-group-left__link-left prev
     
     %ul.link-group-right
-      %li.link-group-right__link-right saki
+      %li.link-group-right__link-right next
       = link_to "#", class: "item-link__icon--angle-right" do
         = fa_icon 'angle-right'
 
@@ -165,7 +146,8 @@
     %section.userbox-items
 
       %h2.username-collection
-        %a{:href => "https://www.mercari.com/jp/u/715899526/"} momoさんのその他の出品
+        = link_to root_path do
+          = @item.user.nickname + "さんのその他の出品"
 
       .user-items
         %section.user-items__item-box

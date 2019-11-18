@@ -1,0 +1,95 @@
+.signup-container
+  .signup-header
+    %h1.logo
+      =link_to root_path,class:"logo__link" do
+        =image_tag "logo.svg",class: 'logo__image'
+  .signup-main
+    .signup-main__container.buy-wrapper
+      %h2.signup-main__heading 購入内容の確認
+      %section.buy-content.buy-item
+        .buy-content__inner
+          %h3.buy-item__image
+            =image_tag @item.images[0],{class:"buy-item__image--mini"}
+          %p.buy-item__name
+            = @item.name
+          = form_with model:@transaction, url: transactions_path, method: :post,local: true do |f|
+            %p.buy-price
+              = "¥" + @item.price.to_s
+              %span.buy-item__shipping-fee 送料込み
+            %ul.buy-accordion
+              %li.accordion
+                .accordion__toggle{"data-js": "show-accordion-toggle"}
+                  ポイントを使う
+                  %i.icon-arrow-bottom.accordion-icon
+                %ul.accordion__child{"data-js": "show-accordion-content",visibility: "hidden"}
+                  %li.bold 
+                    = "所持ポイント:P"
+                    = @point 
+                  %li.form-group{"data-js": "parent"}
+                    .radio-default
+                      %label
+                        %input{"data-js": "none", name: "consume_point_radio", type: "radio", value: "none"}>/
+                        ポイントを使わない
+                    .radio-default
+                      %label
+                        %input{"data-js": "all", name: "consume_point_radio", type: "radio", value: "all"}/
+                        %input{type: "hidden", value: "#{@point}"}
+                        = "すべてのポイントを使う \n P#{@point.to_s}"
+                    .radio-default
+                      %label
+                        %input{"data-js": "part", name: "consume_point_radio", type: "radio", value: "partial"}/
+                        一部のポイントを使う
+                    %input.signup-form__input-default{"data-js": "part_num", "data-input": "money", placeholder: "使うポイントを入力", type: "number", value: ""}/
+                    %input{"data-js": "result", name: "consume_point", type: "hidden", value: "0"}/
+            %ul.buy-price__table
+              %li.buy-price__row
+                .buy-price__cell 支払い金額
+                .buy-price__cell
+                  %span
+                    = "¥" + @item.price.to_s
+            = f.number_field :item_id, {type:"hidden",value: @item.id}
+            = f.number_field :buyer_id, {type:"hidden",value: @transaction.buyer_id}
+            = f.number_field :seller_id, {type:"hidden",value: @transaction.seller_id}
+            %p.has-error-text
+            %ul.buy-accordion
+              %li.accordion
+                = f.submit "購入する", {class:"accordion__toggle accordion__toggle--red"}
+            %p アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+            %br/
+            %div
+              %a{href: "/", target: "_blank"}
+                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?210491352"}/
+              %a{href: "/", target: "_blank"}
+                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?210491352"}/
+      %section.buy-content.buy-user-info
+        .buy-content__inner
+          %h3 配送先
+          %address.buy-user-info-text
+            = "〒" + current_user.address_number
+            %br/
+            = current_user.prefecture.name
+            = current_user.address_name
+            = current_user.address_block
+            = current_user.address_building if current_user.address_building
+            %br/
+            = current_user.address_last_name
+            = current_user.address_first_name
+          %p.buy-user-info-text
+            = current_user.address_phone_number if current_user.address_phone_number
+          
+          = link_to root_path, {class:"buy-user-info-fix"} do
+            %span 変更する
+            %i.icon-arrow-right
+      %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
+        .buy-content__inner
+          %h3 支払い方法
+          %p.buy-user-info-text
+            ************1234
+            %br/
+            12 / 20
+            %figure
+              %img{:alt => "visa", :height => "15", :src => "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?210491352", :width => "49"}/
+          = link_to root_path, {class:"buy-user-info-fix"} do
+            %span 変更する
+            %i.icon-arrow-right
+  = render partial: "signup/signup_footer"

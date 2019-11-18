@@ -7,5 +7,7 @@ class Item < ApplicationRecord
   belongs_to :ship_date
   belongs_to :ship_delivery
 
+  has_one :selling, class_name: 'Transaction', foreign_key: 'item_id'
+
   has_many_attached :images
 end
