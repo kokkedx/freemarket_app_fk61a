@@ -1,13 +1,11 @@
 class ItemsController < ApplicationController
   def index 
-    @item = Item.find(1)
     @parents = Category.where(ancestry: nil)
-    
-
   end
 
   def show
     @item = Item.find(params[:id])
+    
   end
 
   def search
