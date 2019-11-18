@@ -6,21 +6,28 @@ require 'jp_prefecture'
   Prefecture.create(name: "#{pref.name}")
 end
 
-#shipping
+#ship_cost
 ShipCost.create(name: '送料込み(出品者負担)')
 ShipCost.create(name: '着払い(購入者負担)')
-ShipCost.create(name: '未定')
-ShipCost.create(name: 'クロネコヤマト')
-ShipCost.create(name: 'ゆうパック')
-ShipCost.create(name: 'ゆうメール')
-ShipCost.create(name: 'らくらくメルカリ便')
-ShipCost.create(name: 'レターパック')
-ShipCost.create(name: '普通郵便(定形、定形外)')
-ShipCost.create(name: '着払い(購入者負担)')
-ShipCost.create(name: 'クリックポスト')
-ShipCost.create(name: 'ゆうパケット')
 
+#ship_delivery
+#送料込み
+ShipDelivery.create(name: '未定', charge: '1')
+ShipDelivery.create(name: 'らくらくメルカリ便', charge: '1')
+ShipDelivery.create(name: 'ゆうメール', charge: '1')
+ShipDelivery.create(name: 'レターパック', charge: '1')
+ShipDelivery.create(name: '普通郵便(定形、定形外)', charge: '1')
+ShipDelivery.create(name: 'クロネコヤマト', charge: '1')
+ShipDelivery.create(name: 'ゆうパック', charge: '1')
+ShipDelivery.create(name: 'クリックポスト', charge: '1')
+ShipDelivery.create(name: 'ゆうパケット', charge: '1')
+#着払い
+ShipDelivery.create(name: '未定', charge: '2' )
+ShipDelivery.create(name: 'クロネコヤマト', charge: '2')
+ShipDelivery.create(name: 'ゆうパック', charge: '2')
+ShipDelivery.create(name: 'ゆうメール', charge: '2')
 
+#dhip_date
 ShipDate.create( name: '1~2日で発送')
 ShipDate.create( name: '2~3日で発送')
 ShipDate.create( name: '4~7日で発送')
