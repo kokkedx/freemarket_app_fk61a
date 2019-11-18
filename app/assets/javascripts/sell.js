@@ -26,10 +26,10 @@ $(function(){
               <figure class='sell-upload__containar__figure'>
                 <img src='${e.target.result}'title='${file.name}' class='for-crop-class'>
               </figure>
-                <div class='sell-upload__containar__button'>
-                  <div class='sell-upload__containar__button--edit'>編集</div>
-                  <div class='sell-upload__containar__button--delete' id="sell-upload__containar__button--delete">削除</div>
-                </div>
+              <div class='sell-upload__containar__button'>
+                <div class='sell-upload__containar__button--edit'>編集</div>
+                <div class='sell-upload__containar__button--delete' id="sell-upload__containar__button--delete">削除</div>
+              </div>
             </li>
             `);
           $(uploadItems).removeClass().addClass(`sell-upload__containar__items sell-upload__containar__items--have-item-${(itemLength + 1) % 5}`);
