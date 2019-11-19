@@ -22,10 +22,18 @@ class SellController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @cost = ShipCost.all
     @images_length = @item.images.length
-    @parents = Category.where(ancestry: nil)
-    @m_cat = Category.find(params[:l_cat]).children
-    @s_cat = Category.find(params[:m_cat]).children
+  end
+
+  def update
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
+      item.update(item_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   
