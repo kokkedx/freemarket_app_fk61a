@@ -7,7 +7,7 @@
   .sell-main
     .sell-main__containar
       %h2.sell-main__heading 商品の情報を入力
-      = form_with model: @item, url: sell_index_path(@item),method: :post,local: true, class:'sell-form' do |f|
+      = form_with model: @item, url: sell_path(@item),method: :patch,local: true, class:'sell-form' do |f|
         = f.number_field :user_id, {value:current_user.id, type:"hidden"}
         .upload-box
           %h3.upload-box__head
@@ -20,15 +20,13 @@
                 - @item.images.each do |image|
                   %ul.sell-upload__containar__image
                     .sell-upload__containar__figure
-                      .for-crop-class
-                        = image_tag image
+                      = image_tag image, class:"for-crop-class"
                     .sell-upload__containar__button
                       .sell-upload__containar__button--edit 編集
                       .sell-upload__containar__button--delete 削除
-                
             = f.label :images, class: 'sell-upload__label', id: 'file' do
               - if @images_length < 10
-                %div{ class: "sell-upload__drop-box.sell-upload__drop-box--have-item-#{@images_length % 5}", id: 'sell-upload__drop-box' }
+                %ul{ class: "sell-upload__drop-box sell-upload__drop-box--have-item-#{@images_length % 5}", id: 'sell-upload__drop-box' }
                   = f.file_field :images, multiple: true, class: 'sell-upload__drop-box__drop-file', style: 'visibility: hidden;'
                   %pre.sell-upload__drop-box__visible-pc
                     ドラッグアンドドロップ
@@ -40,7 +38,7 @@
               商品名
               %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
             %div
-              = f.text_field :name, { class:'sell-content__input-default', placeholder: '商品名（必須 40文字まで)' , :value => ""}
+              = f.text_field :name, { class:'sell-content__input-default', placeholder: '商品名（必須 40文字まで)' , :value => "#{@item.name}"}
           .sell-content__form-group
             = f.label :description, class: 'sell-content__form-group--text' do
               商品の説明
@@ -56,14 +54,20 @@
               %div.buid-js
                 .sell-content__select-wrap
                   %i.fa.fa-angle-down.icon
-                  = f.collection_select :category_id, Category.where(ancestry:nil), :id, :name, { prompt: '--' }, class: 'select-default', id: 'parent-form' 
+                  = f.select :category_id, options_for_select(Category.where(ancestry: nil).map{|i| [i.name, i.id]}, @item.category.parent.parent.id), {prompt: "---"}, {class: 'select-default', id: 'parent-form' }
+                .sell-content__select-wrap.child-frame
+                  %i.fa.fa-angle-down.icon
+                  = f.select :category_id, options_for_select(Category.find(@item.category.parent.parent.id).children.map{|i| [i.name, i.id]}, @item.category.parent.id), {prompt: "---"}, {id: "child-form", class: 'select-default'}
+                .sell-content__select-wrap.granchild-frame
+                  %i.fa.fa-angle-down.icon
+                  = f.select :category_id, options_for_select(Category.find(@item.category.parent.id).children.map{|i| [i.name, i.id]}, @item.category.id), {prompt: "---"}, {id: "granchild-form", class: 'select-default'}
             .sell-content__form-group
               = f.label :state_id, class: 'sell-content__form-group--text' do
                 商品の状態
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                = f.collection_select :state_id, State.all, :id, :name, { prompt: '--' }, class: 'select-default'
+                = f.collection_select :state_id, State.all, :id, :name,  {prompt: '--'}, {class: 'select-default'}
         .sell-content.clearfix
           %h3.sell-content__sub-head 配送について
           %a.sell-content__form-question.sell-content__form-question--require{:href => "#", :target => "_blank"} ?
@@ -75,14 +79,14 @@
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
 
-                = f.collection_select :ship_cost_id, @cost, :id, :name, { prompt: '--' }, class: 'select-default'
+                = f.collection_select :ship_cost_id, @cost, :id, :name, { prompt: '--' },{ class: 'select-default'}
             .sell-content__form-group{ id: 'sell-content__form-group--delivery-cost'}
               = f.label :ship_delivery_id, class: 'sell-content__form-group--text' do
                 発送の方法
                 %span.sell-content__form-group__status.sell-content__form-group__status--require 必須
               .sell-content__select-wrap
                 %i.fa.fa-angle-down.icon
-                = f.collection_select :ship_delivery_id, ShipDelivery.all, :id, :name, { prompt: '--' }, class: 'select-default'
+                = f.collection_select :ship_delivery_id, ShipDelivery.all, :id, :name, { prompt: '--'},{class: 'select-default'}
             .sell-content__form-group
               = f.label :prefecture_id, class: 'sell-content__form-group--text' do
                 発送元の地域
@@ -110,7 +114,7 @@
                   .sell-content__form-group__right.sell-content__price-input
                     ¥
                     %div
-                      = f.text_field :price, { class: 'sell-content__input-default',"data-js": "price-imput", placeholder: '例）300',  value: '' }
+                      = f.text_field :price, { class: 'sell-content__input-default',"data-js": "price-imput", placeholder: '例）300',  value: "#{@item.price}" }
               %li.clearfix
                 .sell-content__left
                   販売手数料 (10%)
@@ -136,7 +140,7 @@
               %a{:href => "#"} 加盟店規約
               に同意したことになります。
           -# %button.btn-default.btn-red{:type => "submit"}
-          = f.submit '出品する', class: 'btn-default btn-red'
+          = f.submit '変更する', class: 'btn-default btn-red'
           = link_to root_path, class: 'btn-default btn-gray' do
             もどる
           -# %a.btn-default.btn-gray もどる

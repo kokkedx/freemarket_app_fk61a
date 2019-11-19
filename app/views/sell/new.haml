@@ -26,7 +26,7 @@
                 -#     .sell-upload__containar__button--delete 削除
                 
             = f.label :images, class: 'sell-upload__label', id: 'file' do
-              .sell-upload__drop-box.sell-upload__drop-box--have-item-0{ id: 'sell-upload__drop-box' }
+              %div.sell-upload__drop-box.sell-upload__drop-box--have-item-0{ id: 'sell-upload__drop-box' }
                 = f.file_field :images, multiple: true, class: 'sell-upload__drop-box__drop-file', style: 'visibility: hidden;'
                 %pre.sell-upload__drop-box__visible-pc
                   ドラッグアンドドロップ
