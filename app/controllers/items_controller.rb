@@ -8,6 +8,17 @@ class ItemsController < ApplicationController
     
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.user.id = current_user.id
+      @item.destroy
+      puts "destroyed"
+    else
+      puts "you cannot destroy other user's file"
+    end
+    redirect_to root_path
+  end
+
   def search
     if params[:l_cat]
       @m_cat = Category.find(params[:l_cat]).children
