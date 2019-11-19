@@ -19,7 +19,8 @@
               %span 0
             .mypage-number__detail
               出品数
-              %span 0
+              %span
+                = current_user.items.length
       %section.mypage-container__news-todo.clearfix
         %ul.mypage-tabs
           %li.mypageList.active
