@@ -7,38 +7,35 @@
 
 .category
   .category-main
-
     .category-title
       .category-list
         %h2.categories-menu カテゴリー一覧
 
+      -# カテゴリの親要素のみがボタンとなって存在しているところ
       .category-parent
         -@parents.each do |parent|
-          .parent-name
-            = parent.name
-      
-      //レディース
+          = link_to "/categories/#{parent.id}" do
+            .parent-name
+              = parent.name
+
+      -# カテゴリ別に全てのリンクが貼られているところ
       - @parents.each do |parent|
         .category-children
-
           .children-list
-
             .children-name
               = parent.name
-            
-            .ladies-all
-              %p.font すべて
-              
+            .children-all
+              =link_to "/categories/#{parent.id}" do
+                %p.font すべて
               -parent.children.each do |child|
                 .lady-all
                   = child.name
-        
-              
                 .child_box
                   .list
                     -child.children.each do |grandchild|
-                      .menu
-                        = grandchild.name
+                      = link_to "/categories/#{grandchild.id}" do
+                        .menu
+                          = grandchild.name
                         
 
 .tMFrx

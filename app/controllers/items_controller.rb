@@ -2,8 +2,6 @@ class ItemsController < ApplicationController
   def index 
     @item = Item.find(1)
     @parents = Category.where(ancestry: nil)
-    
-
   end
 
   def show

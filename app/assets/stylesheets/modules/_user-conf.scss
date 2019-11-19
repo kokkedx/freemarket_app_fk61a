@@ -20,7 +20,7 @@
       .text-right{
         float: right;
         a{
-          color: #0099e8;
+          color: $linkColor;
           text-decoration: none;
           .fa-angle-right.icon{
             display: inline-block;

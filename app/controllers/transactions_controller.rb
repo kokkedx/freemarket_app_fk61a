@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_action :need_login
 
   def buying
     @item = Item.find(params[:item_id])
@@ -9,11 +10,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-    if @transaction.save
-      puts @transaction
-    else
-      render 'buying' and return
-    end
+    render 'buying' and return unless @transaction.save
   end
 
 
@@ -23,6 +20,10 @@ private
 
   def transaction_params
     params.require(:transaction).permit(:item_id, :buyer_id, :seller_id)
+  end
+
+  def need_login
+    redirect_to login_index_path unless user_signed_in?
   end
 
 end

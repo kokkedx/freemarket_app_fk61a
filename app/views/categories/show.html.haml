@@ -1,0 +1,27 @@
+.header 
+  = render "items/headers"
+= render "items/sellbtn"
+-# パンくず実装予定地
+.item-container
+  .l-content.full-width
+    %ul.category__childlist.clearfix
+      -@category.children.each do |child|
+        %li
+          = link_to "/categories/#{child.id}" do
+            = child.name
+    .items-box__container.clearfix
+      %h1.items-box__head
+        ="#{@category.name}の商品一覧"
+      .items-box__content.clearfix.category-brand-list
+        - if @items
+          - @items.each do |item|
+            %section.items-box
+              %a{href: "/items/#{item.id}"}
+                %figure.items-box__photo
+                  = image_tag item.images[0], {alt:"#{item.name}"}
+                .items-box__body
+                  %h3.items-box__name
+                    =item.name
+                  .items-box__num
+                    .items-box__price
+                      = "¥" + item.price.to_s
