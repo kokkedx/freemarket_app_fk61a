@@ -90,7 +90,7 @@
           }
         }
         li.mypageList.active{
-          border-top: 2px solid #ea352d;
+          border-top: 2px solid $buttonColor;
           background-color: #fff;
           list-style-position: inside;
           height: 74px;
@@ -140,7 +140,6 @@
           width: 50%;
           background-color: rgb(238, 238, 238);
           display: inline-block;
-          float: left;
           a{
             font-size: 16px;
             line-height: 72px;
@@ -152,7 +151,7 @@
           }
         }
         li.trading-tabs.active{
-          border-top: 2px solid #ea352d;
+          border-top: 2px solid $buttonColor;
           background-color: #fff;
           box-sizing: border-box;
           a{
@@ -347,7 +346,7 @@
     height: 50px;
     margin-top: 16px;
     margin-left: 20px;
-    background: #ea352d;
+    background: $buttonColor;
     font-size: 14px;
     color: #fff;
     line-height: 56px;
