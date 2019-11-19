@@ -1618,7 +1618,6 @@ element.style {
   }
 
   .slick-dots {
-    opacity: .4;
     width: 300px;
     height: 300px;
     margin-bottom: -95px;
@@ -1627,7 +1626,13 @@ element.style {
       height: 60px;
     }
     li {
+      opacity: .4;
+      width: 60px;
+      height: 60px;
       bottom: -180px;
+    }
+    .slick-active{
+      opacity:1;
     }
   }
 }
