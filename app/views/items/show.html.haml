@@ -100,7 +100,7 @@
           商品の編集
         %p.text-center
           or
-        =link_to "商品の削除画面_path",{class:"signup-form__button buy-btn--gray"} do
+        #modal-open.signup-form__button.buy-btn--gray
           この商品を削除する
 
 
@@ -170,3 +170,21 @@
 
 .footer
   = render "footer"
+
+#item-show-modal
+  .modal-p
+    %p.modal-p--bold
+      確認
+    %p.modal-p--text
+      削除すると二度と復活できません。
+      %br
+      削除する代わりに停止することもできます。
+      %br
+      %br
+      本当に削除しますか？
+  .modal__button-wrapper
+    #modal-remove.modal__button
+      キャンセル
+    =link_to "/items/#{@item.id}",method: :delete, class: "modal__button" do
+      削除する
+
