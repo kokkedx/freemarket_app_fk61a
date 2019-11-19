@@ -24,22 +24,17 @@
         %th.itembox-seller 出品者
         %td.itembox-all-now
           = @item.user.nickname
-          
           .item-user-ratings
             %i.icon-good
-            %span 
-
-
+            %span
         %tr
           %th.itembox-category カテゴリー
           %td.itembox-all-now
             = @item.category.name
-
         %tr
           %th.itembox-size 商品のサイズ
           %td.itembox-all-now
             = @item.size
-
         %tr
           %th.itembox-status 商品の状態
           %td.itembox-all-now
@@ -48,15 +43,14 @@
           %th.itembox-burden 配送料の負担
           %td.itembox-all-now
             =  @item.ship_cost.name
-
         %tr
           %th.itembox-status 配送の方法
           %td.itembox-all-now ゆうゆうメルカリ便
-          
         %tr
           %th.itembox-area 配送元地域
           %td.itembox-all-now
-            %a.itembox-all-now__japan-area{:href => "https://www.mercari.com/jp/area/#{@item.prefecture.id}/"} #{@item.prefecture.name}
+            =link_to "/prefectures/#{@item.prefecture.id}" do
+              = "#{@item.prefecture.name}"
         %tr
           %th.itembox-indication 発送日の目安
           %td.itembox-all-now

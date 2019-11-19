@@ -1,10 +1,12 @@
 class SignupController < ApplicationController
+before_action :return_to_root
 
   def index
     reset_session
   end
 
   def registration
+    reset_session
     @user = User.new
   end
 
@@ -71,15 +73,18 @@ class SignupController < ApplicationController
 
     # twilio api(テスト用アカウントの為電話番号は登録している818039443443で固定、500円の無料枠から９円/回かかるのでテストは計画的に)
 
-    @client = Twilio::REST::Client.new Rails.application.credentials.twilio[:account_sid], Rails.application.credentials.twilio[:auth_token]
-    message = @client.messages.create(
-        body: "認証番号：#{cert_num}",
-        to: "+818039443443",
-        from: "+12015540486")
+      # @client = Twilio::REST::Client.new Rails.application.credentials.twilio[:account_sid], Rails.application.credentials.twilio[:auth_token]
+      # message = @client.messages.create(
+      #     body: "認証番号：#{cert_num}",
+      #     to: "+818039443443",
+      #     from: "+12015540486")
 
     # 送れているかの確認
-    # # puts message.body
-    # puts "認証番号：#{cert_num}"
+      # puts message.body
+
+    # twilioはお金がかかるのでとりあえずテストするときはこちらで（コンソール上に表示される）
+    puts "認証番号：#{cert_num}"
+
     session[:cert_num] = cert_num
   end
 
@@ -90,10 +95,9 @@ class SignupController < ApplicationController
   end
 
   def payment
-    # validation
-
     # validation用に100%通る検査用インスタンスを作る
     @user = User.new(dummy_params)
+
     # 今回送ったフォームのアクションで生成した値で検査用インスタンスの該当箇所を上書きする
     @user.address_last_name = user_params[:address_last_name]
     @user.address_first_name = user_params[:address_first_name]
@@ -105,8 +109,8 @@ class SignupController < ApplicationController
     @user.address_block = user_params[:address_block]
     @user.address_building = user_params[:address_building]
     @user.address_phone_number = user_params[:address_phone_number]
-    # バリデーションに引っかかったら前のページにrenderする、検査用インスタンスにエラーメッセージが乗るので、前ページのviewで表示する
 
+    # バリデーションに引っかかったら前のページにrenderする、検査用インスタンスにエラーメッセージが乗るので、前ページのviewで表示する
     render 'address' and return unless @user.valid?
 
     # sessionに保存
@@ -124,6 +128,7 @@ class SignupController < ApplicationController
   end
 
   def create
+    # 保存用のuserインスタンスを作る
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -146,7 +151,10 @@ class SignupController < ApplicationController
       address_building: session[:address_building],
       address_phone_number: session[:address_phone_number]
     )
+
+    # 上記インスタンスを保存する
     if @user.save
+      # 保存後にそのままログインするためにsessionについさっき作ったばかりのuserのidを保存する
       session[:id] = @user.id
       #SNS経由のアクセスであるならば（=sns_idが登録されているのであるならば）
       if session["devise.sns_id"]
@@ -160,7 +168,6 @@ class SignupController < ApplicationController
       redirect_to root_path
     end
   end
-
 
   def finish
     sign_in User.find(session[:id]) unless user_signed_in?
@@ -193,6 +200,7 @@ class SignupController < ApplicationController
         :address_phone_number
         )
     end
+
     def dummy_params
       # 「@user = User.new(dummy_params)」で、バリデーション用インスタンスを作る
       # 以下のダミーデータは、全てバリデーションを通過するものでなければならない。
@@ -219,10 +227,12 @@ class SignupController < ApplicationController
       return dummy
     end
 
-private
-def random_gen(n)
-  ''.tap { |s| n.times { s << rand(0..9).to_s } }
-end
+    def random_gen(n)
+      ''.tap { |s| n.times { s << rand(0..9).to_s } }
+    end
 
 
+    def return_to_root
+      redirect_to root_path if user_signed_in?
+    end
 end

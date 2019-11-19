@@ -1,4 +1,6 @@
 class SellController < ApplicationController
+  before_action :need_login
+
   def index
     @items = Item.limit(10).order('created_at DESC')
     @category = Category.all
@@ -33,8 +35,13 @@ class SellController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:user_id, :name, :description, :state_id, :ship_cost_id, :ship_delivery_id ,:ship_date_id, :price, :size, :category_id, :prefecture_id, images: [])
-    # params.require(:item).permit(:name, :description, :state_id, :price, :category_id, images: [])
   end
+
+  def need_login
+    redirect_to login_index_path unless user_signed_in?
+  end
+
+
 
   # def set_delivery
   #   @delivery_cost = ShipCost.find(@ship_cost_id)

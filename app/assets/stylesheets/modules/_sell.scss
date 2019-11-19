@@ -139,7 +139,7 @@
         background: #f5f5f5;
         line-height: 44px;
         text-align: center;
-        color: #0099e8;
+        color: $linkColor;
         text-decoration: none;
       }
       &--delete{
@@ -149,7 +149,7 @@
         background: #f5f5f5;
         line-height: 44px;
         text-align: center;
-        color: #0099e8;
+        color: $linkColor;
         text-decoration: none;
       }
     }
@@ -312,7 +312,7 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: #0099e8;
+    background: $linkColor;
     color: #fff;
     line-height: 20px;
     font-size: 12px;
@@ -385,7 +385,7 @@
     line-height: 1.5;
     font-size:14px;
     a{
-      color: #0099e8;
+      color: $linkColor;
       text-decoration: none;
     }
   }

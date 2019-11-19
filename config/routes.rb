@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: [:index, :new, :show]
+  resources :categories, only: [:index,:show]
 
 
   resources :login , only: [:index]
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :samples , only: [:index]
+  resources :prefectures , only: [:show]
 
   resources :transactions , only: [:create] do
     collection do
