@@ -26,8 +26,8 @@
           max-width: 320px;
           margin: 0 auto;
           .btn-red{
-            background: #ea352d;
-            border: 1px solid #ea352d;
+            background: $buttonColor;
+            border: 1px solid $buttonColor;
             color: #fff;
           }
           .btn-default{

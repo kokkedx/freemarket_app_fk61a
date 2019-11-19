@@ -4,7 +4,7 @@
 .header 
   = render "headers"
 
-.container
+.item-show-container
   .itembox
     %h1.name
       = @item.name
@@ -12,66 +12,62 @@
     .itembox-main
       .itembox-photos
         .itembox-photo
-
           .image-for
-
             - @item.images.each do |image|
               .image-box
                 =image_tag image
-
       //出品者
       %table.itembox-table
-        %th.itembox-seller 出品者
-        %td.itembox-all-now
+        %th 出品者
+        %td
           = @item.user.nickname
           .item-user-ratings
             %i.icon-good
             %span
         %tr
-          %th.itembox-category カテゴリー
-          %td.itembox-all-now
+          %th カテゴリー
+          %td
             = @item.category.name
         %tr
-          %th.itembox-size 商品のサイズ
-          %td.itembox-all-now
+          %th 商品のサイズ
+          %td
             = @item.size
         %tr
-          %th.itembox-status 商品の状態
-          %td.itembox-all-now
+          %th 商品の状態
+          %td
             = @item.state.name
         %tr
-          %th.itembox-burden 配送料の負担
-          %td.itembox-all-now
+          %th 配送料の負担
+          %td
             =  @item.ship_cost.name
         %tr
-          %th.itembox-status 配送の方法
-          %td.itembox-all-now ゆうゆうメルカリ便
+          %th 配送の方法
+          %td ゆうゆうメルカリ便
         %tr
-          %th.itembox-area 配送元地域
-          %td.itembox-all-now
+          %th 配送元地域
+          %td
             =link_to "/prefectures/#{@item.prefecture.id}" do
               = "#{@item.prefecture.name}"
         %tr
-          %th.itembox-indication 発送日の目安
-          %td.itembox-all-now
+          %th 発送日の目安
+          %td
             = @item.ship_date.name
-
-
     .itembox__price-box
       %span.item-price 
         = "¥" + @item.price.to_s
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
 
-    = form_with url: buying_transactions_path ,method: :post, local: true do |f|
-      = f.number_field :item_id, {type:"hidden", value:"#{@item.id}"}
-      - if @item.selling
-        = f.submit "この商品は売り切れています", {class:"buy-btn", disabled:true}
-      - else
-        = f.submit "購入画面に進む", {class:"buy-btn"}
-
-    %p.shipping-only
-      購入制限がある場合はここに警告が表示されることになります
+    - if user_signed_in?
+      -if current_user.id != @item.user.id
+        = form_with url: buying_transactions_path ,method: :post, local: true do |f|
+          = f.number_field :item_id, {type:"hidden", value:"#{@item.id}"}
+          - if @item.selling
+            = f.submit "この商品は売り切れています", {class:"buy-btn buy-btn--gray", disabled:true}
+          - else
+            = f.submit "購入画面に進む", {class:"buy-btn"}
+        %p.shipping-only
+          購入制限がある場合はここに警告が表示されることになります
 
     .itembox-description
       %p.itembox-description__inner
@@ -93,6 +89,22 @@
         %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
           -# %i.icon-lock
           %span あんしん・あんぜんへの取り組み
+
+
+
+
+  -if user_signed_in?
+    - if @item.user.id == current_user.id
+      .listing-item-change-box
+        =link_to "/sell/#{@item.id}/edit",{class:"signup-form__button signup-form__button--red"} do
+          商品の編集
+        %p.text-center
+          or
+        =link_to "商品の削除画面_path",{class:"signup-form__button buy-btn--gray"} do
+          この商品を削除する
+
+
+
 
   .messagebox
     .messagebox-wrapper
@@ -144,33 +156,14 @@
           = @item.user.nickname + "さんのその他の出品"
 
       .user-items
-        %section.user-items__item-box
-          %figure.user-items__item-box__item-photo
-            %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
-
-          .item-introduction
-            %h3.item-introduction__name 激安ダオ
-            .item-price
-              .item-price__num ¥221,000
 
         %section.user-items__item-box
           %figure.user-items__item-box__item-photo
             %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
-
           .item-introduction
             %h3.item-introduction__name 激安ダオ
             .item-price
               .item-price__num ¥221,000
-        
-        %section.user-items__item-box
-          %figure.user-items__item-box__item-photo
-            %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
-
-          .item-introduction
-            %h3.item-introduction__name 激安ダオ
-            .item-price
-              .item-price__num ¥221,000
-
     
 .tMFrx
   = render "now-download"
