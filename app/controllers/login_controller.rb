@@ -8,7 +8,7 @@ before_action :return_to_root
 
   private
   def return_to_root
-    redirect_to root_path　if user_signed_in?
+    redirect_to root_path if user_signed_in?
   end
 
 end
