@@ -7,16 +7,14 @@
     .profile-content
       %section.profile-chapter
         %h2.profile-chapter__head プロフィール
-        %form{action: "https://www.mercari.com/jp/mypage/profile/", method: "POST"}
-          %input{name: "__csrf_value", type: "hidden", value: "b6d3369e6681066d57559b73f8343b211196effaa1a22b11fb8eeaa7f367ddc6d78966da39962614dea6efe70ecd1f7dde4efc9194fa54cfd0e0ba781730c1572"}/
+        = form_with model:@user, url:"/mypages/#{@user.id}/update", local: true do |f|
           .setting-profile-icon
             %figure
               %img{height: "60", src: "//static.mercdn.net/thumb/members/530721595.jpg?1572404931", width: "60"}/
-            %input.input-default{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: "kokke"}/
+            = f.text_field :nickname, {placeholder:"例)AYA☆セール中",class:"input-default"}
           .setting-profile-content
-            %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"} 宜しくお願いいたします！
-            %input{name: "after_save_callback", type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/"}/
-            %button.btn-default.btn-red{type: "submit"} 変更する
+            = f.text_area :introduce, {placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪",class:"textarea-default"}
+            = f.submit "変更する", {class:"btn-default btn-red"}
     .mypage-container__side
       %nav.mypage-nav
         %ul.mypage-nav__list
@@ -38,9 +36,10 @@
               いいね！一覧
               %i.fa.fa-angle-right.icon
           %li
-            %a.mypage-nav-list-item{href: "#"}
-              出品する
-              %i.fa.fa-angle-right.icon
+            = link_to new_sell_path do
+              .mypage-nav-list-item
+                出品する
+                %i.fa.fa-angle-right.icon
           %li
             %a.mypage-nav-list-item{href: "#"}
               出品した商品 - 出品中

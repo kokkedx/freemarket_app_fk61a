@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :categories, only: [:index,:show]
 
 
+  resources :users, only: [:update]
+
+
   resources :login , only: [:index]
   resources :signup , only: [:index,:create] do 
     collection do
@@ -31,6 +34,9 @@ Rails.application.routes.draw do
       get 'credit'
       get 'logout'
       get 'myitem'
+    end
+    member do
+      patch "update"
     end
   end
 
