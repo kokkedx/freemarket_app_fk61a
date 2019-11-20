@@ -37,6 +37,7 @@
           %td
             = @item.state.name
         %tr
+
           %th 配送料の負担
           %td
             =  @item.ship_cost.name
@@ -145,9 +146,6 @@
       %li
         %a.sharebtn{"data-window-name" => "pinterest_window", :href => "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm89737403392%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm89737403392_1.jpg%3F1570195668&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%80%90coen%E3%80%91%E8%86%9D%E4%B8%88%E3%83%8B%E3%83%83%E3%83%88%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%E3%82%B3%E3%83%BC%E3%82%A8%E3%83%B3%20%E3%82%B0%E3%83%AC%E3%83%BC%20%E3%83%91%E3%83%BC%E3%82%AB%E3%83%BC%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA", :target => "_blank"}
           %i.pinterest-icon 
-
-
-
   .userbox
     %section.userbox-items
 
@@ -156,12 +154,11 @@
           = @item.user.nickname + "さんのその他の出品"
 
       .user-items
-
         %section.user-items__item-box
           %figure.user-items__item-box__item-photo
             %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
           .item-introduction
-            %h3.item-introduction__name 激安ダオ
+            %h3.item-introduction__name 
             .item-price
               .item-price__num ¥221,000
     

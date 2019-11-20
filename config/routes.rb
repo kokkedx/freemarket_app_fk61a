@@ -49,7 +49,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sell ,only: [:index, :new, :create, :edit]do
+  resources :sell ,only: [:index, :new, :create, :edit, :update]do
+    collection do
+      get 'edit'
+      get 'sell'
+    end
   end
 
   
