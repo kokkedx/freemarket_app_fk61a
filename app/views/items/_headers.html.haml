@@ -145,7 +145,7 @@
                   %li.count
                     出品数:
                     /
-                    0
+                    = current_user.items.length
                 %ul.moneybox
                   %li.sale-list
                     %a.sale-now 売上金
@@ -165,7 +165,6 @@
                     %li.good-group
                       %a.good-group__good-now
                         いいね！一覧
-                 
                     %li.product-group
                       %a.product-group__product-now
                         出品した商品 - 出品中
