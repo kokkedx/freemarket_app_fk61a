@@ -1,11 +1,21 @@
 class ItemsController < ApplicationController
   def index 
-    @parents = Category.where(ancestry: nil)
-  end
+    @items = Item.all
 
+    lady = Category.find(1)
+    men = Category.find(200)
+    elect = Category.find(898) 
+    good = Category.find(346)
+    # category_ids = Category.where(category_id: )
+  
+    @ladys_category = Item.where(category_id: [1] + lady.subtree)
+    @mens_category = Item.where(category_id: [200] + men.subtree)
+    @elect_category = Item.where(category_id: [898] + elect.subtree)
+    @goods_category = Item.where(category_id: [346] + good.subtree)
+  end
+  
   def show
     @item = Item.find(params[:id])
-    
   end
 
   def search
@@ -24,6 +34,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit(:name, :price, :size, :category_id)
+    params.require(:item).permit(:name, :description, :price, :size, :state_id, :category_id, :ship_cost_id, :ship_date_id, :prefecture_id, :user_id, :ship_delivery_id,)
   end
 end

@@ -2,23 +2,16 @@
 
 .header
   = render 'headers'
-
-//slider 
 .main
   .main__wrapper
     .mian__wrppaer__center
       //slider
       %ul.main__wrapper__center__sliders  
-
         %li.main__wrppaer__center__sliders__campern
           %img.main__wrapper__center__sliders__campern__new{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/top-banner-sale-fee-free-034ec8d0642f5714a26822988195b62c.png"}
-
-          
-    
         //キャンプの画像
         %li.main__wrapper__center__sliders__add
           %img.main__wrapper__center__sliders__add__yuta{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/top-banner-camp-4f3fd88c685e8932d7dde2ad3a8336ba.jpg"}
-
         //スマホで簡単の画像
         %li.main__wrapper__center__sliders__slide
           .main__wrapper__center__sliders__slide__sumaho
@@ -33,14 +26,10 @@
                 %br>/
                 購入時も安心な独自システムのアプリです
               .main__wrapper__center__sliders__slide__sumaho__PkUrY__heyozC
-      
                 //App store
                 %img.main__wrapper__center__sliders__slide__sumaho__PkUrY__heyozC__gxiFBJ{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
-          
                 //Google Play
                 %img.main__wrapper__center__sliders__slide__sumaho__PkUrY__heyozC__jcELSQ{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}
-
-
     //人気のカテゴリー
     .main__wrapper__famose
       %h2.famose-category 人気のカテゴリー
@@ -54,19 +43,14 @@
             %a.collection-list 家電・スマホ・カメラ
           %li.items-collection
             %a.collection-list おもちゃ・ホビー・グッズ
-
-
+            
     .main__wrapper__new
       .new-item
         .new-itembox
           %h3.new-collection レディース新着アイテム
           %a.new-more{:href => "/jp/category/1/"} もっと見る
-
-        
         .main-collection
           = render "ladies"
-
-
     .main__wrapper__new
       .new-item
         .new-itembox
@@ -75,9 +59,6 @@
         
         .main-collection
           = render "mens"
-
-
-
     .main__wrapper__new
       .new-item
         .new-itembox
@@ -87,15 +68,13 @@
         .main-collection
           = render "elect"
     
-
     .main__wrapper__new
       .new-item
         .new-itembox
           %h3.new-collection おもちゃ・ボビー・グッズ新着アイテム
           %a.new-more{:href => "/jp/category/1/"} もっと見る
         .main-collection
-          = render "goods"
-            
+          = render "goods" 
     .main__wrapper__famose
       %h2.famose-category 人気のカテゴリー
       .category-group
@@ -108,48 +87,36 @@
             %a.collection-list シュプリーム
           %li.items-collection
             %a.collection-list ナイキ
-
     .main__wrapper__new
       .new-item
         .new-itembox
           %h3.new-collection シャネル新着アイテム
           %a.new-more{:href => "/jp/category/1/"} もっと見る
-        
         .main-collection
-          = render "shanel"
-
+          = render "ladies"
     .main__wrapper__new
       .new-item
         .new-itembox
           %h3.new-collection ルイヴィトン新着アイテム
           %a.new-more{:href => "/jp/category/1/"} もっと見る
-        
         .main-collection
-          = render "viton"
-
+          = render "mens"
     .main__wrapper__new
       .new-item
         .new-itembox
           %h3.new-collection シュプリーム新着アイテム
-          %a.new-more{:href => "/jp/category/1/"} もっと見る
-        
+          %a.new-more{:href => "/jp/category/1/"} もっと見る 
         .main-collection
-          = render "suprime"
-
+          = render "elect"
     .main__wrapper__new
       .new-item
         .new-itembox
           %h3.new-collection ナイキ新着アイテム
           %a.new-more{:href => "/jp/category/1/"} もっと見る
-        
         .main-collection
-          = render "naiki"
-     
-
+          = render "goods"
 = render "sellbtn"
-      
 .tMFrx
   = render "now-download"
-
 .footer
   = render "footer"

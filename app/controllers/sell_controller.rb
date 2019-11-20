@@ -11,7 +11,7 @@ class SellController < ApplicationController
 
 
   def create
-    binding.pry
+    # binding.pry
     @item = Item.new(item_params)
     @item.size = "ここにサイズの名前が入ります"
     if @item.save

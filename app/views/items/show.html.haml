@@ -4,7 +4,7 @@
 .header 
   = render "headers"
 
-.container
+.detail-container
   .itembox
     %h1.name
       = @item.name
@@ -12,34 +12,26 @@
     .itembox-main
       .itembox-photos
         .itembox-photo
-
           .image-for
-
             - @item.images.each do |image|
               .image-box
                 =image_tag image
-
       //出品者
       %table.itembox-table
         %th.itembox-seller 出品者
         %td.itembox-all-now
-          = @item.user.nickname
-          
+          = @item.user.nickname        
           .item-user-ratings
             %i.icon-good
             %span 
-
-
         %tr
           %th.itembox-category カテゴリー
           %td.itembox-all-now
             = @item.category.name
-
         %tr
           %th.itembox-size 商品のサイズ
           %td.itembox-all-now
             = @item.size
-
         %tr
           %th.itembox-status 商品の状態
           %td.itembox-all-now
@@ -47,12 +39,10 @@
         %tr
           %th.itembox-burden 配送料の負担
           %td.itembox-all-now
-            =  @item.ship_cost.name
-
+            = @item.ship_cost.name
         %tr
           %th.itembox-status 配送の方法
           %td.itembox-all-now ゆうゆうメルカリ便
-          
         %tr
           %th.itembox-area 配送元地域
           %td.itembox-all-now
@@ -61,8 +51,6 @@
           %th.itembox-indication 発送日の目安
           %td.itembox-all-now
             = @item.ship_date.name
-
-
     .itembox__price-box
       %span.item-price 
         = "¥" + @item.price.to_s
@@ -139,9 +127,6 @@
       %li
         %a.sharebtn{"data-window-name" => "pinterest_window", :href => "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm89737403392%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm89737403392_1.jpg%3F1570195668&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%80%90coen%E3%80%91%E8%86%9D%E4%B8%88%E3%83%8B%E3%83%83%E3%83%88%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%E3%82%B3%E3%83%BC%E3%82%A8%E3%83%B3%20%E3%82%B0%E3%83%AC%E3%83%BC%20%E3%83%91%E3%83%BC%E3%82%AB%E3%83%BC%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA", :target => "_blank"}
           %i.pinterest-icon 
-
-
-
   .userbox
     %section.userbox-items
 
@@ -155,7 +140,7 @@
             %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
 
           .item-introduction
-            %h3.item-introduction__name 激安ダオ
+            %h3.item-introduction__name
             .item-price
               .item-price__num ¥221,000
 
@@ -164,7 +149,7 @@
             %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
 
           .item-introduction
-            %h3.item-introduction__name 激安ダオ
+            %h3.item-introduction__name 
             .item-price
               .item-price__num ¥221,000
         
@@ -173,7 +158,7 @@
             %img.item-photo-image{:src => "https://static.mercdn.net/thumb/photos/m31929905445_1.jpg?1572744602"}/
 
           .item-introduction
-            %h3.item-introduction__name 激安ダオ
+            %h3.item-introduction__name 
             .item-price
               .item-price__num ¥221,000
 
