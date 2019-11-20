@@ -86,6 +86,7 @@ before_action :return_to_root
     puts "認証番号：#{cert_num}"
 
     session[:cert_num] = cert_num
+    @cert_num = cert_num
   end
 
   def address
