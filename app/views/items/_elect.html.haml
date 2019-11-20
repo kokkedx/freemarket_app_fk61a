@@ -1,78 +1,12 @@
 %ul.main-imagebox
-  %li.main-box
-    //商品の説明
-    %figure.box-figure
-      %figcapition.figure-group
-        %span.figure-text
-          momomo
-
-      //商品の画像
-      .product-imagebox
-        %span.product-price
-          ¥ 1,700
-        %img.product-image{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
-
-  %li.main-box
-    //商品の説明
-    %figure.box-figure
-      %figcapition.figure-group
-        %span.figure-text
-          momomo
-
-      //商品の画像
-      .product-imagebox
-        %span.product-price
-          ¥ 1,700
-        %img.product-image{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
-
-  %li.main-box
-    //商品の説明
-    %figure.box-figure
-      %figcapition.figure-group
-        %span.figure-text
-          momomo
-
-      //商品の画像
-      .product-imagebox
-        %span.product-price
-          ¥ 1,700
-        %img.product-image{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
-
-  %li.main-box
-    //商品の説明
-    %figure.box-figure
-      %figcapition.figure-group
-        %span.figure-text
-          momomo
-
-      //商品の画像
-      .product-imagebox
-        %span.product-price
-          ¥ 1,700
-        %img.product-image{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
-  
-  %li.main-box
-    //商品の説明
-    %figure.box-figure
-      %figcapition.figure-group
-        %span.figure-text
-          momomo
-
-      //商品の画像
-      .product-imagebox
-        %span.product-price
-          ¥ 1,700
-        %img.product-image{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
-
-  %li.main-box
-    //商品の説明
-    %figure.box-figure
-      %figcapition.figure-group
-        %span.figure-text
-          momomo
-
-      //商品の画像
-      .product-imagebox
-        %span.product-price
-          ¥ 1,700
-        %img.product-image{:alt => "", :src => "https://image.itmedia.co.jp/nl/articles/1712/23/hk_171216_lioncat01.jpg"}/
+  -@elect_category.each do |item|
+    %li.main-box
+      = link_to "/items/#{item.id}", class: "main-imagebox" do
+        %figure.box-figure
+          %figcapition.figure-group
+            %span.figure-text
+              = item.description
+          .product-imagebox
+            .product-price
+              = item.price
+            = image_tag item.images[0], class: "product-image"

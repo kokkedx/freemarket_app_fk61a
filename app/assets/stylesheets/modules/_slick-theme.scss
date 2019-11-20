@@ -111,7 +111,7 @@ $slick-opacity-not-active: 0.25 !default;
     }
     &:before {
         display: none;
-        background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca886ce42c4c02610cd15421ddcad.png");
+ 
         content: $slick-prev-character;
         [dir="rtl"] & {
             content: $slick-next-character;
@@ -120,7 +120,6 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-next {
-    z-index: 20000;
     right: 91px;
     [dir="rtl"] & {
         left: -25px;
