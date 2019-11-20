@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   root to: 'items#index'
 
-  resources :items, only: [:index, :show, :create] do
+  resources :items, only: [:index, :show, :create, :destroy] do
     collection do
       get 'search'
     end
   end
 
-  resources :categories, only: [:index, :new, :show]
+  resources :categories, only: [:index,:show]
 
 
   resources :login , only: [:index]
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :samples , only: [:index]
+  resources :prefectures , only: [:show]
 
   resources :transactions , only: [:create] do
     collection do
@@ -42,7 +43,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sell do
+  resources :sell ,only: [:index, :new, :create, :edit, :update]do
+    collection do
+      get 'edit'
+      get 'sell'
+    end
   end
 
   

@@ -55,7 +55,7 @@
     font-size: 12px;
     vertical-align: top;
     &--require{
-      background: #ea352d;
+      background: $buttonColor;
     }
   }
   &__text{
@@ -101,9 +101,9 @@
       display: inline-block;
       border: 1px solid #eee;
       vertical-align: top;
-      width: 116px;
+      width: 112.7px;
       margin: 0 0 10px 10px;
-      &:first-child{
+      &:nth-child(5n+1){
         margin-left: 0;
       }
       ul{
@@ -139,7 +139,7 @@
         background: #f5f5f5;
         line-height: 44px;
         text-align: center;
-        color: #0099e8;
+        color: $linkColor;
         text-decoration: none;
       }
       &--delete{
@@ -149,7 +149,7 @@
         background: #f5f5f5;
         line-height: 44px;
         text-align: center;
-        color: #0099e8;
+        color: $linkColor;
         text-decoration: none;
       }
     }
@@ -242,7 +242,7 @@
       font-size: 12px;
       vertical-align: top;
       &--require{
-        background: #ea352d;
+        background: $buttonColor;
       }
     }
   }
@@ -312,7 +312,7 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: #0099e8;
+    background: $linkColor;
     color: #fff;
     line-height: 20px;
     font-size: 12px;
@@ -385,7 +385,7 @@
     line-height: 1.5;
     font-size:14px;
     a{
-      color: #0099e8;
+      color: $linkColor;
       text-decoration: none;
     }
   }
@@ -402,8 +402,8 @@
     }
     .btn-red{
       margin: 40px 0 0;
-      background: #ea352d;
-      border: 1px solid #ea352d;
+      background: $buttonColor;
+      border: 1px solid $buttonColor;
       color: #fff;
     }
     .btn-gray{

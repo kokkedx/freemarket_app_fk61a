@@ -1,7 +1,6 @@
 $(function(){
   
   var add_box = $(".buid-js");
-  var add_del = $(".items-sell__delivery__right__burden");
 
   function appendSelect(childNum){
     if(childNum == 1){
@@ -14,7 +13,7 @@ $(function(){
     var html = `
       </label><div class="sell-content__select-wrap ${select_class}">
       <i class="fa fa-angle-down icon"></i>
-      <select class="select-default" name="item[state_id]" id="${select_id}"><option value="">--</option>
+      <select class="select-default" name="item[category_id]" id="${select_id}"><option value="">--</option>
       </select>`
     add_box.append(html)
   }

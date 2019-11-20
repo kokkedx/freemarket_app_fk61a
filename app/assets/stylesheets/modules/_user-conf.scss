@@ -20,7 +20,7 @@
       .text-right{
         float: right;
         a{
-          color: #0099e8;
+          color: $linkColor;
           text-decoration: none;
           .fa-angle-right.icon{
             display: inline-block;
@@ -88,8 +88,8 @@
       }
       .btn-red{
         margin: 30px 0 0 0;
-        background: #ea352d;
-        border: 1px solid #ea352d;
+        background: $buttonColor;
+        border: 1px solid $buttonColor;
         color: #fff;
       }
       .btn-default{
