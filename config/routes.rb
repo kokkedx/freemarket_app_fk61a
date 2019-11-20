@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index,:show]
 
+  resources :users, only: [:show]
 
   resources :login , only: [:index]
   resources :signup , only: [:index,:create] do 
