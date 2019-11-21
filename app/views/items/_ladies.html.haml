@@ -5,8 +5,8 @@
         %figure.box-figure
           %figcapition.figure-group
             %span.figure-text
-              = item.description
+              = item.name
           .product-imagebox
             .product-price
-              = item.price
+              = "¥ #{item.price}"
             = image_tag item.images[0], class: "product-image"

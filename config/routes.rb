@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index,:show]
 
+  resources :users, only: [:show]
+
+  resources :users, only: [:update]
+
 
   resources :login , only: [:index]
   resources :signup , only: [:index,:create] do 
@@ -32,6 +36,9 @@ Rails.application.routes.draw do
       get 'confirm'
       get 'credit'
       get 'logout'
+    end
+    member do
+      patch "update"
     end
   end
 

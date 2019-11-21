@@ -4,6 +4,7 @@ class MypagesController < ApplicationController
   end
   
   def profile
+    @user = User.find(current_user.id)
   end
 
   def confirm
@@ -15,6 +16,17 @@ class MypagesController < ApplicationController
   def logout
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_update_params)
+      puts "success"
+    else
+      puts "failed"
+    end
+    redirect_to root_path
+  end
+
+
   private
   def need_login
     redirect_to login_index_path unless user_signed_in?
@@ -22,6 +34,10 @@ class MypagesController < ApplicationController
 
   def set_header
     @header_parents = Category.where(ancestry: nil)
+  end
+
+  def user_update_params
+    params.require(:user).permit(:nickname,:introduce)
   end
 
 end

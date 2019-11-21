@@ -1,0 +1,37 @@
+.header
+  = render '/items/headers'
+.userpage-container
+  .userpage-profile
+    .userpage-profile__photobox
+      %a
+        .userpage-profile__detail-photo
+        %h2.userpage-profile__detail-title
+          = @user.nickname
+      .userpage-profile__detail-score
+        %span 評価 0
+        %span
+          = "出品数" + @user.items.length.to_s
+  .white
+    .userpage-profile__descriptionbox
+      %p
+        = @user.introduce
+  %section.user-items__container
+    %h2.user-items__heading
+      この出品者の商品
+    .user-items__content
+      - @user.items.each do |item|
+        %section.user-itembox
+          =link_to "/items/#{item.id}" do
+            %figure.user-itembox__photo
+              = image_tag item.images[0], alt:"#{item.name}"
+            .user-itembox__body
+              %h3.user-itembox__name
+                = item.name
+              .user-itembox__num
+                .user-itembox__price
+                  = "¥#{item.price}"
+= render "/items/sellbtn"
+.tMFrx
+  = render "/items/now-download"
+.footer
+  = render "/items/footer"
