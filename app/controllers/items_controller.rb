@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_header
+
   def index 
     @parents = Category.where(ancestry: nil)
     @items = Item.all
@@ -39,8 +41,28 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show_children
+    @children = Category.find(params[:category]).children
+    respond_to do |format|
+      format.json
+    end
+  end
+
+  def show_grandchildren
+    @grandchildren = Category.find(params[:category]).children
+    respond_to do |format|
+      format.json
+    end    
+  end
+
+
   private
   def item_params
     params.require(:item).permit(:name, :description, :price, :size, :state_id, :category_id, :ship_cost_id, :ship_date_id, :prefecture_id, :user_id, :ship_delivery_id,)
   end
+
+  def set_header
+    @header_parents = Category.where(ancestry: nil)
+  end
+
 end

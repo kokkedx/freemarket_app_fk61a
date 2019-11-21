@@ -18,61 +18,11 @@
             
             .category-menus
               %ul.category-list
-                -@parents.each do |parent|
-                  %li.parent-list
-                    .parent
-                      = parent.name
-
-                    %ul.child-list
-                      -parent.children.each do |child|
-                        %li.child-menu
-                          .child
-                            = child.name
-                              
-                          %ul.grandchild-list
-                            -child.children.each do |grandchild|
-                              %li.grandchild-menu 
-                                = grandchild.name
-
-                -# %li.mens
-                -#   .mens__men メンズ
-                -#   %ul.mens-list
-                -# %li.baybes
-                -#   %a.mens__men ベビーキッズ
-                -#   %ul.sc-kcbnda.bOAnU 
-                -# %li.houses
-                -#   %a.hoiuses__house インテリア・住まい・小物
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.books
-                -#   %a.books__book 本・音楽・ゲーム
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.goods
-                -#   %a.goods__good おもちゃ・ボビー・グッズ
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.perfumes
-                -#   %a.perfumes__perfume コスメ・香水・美容
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.elects
-                -#   %a.elects__elect 家電・スマホ・カメラ
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.sports
-                -#   %a.sports__sport スポーツ・レジャー
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.hands
-                -#   %a.hands__hand ハンドメイド
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.tickets
-                -#   %a.tickets__ticket チケット
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.automashine
-                -#   %a.automahsine__auto 自転車・オートバイ
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.other
-                -#   %a.other__another その他
-                -#   %ul.sc-kcbnda.bOAnUl
-                -# %li.category-mode
-                -#   = link_to "カテゴリ一覧", categories_path, class: "ladies" 
-
+                -@header_parents.each do |parent|
+                  %li.parent-list{"data-category":"#{parent.id}"}
+                    =link_to "/categories/#{parent.id}" do
+                      .parent
+                        = parent.name
 
           .brands-menu
             = link_to "#", {class:"header-brands"} do
@@ -179,7 +129,6 @@
                     %li.good-group
                       %a.good-group__good-now
                         いいね！一覧
-                 
                     %li.product-group
                       %a.product-group__product-now
                         出品した商品 - 出品中
@@ -200,81 +149,16 @@
       .header-second
         .second-group
           .category-menu
-            %a.header-category{:href => "/jp/category/"}
-              %svg.category-search{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}>
-                %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
+            =link_to "/categories/", {class:"header-category"} do
+              -# font-awesomeで挿入する
               カテゴリーから探す
-            
-            -# .category-menus
-            -#   %ul.category-list
-            -#     -@parents.each do |parent|
-            -#       %li.parent-list
-            -#         = parent.name
-
-                    %ul.child-list
-                      -parent.children.each do |child|
-                        %li.child-menu
-                          = child.name
-
-            -#               %ul.grandchild-list
-            -#                 -child.children.each do |grandchild|
-            -#                   %li.grand-list
-            -#                     = grandchild.name
-                  -# %li.mens
-                  -#   .mens__men メンズ
-                  -#   %ul.mens-list
-
-                  -# %li.baybes
-                  -#   %a.mens__men ベビーキッズ
-                  -#   %ul.sc-kcbnda.bOAnU 
-
-                  -# %li.houses
-                  -#   %a.hoiuses__house インテリア・住まい・小物
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.books
-                  -#   %a.books__book 本・音楽・ゲーム
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.goods
-                  -#   %a.goods__good おもちゃ・ボビー・グッズ
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.perfumes
-                  -#   %a.perfumes__perfume コスメ・香水・美容
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.elects
-                  -#   %a.elects__elect 家電・スマホ・カメラ
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.sports
-                  -#   %a.sports__sport スポーツ・レジャー
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.hands
-                  -#   %a.hands__hand ハンドメイド
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.tickets
-                  -#   %a.tickets__ticket チケット
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.automashine
-                  -#   %a.automahsine__auto 自転車・オートバイ
-                  -#   %ul.sc-kcbnda.bOAnUl
-
-                  -# %li.other
-                  -#   %a.other__another その他
-                  -#   %ul.sc-kcbnda.bOAnUl
-                    
-                  %li.category-mode
-                    = link_to "カテゴリ一覧", categories_path, class: ".ladies" 
-
-            -# .child-menus 
-    
-            -#   %ul.child-menu
-            -#     %li.child-list 
+            .category-menus
+              %ul.category-list
+                -@header_parents.each do |parent|
+                  %li.parent-list{"data-category":"#{parent.id}"}
+                    =link_to "/categories/#{parent.id}" do
+                      .parent
+                        = parent.name
 
           .brands-menu
             = link_to "#", {class:"header-brands"} do

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :create, :destroy] do
     collection do
       get 'search'
+      post 'show_children'
+      post 'show_grandchildren'
     end
   end
 
