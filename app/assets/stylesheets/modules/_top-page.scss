@@ -506,15 +506,14 @@ element.style {
           align-items: flex-end;
           -webkit-box-pack: justify;
           justify-content: space-between;
-  
-          //レディース新着アイテムの文字
+
           .new-collection {
             flex: 1 1 0%;
             font-family: Arial, sans-serif;
             font-size: 24px;
             font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
           }
-          //もっとみる
+
           .new-more {
             color: rgb(0, 149, 238);
             display: block;
@@ -756,207 +755,109 @@ element.style {
   font-size: 12px;
   padding: 0px 20px 10px;
   height: 390px;
-  &__drJXHf {
+
+  .top-footer {
     width: 1020px;
     margin: 0px auto;
     display: flex;
-
-    //メルカリについて
-    &__hHaGTu {
+    .top-footer-wrap {
       display: inline-block;
       margin-top: 18px;
       vertical-align: top;
       width: 240px;
       padding: 0px 10px;
-  
-      //メルカリについて
-      &__cPzMyz {
-        font-size: 16px;
-        font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-        line-height: 1.4em;
-        margin: 0px;
-        padding: 0px;
-      }
-      //・会社概要・採用情報... <ul>
-      &__ewFVzB {
-       
-        //<li>
-        &__cbYKEG {
+      .top-footer-campany {
+        &__overview {
             opacity: 0.7;
             line-height: 1.4em;
             margin: 16px 0px 0px;
-            margin-top: 16px;
-            margin-right: 0px;
-            margin-bottom: 0px;
-            margin-left: 0px;
             display: list-item;
-            text-align: -webkit-match-parent;
-          &__iWAEfH {
-            color: rgb(255, 255, 255);
-            opacity: 0.7;
-            display: list-item;
-            &__iQCNqi {
-              max-width: 100%;
-              height: auto;
-              max-height: 100%;
-              width: 30px;
-              margin-right: 20px;
-            }
-            &__gJZiyP {
-              max-width: 100%;
-              height: auto;
-              max-height: 100%;
-              width: 26px;
-            }
-          }
         }
-        //Tweeter//facebookのロゴ
-        &__icmRxI {
+        &__logobox {
           display: inline-block;
           margin-top: 30px;
-          &__iQCNqi {
-            max-width: 100%;
-            height: auto;
-            max-height: 100%;
-            width: 30px;
-            margin-right: 20px;
-          }
-          &__gJZiyP {
-            max-width: 100%;
-            height: auto;
-            max-height: 100%;
-            width: 26px;
+          &__logo {
+            height: 50px;
+            width: 24px;
+            margin-right: 10px;
           }
         }
       }
-
-      //ヘルプ＆ガイド
-      &__cPzMyz {
-        font-size: 16px;
-        font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin: 0;
-        padding: 0;
-        width: 270px;
-      }
-      &__ewFVzB {
-        &__cbYKEG {
-          line-height: 1.4em;
-          margin: 16px 0px 0px;
-          &__iWAEfH {
+    }
+    .top-footer-praivacy {
+      margin-top: 18px;
+      width: 43%;
+      height: 170px;
+      display: inline-block;
+      vertical-align: top;
+      .campany-box {
+        display: inline-block;
+        height: 200px;
+        width: 200px;
+        vertical-align: top;
+        .top-footer-terms {
+          &__font {
+            line-height: 1.4em;
+            margin: 16px 0px 0px;
             color: rgb(255, 255, 255);
             opacity: 0.7;
           }
         }
-      }
+      } 
     }
-
-      //プライバシーと利用規約
-      &__aWegH {
+    .top-footer-country {
+      width: 110px;
       display: inline-block;
-      vertical-align: top;
       margin-top: 18px;
-      width: 438px;
-      padding: 0px;
-      &__cPzMyz {
-        font-size: 16px;
-        font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin: 0px;
-      }
-
-      //<ul>
-      &__dzjMfv {
-        display: inline-block;
-        vertical-align: top;
-        width: 189px;
-
-        //<li>
-        &__ewFVzB {
-          opacity: 0.7;
-          height: 128px;
-          &__cbYKEG {
-            line-height: 1.4em;
-            margin: 16px 0px 0px;
-            &__iWAEfH {
-              color: rgb(255, 255, 255);
-              opacity: 0.7;
-            }
-          }
-        }
-        &__ewFVzB {
-          &__cbYKEG {
-            line-height: 1.4em;
-            margin: 16px 0px 0px;
-            &__iWAEfH {
-              color: rgb(255, 255, 255);
-              opacity: 0.7;
-            }
-          }
-        }
-      }
-    }
-
-  //国(Japan)
-  &__doTCXK {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 16px;
-    width: 112px;
-    padding: 0px;
-    &__cPzMyz {
-      font-size: 16px;
-      font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-      font-weight: 600;
-      line-height: 1.4em;
-      margin: 0px;         
-    }
-
-    &__ewFVzB {
-      width: 72px;
-      &__cbYKEG {
-        line-height: 1.4em;
-        margin: 16px 0px 0px;
-        &__hIUIIb {
+      vertical-align: top;
+      padding: 0px 10px;
+      .country-group {
+        .country-group-wrapper {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+          display: block;
           color: rgb(255, 255, 255);
           opacity: 0.7;
-          margin-right: 30px;
+          .country-japan {
+            display: block;
+            margin-bottom: 10px;
+          }
         }
       }
-    }
-  }
-
-    //メルカリについて擬似クラス
-    &__hHaGTu:first-child {
-      padding-left: 0px;
-    }
-  }
-
-  //一番下の部分
-  &__igdlOb {
-    width: 1020px;
-    margin: 55px auto 10px;
-    -webkit-box-align: center;
-    align-items: center;
-    display: flex;
-    margin-top: 55px;
-    &__hdALBW {
-      text-align: center;
-      &__ioByYU {
-        height: 33px;
-        width: 124px;
-      }
-    }
-    &__exdDTv {
-      padding-left: 15px;
-      width: 75%;
-      text-align: center;
     }
   }
 }
 
+.top-footer-mercari {
+  font-size: 16px;
+  font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  line-height: 1.4em;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.top-footer-bottom {
+  width: 1020px;
+  margin: 30px auto 20px;
+  display: flex;
+  .top-footer-mercari {
+    -webkit-box-align: center;
+    align-items: center;
+    .logo-mercari {
+      text-align: center;
+      height: 33px;
+      width: 124px;
+    }
+  }
+  .number-mercari {
+    padding-left: 15px;
+    margin-top:10px;
+    width: 75%;
+    text-align: center;
+  }
+}
 
 
 //js部分です。
@@ -979,6 +880,7 @@ element.style {
         background-color: rgb(234, 53, 45);
         color: rgb(255, 255, 255);
       }
+      
       .parent {
         display: block;
         font-size: 14px;
@@ -1005,7 +907,6 @@ element.style {
             background-color: rgb(239, 239, 239);
           }
           .child {
-            position: relative;
             display: block;
             padding: 8px 16px;
           }
@@ -1031,133 +932,7 @@ element.style {
         }
       }
     }
-  }
-
-  .mens {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .baybes {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    
-  }
-  .houses {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .books {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    
-  }
-  .goods {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }    
-  .perfumes {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    
-  }
-  .elects {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .sports {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .hands {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    
-  }
-  .tickets {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .automashine {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    
-  }
-  .other {
-    padding: 0px 16px;
-    width: 224px;
-    display: block;
-    font-size: 14px;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }    
+  }  
   .category-mode {
     padding: 0px 16px;
     width: 224px;
@@ -1243,7 +1018,6 @@ element.style {
       overflow: hidden;
       padding: 0px 16px;
     }
-
 
   }
 }
@@ -1632,12 +1406,13 @@ element.style {
     width: 300px;
     height: 300px;
     margin-bottom: -95px;
+    text-align: left;
+    opacity: .4;
     img {
       width: 60px;
       height: 60px;
     }
     li {
-      opacity: .4;
       width: 60px;
       height: 60px;
       bottom: -180px;
