@@ -1595,6 +1595,7 @@ element.style {
   max-width: 300px;
   min-height: 375px;
   margin: 0 auto;
+  position:relative;
   background: #fafafa;
 }
 .itembox-photo {
@@ -2199,6 +2200,35 @@ element.style {
   }
 }
 
+
+.item-sold-out-badge{
+  &:after{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #ea352d transparent transparent transparent;
+    border-width: 120px 120px 0 0;
+  }
+  div{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+    top: 24px;
+    font-size: 28px;
+  }
+
+}
 
 #item-show-modal{
   width:60%;

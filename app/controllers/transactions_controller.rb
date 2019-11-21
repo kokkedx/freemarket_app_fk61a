@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    @item = Item.find(@transaction.item_id)
     render 'buying' and return unless @transaction.save
   end
 

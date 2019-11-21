@@ -11,6 +11,9 @@
     %h1.name
     .itembox-main
       .itembox-photos
+        -if @item.selling
+          .item-sold-out-badge
+            %div SOLD
         .itembox-photo
           .image-for
             - @item.images.each do |image|
