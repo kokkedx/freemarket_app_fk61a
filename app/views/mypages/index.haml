@@ -19,7 +19,8 @@
               %span 0
             .mypage-number__detail
               出品数
-              %span 0
+              %span
+                = current_user.items.length
       %section.mypage-container__news-todo.clearfix
         %ul.mypage-tabs
           %li.mypageList.active
@@ -88,9 +89,10 @@
               いいね！一覧
               %i.fa.fa-angle-right.icon
           %li
-            %a.mypage-nav-list-item{href: "#"}
-              出品する
-              %i.fa.fa-angle-right.icon
+            = link_to new_sell_path do
+              .mypage-nav-list-item
+                出品する
+                %i.fa.fa-angle-right.icon
           %li
             .mypage-nav-list-item
               出品した商品 - 出品中

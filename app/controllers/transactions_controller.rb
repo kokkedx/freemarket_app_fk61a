@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :need_login
+  before_action :need_login, :set_header
 
   def buying
     @item = Item.find(params[:item_id])
@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    @item = Item.find(@transaction.item_id)
     render 'buying' and return unless @transaction.save
   end
 
@@ -24,6 +25,10 @@ private
 
   def need_login
     redirect_to login_index_path unless user_signed_in?
+  end
+
+  def set_header
+    @header_parents = Category.where(ancestry: nil)
   end
 
 end

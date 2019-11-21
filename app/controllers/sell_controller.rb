@@ -1,5 +1,5 @@
 class SellController < ApplicationController
-  before_action :need_login
+  before_action :need_login, :set_header
 
   def index
     @items = Item.limit(10).order('created_at DESC')
@@ -49,6 +49,9 @@ class SellController < ApplicationController
     redirect_to login_index_path unless user_signed_in?
   end
 
+  def set_header
+    @header_parents = Category.where(ancestry: nil)
+  end
 
 
   # def set_delivery

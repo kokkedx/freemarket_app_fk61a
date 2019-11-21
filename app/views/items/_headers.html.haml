@@ -15,7 +15,18 @@
             =link_to "/categories/", {class:"header-category"} do
               -# font-awesomeで挿入する
               カテゴリーから探す
+
               
+
+            
+            .category-menus
+              %ul.category-list
+                -@header_parents.each do |parent|
+                  %li.parent-list{"data-category":"#{parent.id}"}
+                    =link_to "/categories/#{parent.id}" do
+                      .parent
+                        = parent.name
+
           .brands-menu
             = link_to "#", {class:"header-brands"} do
               -# font-awesomeで挿入する
@@ -92,7 +103,8 @@
               .mypage-shadow
                 %figure.mypage-shadow__myuser-image
                   %img.my-icon{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}
-                  .current-name 百崎悠太
+                  .current-name
+                    = current_user.nickname
                 %ul.evaluation-box
                   %li.evaluation
                     評価:
@@ -101,7 +113,7 @@
                   %li.count
                     出品数:
                     /
-                    0
+                    = current_user.items.length
                 %ul.moneybox
                   %li.sale-list
                     %a.sale-now 売上金
@@ -121,7 +133,6 @@
                     %li.good-group
                       %a.good-group__good-now
                         いいね！一覧
-                 
                     %li.product-group
                       %a.product-group__product-now
                         出品した商品 - 出品中
@@ -142,14 +153,17 @@
       .header-second
         .second-group
           .category-menu
-            %a.header-category{:href => "/jp/category/"}
-              %svg.category-search{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}>
-                %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
+            =link_to "/categories/", {class:"header-category"} do
+              -# font-awesomeで挿入する
               カテゴリーから探す
-          
-                    
-            .category-mode
-              = link_to "カテゴリ一覧", categories_path, class: ".ladies" 
+
+            .category-menus
+              %ul.category-list
+                -@header_parents.each do |parent|
+                  %li.parent-list{"data-category":"#{parent.id}"}
+                    =link_to "/categories/#{parent.id}" do
+                      .parent
+                        = parent.name
 
           .brands-menu
             = link_to "#", {class:"header-brands"} do

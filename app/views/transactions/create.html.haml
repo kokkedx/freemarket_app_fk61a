@@ -14,25 +14,29 @@
       %section.buy-content.buy-item
         .buy-content__inner
           %h3.buy-item__image
-            %img.buy-item__image--big{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m39846776563_1.jpg?1573002852", :src => "https://static.mercdn.net/thumb/photos/m39846776563_1.jpg?1573002852"}/
-          %p.buy-item__name Item Name
+            =image_tag @item.images[0],{class:"buy-item__image--big"}
+          %p.buy-item__name
+            = @item.name
       %section.buy-content.buy-user__info.buy-item
         .buy-content__inner
           %p.buy-price
-            ¥540
+            ="¥#{@item.price}"
             %span.buy-item__shipping-fee 送料込み
       %section.buy-content.buy-user__info
         .buy-content__inner
           %h3 配送先
           %address.buy-user__info-text
-            〒810-0000
+            = "〒#{@transaction.buyer.address_number}"
             %br/
-            福岡県 福岡市北区
-            架空1-1-1-243
+            = @transaction.buyer.prefecture.name
+            = @transaction.buyer.address_name
             %br/
-            小幡 祐也
+            = @transaction.buyer.address_block
+            %br/
+            = @transaction.buyer.address_last_name
+            = @transaction.buyer.address_first_name
           %p.buy-user__info-text
-      %section.buy-content.buy-user__info{"data-buy" => "pay-method"}
+      %section.buy-content.buy-user__info
         .buy-content__inner
           %h3 支払い方法
           %p.buy-user__info-text

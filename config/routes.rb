@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :create, :destroy] do
     collection do
       get 'search'
+      post 'show_children'
+      post 'show_grandchildren'
     end
   end
 
   resources :categories, only: [:index,:show]
+
+  resources :users, only: [:show]
+
+  resources :users, only: [:update]
 
 
   resources :login , only: [:index]
@@ -30,6 +36,9 @@ Rails.application.routes.draw do
       get 'confirm'
       get 'credit'
       get 'logout'
+    end
+    member do
+      patch "update"
     end
   end
 

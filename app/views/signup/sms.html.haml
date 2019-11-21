@@ -33,7 +33,7 @@
               %li.signup-form__error-message
                 = @err_msg
             - else
-              = f.number_field :confirm_number, {placeholder: "認証番号を入力（local:consoleを確認）",class:"signup-form__input-default"}
+              = f.number_field :confirm_number, {placeholder: "認証番号を入力（認証番号:#{@cert_num}）",class:"signup-form__input-default"}
             %p.signup-form__single-text
               SMSで届いた認証番号を入力してください
             = f.submit "認証して完了", {class:"signup-form__button signup-form__button--red"}

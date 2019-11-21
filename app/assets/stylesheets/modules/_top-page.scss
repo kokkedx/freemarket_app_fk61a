@@ -863,7 +863,7 @@ element.style {
 //js部分です。
 .category-menus {
   width: 224px;
-  // display: none;
+  display: none;
   left: 5px;
   position: absolute;
   background-color: rgb(255, 255, 255);
@@ -889,48 +889,44 @@ element.style {
         white-space: nowrap;
         padding: 0px 16px;
       }
-      .parent:hover > .child-list {
+    }
+  }
+  .child-list{
+    background-color: rgb(255, 255, 255);
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    min-width: 224px;
+    height: 572px;
+    .child-menu {
+      width: 224px;
+      .child:hover {
+        background-color: rgb(239, 239, 239);
+      }
+      .child {
+        position: relative;
         display: block;
+        padding: 8px 16px;
       }
-      
-      .child-list{
-        background-color: rgb(255, 255, 255);
-        bottom: 0px;
-        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-        left: 224px;
-        position: absolute;
-        top: 0px;
-        width: 224px;
-        .child-menu {
-          width: 224px;
-          .child:hover {
-            background-color: rgb(239, 239, 239);
-          }
-          .child {
-            display: block;
-            padding: 8px 16px;
-          }
-        }
 
-        .grandchild-list {
-          background-color: rgb(255, 255, 255);
-          bottom: 0px;
-          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-          left: 224px;
-          position: absolute;
-          top: 0px;
-          width: 320px;
-
-          .grandchild-menu {
-            display: block;
-            width: 320px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            font-size: 14px;
-          }
-        }
+    }
+  }
+  .grandchild-list {
+    background-color: rgb(255, 255, 255);
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    min-width: 320px;
+    height: 572px;
+    width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    .grandchild-menu {
+      &:hover {
+        background-color: rgb(239, 239, 239);
       }
+      display: block;
+      font-size: 14px;
+      padding: 8px 16px;
     }
   }  
   .category-mode {
@@ -1375,6 +1371,7 @@ element.style {
   max-width: 300px;
   min-height: 375px;
   margin: 0 auto;
+  position:relative;
   background: #fafafa;
 }
 .itembox-photo {
@@ -1980,6 +1977,35 @@ element.style {
   }
 }
 
+
+.item-sold-out-badge{
+  &:after{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #ea352d transparent transparent transparent;
+    border-width: 120px 120px 0 0;
+  }
+  div{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+    top: 24px;
+    font-size: 28px;
+  }
+
+}
 
 #item-show-modal{
   width:60%;
