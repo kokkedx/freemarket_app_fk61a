@@ -73,11 +73,11 @@ before_action :return_to_root
 
     # twilio api(テスト用アカウントの為電話番号は登録している818039443443で固定、500円の無料枠から９円/回かかるのでテストは計画的に)
 
-      # @client = Twilio::REST::Client.new Rails.application.credentials.twilio[:account_sid], Rails.application.credentials.twilio[:auth_token]
-      # message = @client.messages.create(
-      #     body: "認証番号：#{cert_num}",
-      #     to: "+818039443443",
-      #     from: "+12015540486")
+      @client = Twilio::REST::Client.new Rails.application.credentials.twilio[:account_sid], Rails.application.credentials.twilio[:auth_token]
+      message = @client.messages.create(
+          body: "認証番号：#{cert_num}",
+          to: "+818039443443",
+          from: "+12015540486")
 
     # 送れているかの確認
       # puts message.body
