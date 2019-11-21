@@ -12,7 +12,6 @@ $(function() {
       let thumbSrc = $(slider.$slides[i]).find('img').attr('src');
       return '<img src="' + thumbSrc + '">';
     }
-
   });
 
   $(".image-for").on("mouseover", ".slick-dots > li", function() {

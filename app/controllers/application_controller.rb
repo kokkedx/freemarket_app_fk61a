@@ -14,7 +14,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_category 
-    
-  end
 end

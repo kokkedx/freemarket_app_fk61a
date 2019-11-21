@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
-  def index 
-    @items = Item.all
+  before_action :set_header
 
+  def index 
+    @parents = Category.where(ancestry: nil)
+    @items = Item.all
     lady = Category.find(1)
     men = Category.find(200)
     elect = Category.find(898) 
     good = Category.find(346)
-    # category_ids = Category.where(category_id: )
-  
     @ladys_category = Item.where(category_id: [1] + lady.subtree)
     @mens_category = Item.where(category_id: [200] + men.subtree)
     @elect_category = Item.where(category_id: [898] + elect.subtree)
@@ -41,8 +41,28 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show_children
+    @children = Category.find(params[:category]).children
+    respond_to do |format|
+      format.json
+    end
+  end
+
+  def show_grandchildren
+    @grandchildren = Category.find(params[:category]).children
+    respond_to do |format|
+      format.json
+    end    
+  end
+
+
   private
   def item_params
     params.require(:item).permit(:name, :description, :price, :size, :state_id, :category_id, :ship_cost_id, :ship_date_id, :prefecture_id, :user_id, :ship_delivery_id,)
   end
+
+  def set_header
+    @header_parents = Category.where(ancestry: nil)
+  end
+
 end
