@@ -1,13 +1,11 @@
 class ItemsController < ApplicationController
   def index 
+    @parents = Category.where(ancestry: nil)
     @items = Item.all
-
     lady = Category.find(1)
     men = Category.find(200)
     elect = Category.find(898) 
     good = Category.find(346)
-    # category_ids = Category.where(category_id: )
-  
     @ladys_category = Item.where(category_id: [1] + lady.subtree)
     @mens_category = Item.where(category_id: [200] + men.subtree)
     @elect_category = Item.where(category_id: [898] + elect.subtree)

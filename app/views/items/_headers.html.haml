@@ -15,48 +15,63 @@
             =link_to "/categories/", {class:"header-category"} do
               -# font-awesomeで挿入する
               カテゴリーから探す
+            
             .category-menus
               %ul.category-list
-                %li.ladies
-                  .ladies__lady レディース
-                %li.mens
-                  .mens__men メンズ
-                  %ul.mens-list
-                %li.baybes
-                  %a.mens__men ベビーキッズ
-                  %ul.sc-kcbnda.bOAnU 
-                %li.houses
-                  %a.hoiuses__house インテリア・住まい・小物
-                  %ul.sc-kcbnda.bOAnUl
-                %li.books
-                  %a.books__book 本・音楽・ゲーム
-                  %ul.sc-kcbnda.bOAnUl
-                %li.goods
-                  %a.goods__good おもちゃ・ボビー・グッズ
-                  %ul.sc-kcbnda.bOAnUl
-                %li.perfumes
-                  %a.perfumes__perfume コスメ・香水・美容
-                  %ul.sc-kcbnda.bOAnUl
-                %li.elects
-                  %a.elects__elect 家電・スマホ・カメラ
-                  %ul.sc-kcbnda.bOAnUl
-                %li.sports
-                  %a.sports__sport スポーツ・レジャー
-                  %ul.sc-kcbnda.bOAnUl
-                %li.hands
-                  %a.hands__hand ハンドメイド
-                  %ul.sc-kcbnda.bOAnUl
-                %li.tickets
-                  %a.tickets__ticket チケット
-                  %ul.sc-kcbnda.bOAnUl
-                %li.automashine
-                  %a.automahsine__auto 自転車・オートバイ
-                  %ul.sc-kcbnda.bOAnUl
-                %li.other
-                  %a.other__another その他
-                  %ul.sc-kcbnda.bOAnUl
-                %li.category-mode
-                  = link_to "カテゴリ一覧", categories_path, class: "ladies" 
+                -@parents.each do |parent|
+                  %li.parent-list
+                    .parent
+                      = parent.name
+
+                    %ul.child-list
+                      -parent.children.each do |child|
+                        %li.child-menu
+                          .child
+                            = child.name
+                              
+                          %ul.grandchild-list
+                            -child.children.each do |grandchild|
+                              %li.grandchild-menu 
+                                = grandchild.name
+
+                -# %li.mens
+                -#   .mens__men メンズ
+                -#   %ul.mens-list
+                -# %li.baybes
+                -#   %a.mens__men ベビーキッズ
+                -#   %ul.sc-kcbnda.bOAnU 
+                -# %li.houses
+                -#   %a.hoiuses__house インテリア・住まい・小物
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.books
+                -#   %a.books__book 本・音楽・ゲーム
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.goods
+                -#   %a.goods__good おもちゃ・ボビー・グッズ
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.perfumes
+                -#   %a.perfumes__perfume コスメ・香水・美容
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.elects
+                -#   %a.elects__elect 家電・スマホ・カメラ
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.sports
+                -#   %a.sports__sport スポーツ・レジャー
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.hands
+                -#   %a.hands__hand ハンドメイド
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.tickets
+                -#   %a.tickets__ticket チケット
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.automashine
+                -#   %a.automahsine__auto 自転車・オートバイ
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.other
+                -#   %a.other__another その他
+                -#   %ul.sc-kcbnda.bOAnUl
+                -# %li.category-mode
+                -#   = link_to "カテゴリ一覧", categories_path, class: "ladies" 
 
 
           .brands-menu
@@ -196,10 +211,10 @@
             -#       %li.parent-list
             -#         = parent.name
 
-            -#         %ul.child-list
-            -#           -parent.children.each do |child|
-            -#             %li.child-menu
-            -#               = child.name
+                    %ul.child-list
+                      -parent.children.each do |child|
+                        %li.child-menu
+                          = child.name
 
             -#               %ul.grandchild-list
             -#                 -child.children.each do |grandchild|
