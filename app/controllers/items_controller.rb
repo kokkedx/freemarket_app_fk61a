@@ -8,10 +8,10 @@ class ItemsController < ApplicationController
     men = Category.find(200)
     elect = Category.find(898) 
     good = Category.find(346)
-    @ladys_category = Item.where(category_id: [1] + lady.subtree)
-    @mens_category = Item.where(category_id: [200] + men.subtree)
-    @elect_category = Item.where(category_id: [898] + elect.subtree)
-    @goods_category = Item.where(category_id: [346] + good.subtree)
+    @ladys_category = Item.where(category_id: [1] + lady.subtree).order("created_at DESC")
+    @mens_category = Item.where(category_id: [200] + men.subtree).order("created_at DESC")
+    @elect_category = Item.where(category_id: [898] + elect.subtree).order("created_at DESC")
+    @goods_category = Item.where(category_id: [346] + good.subtree).order("created_at DESC")
   end
   
   def show
