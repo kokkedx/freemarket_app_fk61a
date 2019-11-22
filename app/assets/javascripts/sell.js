@@ -43,13 +43,13 @@ $(function(){
       reader.readAsDataURL(file);
     });
   });
-});
 //画像プレビューから削除
 $(document).on('click', '.sell-upload__containar__button--delete', function(){
   $(this).parents('.sell-upload__containar__image').remove();
   let uploadItemLength = $(uploadItems).children('li').length;
   $(uploadItems).removeClass().addClass(`sell-upload__containar__items sell-upload__containar__items--have-item-${uploadItemLength % 5}`);
   $(uploadDropBox).removeClass().addClass(`sell-upload__drop-box sell-upload__drop-box--have-item-${uploadItemLength % 5}`);
+});
 });
 
 
