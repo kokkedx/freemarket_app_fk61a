@@ -39,7 +39,7 @@
 [MIT](http://b4b4r07.mit-license.org)
 
 
-usersテーブル
+## usersテーブル
 
 | Column | Type | Options |
 |------|----|-------|
@@ -70,7 +70,7 @@ usersテーブル
 - has_many :buyer_transactions, class_name: 'Transaction', foreign_key: 'buyer_id'
 - has_many :seller_transactions, class_name: 'Transaction', foreign_key: 'seller_id'
 
-sns_credencialsテーブル
+## sns_credencialsテーブル
 
 | Column | Type | Options |
 |------|----|-------|
@@ -81,7 +81,7 @@ sns_credencialsテーブル
 ### Association
 - belongs_to :user, optional: true 
 
-Categoriesテーブル
+## Categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -92,7 +92,7 @@ Categoriesテーブル
 - has_many :items
 - has_ancestry
 
-itemsテーブル
+## itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -120,7 +120,7 @@ itemsテーブル
 - has_one :selling, class_name: 'Transaction', foreign_key: 'item_id'
 - has_many_attached :images
 
-statesテーブル
+## statesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -129,7 +129,7 @@ statesテーブル
 ### Association
 - has_many :items
 
-prefecturesテーブル
+## prefecturesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -139,7 +139,7 @@ prefecturesテーブル
 - has_many :users
 - has_many :items
 
-transactionsテーブル
+## transactionsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -152,7 +152,7 @@ transactionsテーブル
 - belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
 - belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 
-ship_costsテーブル
+## ship_costsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -161,7 +161,7 @@ ship_costsテーブル
 ### Association
 - has_many :items
 
-ship_datesテーブル
+## ship_datesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -170,7 +170,7 @@ ship_datesテーブル
 ### Association
 - has_many :items
 
-ship_deliveriesテーブル
+## ship_deliveriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
