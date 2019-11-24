@@ -188,3 +188,5 @@ shippingテーブル
 
 ### Association
 - has_many :items
+
+test
