@@ -1,85 +1,97 @@
-# README
+# freemarket_app_fk61a
+フリマアプリ「メルカリ」のクローンサイト。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+フリマアプリ「メルカリ」のクローンサイト。誰でも簡単に売り買いが楽しめるフリマアプリの機能を再現したページ。
+ユーザー登録、商品出品、商品購入などの機能が再現されていますが、実際の取引はできません。
 
-Things you may want to cover:
+***DEMO:***
 
-* Ruby version
 
-* System dependencies
+## Features
 
-* Configuration
+- haml/SASS記法と、命名規則BEMを使ったマークアップ
+- ウィザード形式を用いたユーザー登録フォーム
+- SNS認証による新規登録、ログイン
+- ajaxを使用した非同期処理
+- capistranoによるAWS EC2への自動デプロイ
+- ActiveStorageを使用しAWS S3への画像アップロード
 
-* Database creation
+## Requirement
 
-* Database initialization
+- Ruby 2.5.1
+- Rails 5.2.3
 
-* How to run the test suite
+## Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+    $ git clone https://github.com/kokkedx/freemarket_app_fk61a.git
+    $ cd freemarket_app_fk61a
+    $ bundle install
 
-* Deployment instructions
 
-* ...
+## Author
+
+[@kokkedx]
+[@Orihata]()
+[@yu-ta49]()
+
+## License
+
+[MIT](http://b4b4r07.mit-license.org)
+
 
 usersテーブル
 
 | Column | Type | Options |
 |------|----|-------|
-| nickname | string |null: false |
-| password |string |null: false |
-| mailadress |text |null: false |
-| sns_credencial | references |
+| nickname | string |null: false, unique: true |
+| email |string |null: false, unique: true |
+| last_name |string |null: false |
+| first_name | string |null: false |
+| last_name_kana | string |null: false |
+| first_name_kana |string |null: false |
+| birthday |datetime |null: false |
+| phone_number | string |null: false, unique: true|
+| address_last_name |string |null: false |
+| address_first_name | string |null: false |
+| address_last_name_kana |string |null: false |
+| address_last_first_kana |string |null: false |
+| address_number | string |null: false|
+| prefecture | references| |
+| address_name |string |null: false |
+| address_block | string |null: false |
+| address_building |string ||
+| address_phone_number |string ||
+| introduce | text ||
+| encrypted_password | string |null: false, default: ""|
 
 ### Association
-- has_many :items
-- has_many :comments
-- has_many :messages
-- has_many :reviews
-- has_one :profile
-- has_one :card
-- has_one :sns_credencial
+- belongs_to :prefecture
+- has_one :sns_credential, dependent: :destroy
+- has_many :buyer_transactions, class_name: 'Transaction', foreign_key: 'buyer_id'
+- has_many :seller_transactions, class_name: 'Transaction', foreign_key: 'seller_id'
 
 sns_credencialsテーブル
 
 | Column | Type | Options |
 |------|----|-------|
-| user | reference |null: false, foreign_key: true |
-| u-id | string | null: false |
-| provider | string | null: false |
+| provider | string ||
+| uid | string ||
+| user | references | foreign_key: true |
 
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true 
 
-Cardsテーブル
+Categoriesテーブル
 
-| Column | Type | Options |
+|Column|Type|Options|
 |------|----|-------|
-| user| references |null: false, foreign_key: true |
-| card | string |null: false |
+| name | string ||
+| ancestry | string | |
 
 ### Association
-- belongs_to :user
-
-Profilesテーブル
-
-| Column | Type | Options |
-|------|----|-------|
-| first_name  | string | null: false |
-| last_name | string | null: false |
-| first_kana | string | null: false |
-| last_kana | string | null: false |
-| phone number | integer | null: false |
-| Prefectures | string | null: false |
-| city | string | null: false |
-| address | string | null: false |
-| building | string | null: false |
-| user-id|references | null: false |
-
-### Association
-- belongs_to :user
-
+- has_many :items
+- has_ancestry
 
 itemsテーブル
 
@@ -89,20 +101,25 @@ itemsテーブル
 | description | text | null: false |
 | price | integer | null: false |
 | size | string | null: false |
-| brand | reference | null: false, foreign_key: true |
-| category | reference | null: false, foreign_key: true |
-| shipping | reference | null: false, foreign_key: true |
-| state | reference | null: false, foreign_key: true |
+| category | reference | foreign_key: true |
+| shipping | reference | foreign_key: true |
+| state | reference | foreign_key: true |
+| ship_cost | reference | foreign_key: true |
+| ship_date | reference | foreign_key: true |
+| ship_delivery | reference | foreign_key: true |
+| prefecture | reference | foreign_key: true |
+| user | reference | foreign_key: true |
 
 ### Association
-- has_many :comments
-- has_many :seller, class_name:"users"
-- has_many :buyer, class_name:"users"
 - belongs_to :user
 - belongs_to :category
-- belongs_to :brand
-- belongs_to :shipping
 - belongs_to :state
+- belongs_to :prefecture
+- belongs_to :ship_cost
+- belongs_to :ship_date
+- belongs_to :ship_delivery
+- has_one :selling, class_name: 'Transaction', foreign_key: 'item_id'
+- has_many_attached :images
 
 statesテーブル
 
@@ -113,80 +130,53 @@ statesテーブル
 ### Association
 - has_many :items
 
-Brandsテーブル
+prefecturesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-| name | string | null: false |
+| name | string ||
 
 ### Association
-- has_many :categories through: category_brands
+- has_many :users
+- has_many :items
 
-categories_brandsテーブル
+transactionsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-| categorys_id | references |null: false, foreign_key: true |
-| brand_id | references |null: false, foreign_key: true |
+| item_id | integer ||
+| buyer_id | integer ||
+| seller_id | integer ||
 
 ### Association
-- belongs_to :category
-- belongs_to :brands
-
-Categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-| name | string | null: false |
-| ancestry | string | |
-
-### Association
-- has_many :brans through: categories_brands
-
-
-messagesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-| text | text | null: false |
-
-### Association
-- has_many :seller, class_name:"users"
-- has_many :buyer, class_name:"users"
-
-
-commentテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-| user | reference | null: false, foreign_key: true |
-| item | reference | null: false, foreign_key: true |
-| text | text | null: false |
-
-### Association
-- belongs_to :user
 - belongs_to :item
+- belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
+- belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 
-reviewテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-| rate | integer | null: false |
-| review | text | null: false |
-
-### Association
-- has_many :seller, class_name:"users"
-- has_many :buyer, class_name:"users"
-
-
-shippingテーブル
+ship_costsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-| name | string | null: false |
-| ancestry | string | |
+| name | string ||
 
 ### Association
 - has_many :items
 
-test
+ship_datesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+| name | string ||
+
+### Association
+- has_many :items
+
+ship_deliveriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+| name | string ||
+| charge | integer ||
+
+### Association
+- has_many :items
