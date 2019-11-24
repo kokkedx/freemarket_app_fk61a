@@ -30,7 +30,7 @@
 
 ## Author
 
-[@kokkedx]
+[@kokkedx]()
 [@Orihata]()
 [@yu-ta49]()
 
